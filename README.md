@@ -76,6 +76,7 @@ The repository includes the files needed to inspect and reproduce the article's 
 - `mujoco/ant/`: Ant policy, minimal extracted Ant policy, trial summaries, MuJoCo XML, sample-efficiency figure, and final-policy video.
 - `mujoco/halfcheetah/`: HalfCheetah policy script, iteration log, and sample-efficiency figure.
 - `vizdoom/`: D1/D3 VizDoom heuristic scripts plus 35fps 10-seed render videos.
+- `classic_control/`: small Classic Control heuristic scripts and validation summaries.
 
 The article appendix contains reproduction commands for several representative results. Those commands assume they are run from the repository root after cloning this repo.
 
