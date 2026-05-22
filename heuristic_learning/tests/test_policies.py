@@ -61,3 +61,17 @@ def test_bipedal_policy_shape_and_range() -> None:
         assert np.all(action >= -1.0)
         assert np.all(action <= 1.0)
 
+
+
+def test_policy_factory_returns_environment_specific_classes() -> None:
+    expected_modules = {
+        ("CartPole-v1", "initial"): "hl_benchmark.policies.cartpole",
+        ("MountainCar-v0", "initial"): "hl_benchmark.policies.mountain_car",
+        ("Acrobot-v1", "initial"): "hl_benchmark.policies.acrobot",
+        ("Acrobot-v1", "tree"): "hl_benchmark.policies.acrobot",
+        ("LunarLander-v3", "initial"): "hl_benchmark.policies.lunar_lander",
+        ("BipedalWalker-v3", "initial"): "hl_benchmark.policies.bipedal_walker",
+    }
+    for (env_id, policy_name), module_name in expected_modules.items():
+        policy = make_policy(env_id, policy_name)
+        assert policy.__class__.__module__ == module_name
