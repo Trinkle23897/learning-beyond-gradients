@@ -63,6 +63,8 @@ Generated artifacts are written to `results/`:
   registry.
 - `agent_deepdive_report.md`: generated audit of how the agent iterated,
   including failures, cost accounting, structural/scalar separation, and caveats.
+- `heuristic_policy_explainer.md`: high-level visual explanation of how each
+  transparent environment policy works.
 
 Do not delete failed entries from `trials.jsonl`. If a run is invalid, append a
 new entry explaining why.
