@@ -1,0 +1,12 @@
+{
+  "cart_position_gain": 0.0,
+  "cart_velocity_gain": 0.0,
+  "center_angle_window": 0.03,
+  "center_position_gain": 1.0,
+  "center_position_trigger": 1.0,
+  "center_velocity_gain": 0.6,
+  "center_velocity_window": 0.2,
+  "pole_angle_gain": 1.0,
+  "pole_velocity_gain": 0.25,
+  "structural_center_guard": false
+}

@@ -1,0 +1,14 @@
+{
+  "angle_control_gain": 0.5,
+  "angle_target_limit": 0.4,
+  "angle_vx_gain": 0.7,
+  "angle_x_gain": 0.5,
+  "angular_velocity_gain": 1.0,
+  "contact_descent_gain": 0.65,
+  "engine_deadband": 0.03,
+  "hover_x_gain": 0.55,
+  "hover_y_gain": 0.35,
+  "low_altitude_y": 0.2,
+  "structural_contact_landing_mode": false,
+  "vertical_velocity_gain": 0.5
+}

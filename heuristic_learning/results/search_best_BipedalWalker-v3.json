@@ -1,0 +1,11 @@
+{
+  "gait_period": 36,
+  "hip_amplitude": 0.9,
+  "hull_angle_gain": 0.8,
+  "hull_velocity_gain": 0.18,
+  "knee_drive": 0.75,
+  "recovery_angle": 0.45,
+  "recovery_knee": 0.9,
+  "stance_knee": -0.35,
+  "structural_contact_recovery_modes": false
+}

@@ -1,0 +1,13 @@
+{
+  "phase_gain": 0.8,
+  "recovery_height_threshold": 0.2,
+  "recovery_kick_gain": 0.9,
+  "recovery_period": 9,
+  "recovery_step": 140,
+  "structural_recovery_mode": false,
+  "upright_height_switch": 1.25,
+  "upright_phase_gain": 1.1,
+  "upright_velocity_gain": 0.25,
+  "velocity_gain_1": 0.6,
+  "velocity_gain_2": 1.6
+}

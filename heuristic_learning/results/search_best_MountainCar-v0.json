@@ -1,0 +1,7 @@
+{
+  "coast_velocity_window": 0.0,
+  "goal_commit_position": -0.35,
+  "goal_commit_velocity": -0.02,
+  "left_wall_position": -1.05,
+  "structural_wall_goal_guards": false
+}

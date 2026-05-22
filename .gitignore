@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .DS_Store
+.omx/
+.pytest_cache/
+*.egg-info/
