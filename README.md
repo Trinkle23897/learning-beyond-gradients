@@ -79,6 +79,10 @@ The repository includes the files needed to inspect and reproduce the article's 
 
 The article appendix contains reproduction commands for several representative results. Those commands assume they are run from the repository root after cloning this repo.
 
+## Community Efforts
+
+- [HL-ImageNet](https://github.com/xisen-w/hl-imagenet) explores Heuristic Learning in symbolic visual classification, using a non-neural code pipeline to test how far code-based heuristic updates can go on a constrained ImageNet-style perception task. The project is intended as a perception-domain boundary case for HL: train-only optimization over symbolic code can still become a memorizer, so the central problem becomes reusable visual representation and generalization rather than fitting alone.
+
 ## Runtime Notes
 
 The experiments were written against EnvPool `1.1.1`. The article commands assume the relevant Python environment already has EnvPool and the Atari/MuJoCo runtime dependencies installed.
