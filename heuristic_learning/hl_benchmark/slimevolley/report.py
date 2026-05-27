@@ -2025,6 +2025,17 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
             lines.append(
                 "- Additional parallel7/parallel8 diagnostics on generation-4 development seeds: local `attack` scalar/config tuning stayed below `baseline-rnn` and `rally-serve`; the parallel8 `attack_rally_shape_low_x52` row reached only `0.06` on full built-in dev seeds versus `baseline-rnn` `0.12`; grounded-low-receive `stacked_low_101_wide` kept only small hard-row gains while regressing built-in to `0.04`; rear-wall variants either traded `improved-v4` for `improved-v5/v6` losses or were inert; trace diagnostics showed `attack` trailing `baseline-rnn` on `9000..9015` while never emitting `110`/`111`; robustness notes kept `rally-serve-low-x52` and `post-contact` as development-only references because both still trail `baseline-rnn` across archived hard opponents. No holdout or audit seeds were opened, and no maintained edit was promoted."
             )
+        if (
+            parallel_g4_parallel9_attack_scalar_note.exists()
+            or parallel_g4_parallel9_grounded_note.exists()
+            or parallel_g4_parallel9_trace_report.exists()
+            or parallel_g4_parallel9_rear_wall_note.exists()
+            or parallel_g4_parallel9_archived_robustness_note.exists()
+            or parallel_g4_parallel9_synthesis_report.exists()
+        ):
+            lines.append(
+                "- Additional parallel9 diagnostics on generation-4 development seeds: `attack` scalar/config search found a short-screen `rank1_builtin_combo` at `0.1875` built-in mean, but it fell to `-0.1000` on full `9000..9049` built-in seeds versus `baseline-rnn` `0.1200`; grounded-low-receive stacked branches tied `post-contact` on every screened row; rear-wall substitutions either tied hard rows or regressed built-in; and the archived robustness synthesis kept `rally-serve-low-x52` and `post-contact` below `baseline-rnn` on `improved-v3..v6`. No holdout or audit seeds were opened, and no maintained policy/config/test edit was promoted."
+            )
 
     improved_rows = [
         (opponent, latest_full.get(("improved", opponent)))
