@@ -129,6 +129,40 @@ PHASE_CONFIGS: dict[str, PhasePressureConfig] = {
         opponent_y_max=0.20,
         require_two_frame_opponent_side=True,
     ),
+    "phase_two_frame_descending": PhasePressureConfig(
+        name="phase_two_frame_descending",
+        label="structural/history: two-frame pressure only on descending low balls",
+        ball_y_max=0.56,
+        ball_vy_max=-0.05,
+        opponent_y_max=0.22,
+        require_two_frame_opponent_side=True,
+    ),
+    "phase_two_frame_back_grounded": PhasePressureConfig(
+        name="phase_two_frame_back_grounded",
+        label="structural/history: two-frame back-opponent pressure only while grounded",
+        ball_y_max=0.58,
+        opponent_y_max=0.24,
+        opponent_x_min=0.76,
+        require_two_frame_opponent_side=True,
+        require_agent_grounded=True,
+    ),
+    "phase_two_frame_back_low": PhasePressureConfig(
+        name="phase_two_frame_back_low",
+        label="structural/history: lower two-frame pressure only when opponent is deeper",
+        ball_y_max=0.50,
+        opponent_y_max=0.22,
+        opponent_x_min=0.76,
+        require_two_frame_opponent_side=True,
+    ),
+    "phase_two_frame_mid_desc": PhasePressureConfig(
+        name="phase_two_frame_mid_desc",
+        label="structural/history: two-frame mid/deep pressure on descending balls",
+        ball_y_max=0.54,
+        ball_vy_max=-0.05,
+        opponent_y_max=0.22,
+        opponent_x_min=0.62,
+        require_two_frame_opponent_side=True,
+    ),
     "phase_grounded": PhasePressureConfig(
         name="phase_grounded",
         label="structural: pressure only while agent is grounded",
@@ -249,6 +283,7 @@ def evaluate_candidate(candidate: str, opponent_name: str, seeds: list[int], *, 
     steps = 0
     points_won = 0
     points_lost = 0
+    total_override_frames = 0
     try:
         for seed in seeds:
             episode = run_slimevolley_episode(
@@ -258,6 +293,7 @@ def evaluate_candidate(candidate: str, opponent_name: str, seeds: list[int], *, 
                 seed=seed,
                 trace_window=trace_window,
             )
+            total_override_frames += int(getattr(policy, "total_override_frames", 0))
             scores.append(float(episode.score))
             outcomes[episode.outcome] += 1
             action_counts.update(episode.action_counts)
@@ -295,7 +331,7 @@ def evaluate_candidate(candidate: str, opponent_name: str, seeds: list[int], *, 
         "steps": steps,
         "points_won": points_won,
         "points_lost": points_lost,
-        "override_frames": int(getattr(policy, "total_override_frames", 0)),
+        "override_frames": total_override_frames,
         "action_counts": dict(sorted(action_counts.items())),
         "terminal_modes": dict(sorted(terminal_modes.items())),
     }

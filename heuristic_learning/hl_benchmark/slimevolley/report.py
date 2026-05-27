@@ -334,6 +334,12 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/generation_5_planner_takeover_probe.md` | Development-only planner-takeover structural note for generation-5; records harmful/inert transient planner delegation probes and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `probes/g5_planner_takeover_probe.py` | Development-only transient planner-takeover probe script around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_5_planner_takeover_probe.json` | JSON results for the development-only planner-takeover short screen on `12000..12015`. | `python experiments/slimevolley/probes/g5_planner_takeover_probe.py --phase screen` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_rollout_search_probe.md` | Development-only privileged rollout-search note for generation-5; records a broad search failure, a terminal-only model-search diagnostic, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; development-seed evidence only, no holdout/audit opened |",
+        "| `probes/g5_rollout_search_probe.py` | Development-only privileged simulator/search probe script around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; not promotion evidence until converted to normal policy interface |",
+        "| `results/generation_5_rollout_search_probe.json` | JSON results for bounded development-only rollout-search diagnostics on `12000..12003` and `12000..12007`. | `python experiments/slimevolley/probes/g5_rollout_search_probe.py --phase screen ...` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_rollout_mined_rule_probe.md` | Development-only observation-rule note mined from rollout-search diagnostics; records interrupted full screen, counter fix, selected 8-seed screen, full development-pool rejection, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; development-seed evidence only, no holdout/audit opened |",
+        "| `probes/g5_rollout_mined_rule_probe.py` | Development-only observation-rule probe script derived from rollout-search override states. | manual no-ledger generation-5 dev probe | reviewer inspection; normal observation-only interface but not promoted |",
+        "| `results/generation_5_rollout_mined_rule_probe.json` | JSON results for selected rollout-mined observation-rule candidates on `12000..12007` plus the rejected `mined_near_net_vertical` full-pool check on `12000..12049`. | `.venv/bin/python experiments/slimevolley/probes/g5_rollout_mined_rule_probe.py --phase screen --seed-start 12000 --episodes 8 --candidate ...`; full-pool follow-up with `--phase full --episodes 50 --candidate mined_near_net_vertical` | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_trials.jsonl` | Append-only generation-4 ledger for development rows and final-only holdout rows. | generation-4 development and final holdout commands | reviewer inspection, `reports/generation_4_temporal_history_attempt.md`, and `results/holdout_g4_final.json` |",
         "| `results/generation_4_summary.csv` | CSV projection of the generation-4 ledger, including final-only holdout rows when present. | generation-4 ledger-producing commands | reviewer inspection |",
         "| `results/holdout_g4_final.json` | Generation-4 final-only holdout matrix over frozen policies, including `rally-serve` and `baseline-rnn`. | `make slimevolley-final-eval` after policy/config/opponent/test freeze | reviewer inspection and `make slimevolley-audit` seed/matrix/anti-tuning checks |",
@@ -370,6 +376,12 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/parallel/20260527_g4_parallel6_archived_robustness.md` | Development-only parallel6 archived-opponent robustness note comparing `rally-serve`, `post-contact`, `net-pressure`, `rw_press_forcejump`, and `baseline-rnn`. | no-ledger generation-4 dev robustness review | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel6_trace_attack_rnn.md` | Development-only parallel6 trace diagnostic comparing `attack`, `rally-serve`, and `baseline-rnn` on generation-4 dev seeds. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel6_synthesis.md` | Development-only parallel6 synthesis; records the single supported edit as a named scalar/config candidate, not structural progress. | maintained after 2026-05-27 parallel6 worker completion | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel7_attack_scalar.md` | Development-only parallel7 attack scalar/config search; records a tiny `attack` built-in improvement that stayed below `baseline-rnn` and `rally-serve`, with no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel7_grounded_low_receive.md` | Development-only parallel7 grounded-low-receive probe; records active stacked-rule variants, a rejected full-pool `stacked_low_101_wide` follow-up, and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `reports/parallel/20260527_g4_parallel7_trace_attack_rnn.md` | Development-only parallel7 trace diagnostic comparing `attack`, `rally-serve`, `post-contact`, `baseline-rnn`, and related controls on generation-4 dev seeds. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel7_rear_wall_press.md` | Development-only parallel7 rear-wall press probe; records rejected force-jump, early-guard, release-forward, and no-op brace variants with no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel7_archived_robustness.md` | Development-only parallel7 archived-opponent robustness note comparing `baseline-rnn`, `rally-serve`, `rally-serve-low-x52`, `post-contact`, and `attack`; records no promotion. | existing generation-4 dev artifacts and summary rows | reviewer inspection; development-seed evidence only |",
+        "| `reports/parallel/20260527_g4_parallel7_synthesis.md` | Development-only parallel7 synthesis across attack scalar, grounded-low-receive, rear-wall, trace, and robustness workers; records no maintained edit. | maintained after 2026-05-27 parallel7 worker completion | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel_subagent_synthesis_v2.md` | Development-only v2 synthesis of scalar, structural, trace, and robustness subagent artifacts; records no promotion decision. | maintained after 2026-05-27 v2 parallel worker completion | reviewer inspection; development-seed evidence only |",
         "| `probes/g4_post_contact_gate_probe.py` | Development-only post-contact gate probe script for temporary structural/history candidates around `rally-serve`. | manual no-ledger generation-4 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_post_contact_gate_probe.json` | JSON results for the development-only post-contact gate probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g4_post_contact_gate_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
@@ -1507,6 +1519,12 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
     parallel_g4_parallel6_archived_robustness_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel6_archived_robustness.md"
     parallel_g4_parallel6_trace_report = reports_dir / "parallel" / "20260527_g4_parallel6_trace_attack_rnn.md"
     parallel_g4_parallel6_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel6_synthesis.md"
+    parallel_g4_parallel7_attack_scalar_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel7_attack_scalar.md"
+    parallel_g4_parallel7_grounded_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel7_grounded_low_receive.md"
+    parallel_g4_parallel7_trace_report = reports_dir / "parallel" / "20260527_g4_parallel7_trace_attack_rnn.md"
+    parallel_g4_parallel7_rear_wall_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel7_rear_wall_press.md"
+    parallel_g4_parallel7_archived_robustness_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel7_archived_robustness.md"
+    parallel_g4_parallel7_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel7_synthesis.md"
     parallel_g4_synthesis_v2_report = reports_dir / "parallel" / "20260527_g4_parallel_subagent_synthesis_v2.md"
     post_contact_candidate_note = results_dir.parent / "notes" / "generation_4_post_contact_front_conversion_attempt.md"
     post_contact_worker_e_note = results_dir.parent / "notes" / "parallel" / "g4_archived_opponent_robustness_post_contact_worker_e.md"
@@ -1580,6 +1598,12 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-4 parallel6 archived-opponent robustness note: `{parallel_g4_parallel6_archived_robustness_note}`",
         f"- Generation-4 parallel6 attack/rally-serve/RNN trace report: `{parallel_g4_parallel6_trace_report}`",
         f"- Generation-4 parallel6 synthesis report: `{parallel_g4_parallel6_synthesis_report}`",
+        f"- Generation-4 parallel7 attack scalar/config note: `{parallel_g4_parallel7_attack_scalar_note}`",
+        f"- Generation-4 parallel7 grounded-low-receive note: `{parallel_g4_parallel7_grounded_note}`",
+        f"- Generation-4 parallel7 attack/rally-serve/post-contact/RNN trace report: `{parallel_g4_parallel7_trace_report}`",
+        f"- Generation-4 parallel7 rear-wall press note: `{parallel_g4_parallel7_rear_wall_note}`",
+        f"- Generation-4 parallel7 archived-opponent robustness note: `{parallel_g4_parallel7_archived_robustness_note}`",
+        f"- Generation-4 parallel7 synthesis report: `{parallel_g4_parallel7_synthesis_report}`",
         f"- Generation-4 subagent synthesis v2 report: `{parallel_g4_synthesis_v2_report}`",
         f"- Generation-4 post-contact front-conversion candidate note: `{post_contact_candidate_note}`",
         f"- Generation-4 post-contact Worker E archived-opponent robustness note: `{post_contact_worker_e_note}`",
@@ -1936,6 +1960,18 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
                 "- Additional parallel6 diagnostics on generation-4 development seeds: scalar/config tuning found `low_x_0.52` as a fixed-pool-checked `rally-serve` variant with built-in mean `0.18`; it is now exposed as `rally-serve-low-x52` for auditability, but it is scalar/config evidence rather than structural progress. Grounded-low-receive history probes tied the fixed pool without closing the hard-opponent RNN gap; rear-wall press probes repeated the small built-in-gain plus archived-regression pattern; the robustness note kept the fixed-pool gap to `baseline-rnn` explicit, and trace diagnostics again showed `rally-serve` improving `attack` mostly through loss-to-draw conversion. No holdout or audit seeds were opened."
             )
 
+        if (
+            parallel_g4_parallel7_attack_scalar_note.exists()
+            or parallel_g4_parallel7_grounded_note.exists()
+            or parallel_g4_parallel7_trace_report.exists()
+            or parallel_g4_parallel7_rear_wall_note.exists()
+            or parallel_g4_parallel7_archived_robustness_note.exists()
+            or parallel_g4_parallel7_synthesis_report.exists()
+        ):
+            lines.append(
+                "- Additional parallel7 diagnostics on generation-4 development seeds: local `attack` scalar/config tuning produced only a tiny built-in improvement (`late_vx_m0.40` from `-0.30` to `-0.28`) and stayed below `baseline-rnn` and `rally-serve`; grounded-low-receive `stacked_low_101_wide` kept only small hard-row gains while regressing built-in to `0.04`; rear-wall variants were either harmful, inert, or behaviorally identical to `post-contact`; trace and robustness notes kept `rally-serve-low-x52` and `post-contact` as development-only references because both still trail `baseline-rnn` across archived hard opponents. No holdout or audit seeds were opened."
+            )
+
     improved_rows = [
         (opponent, latest_full.get(("improved", opponent)))
         for opponent in opponents
@@ -2075,6 +2111,12 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     planner_takeover_note = results_dir.parent / "notes" / "generation_5_planner_takeover_probe.md"
     planner_takeover_probe_script = results_dir.parent / "probes" / "g5_planner_takeover_probe.py"
     planner_takeover_probe_result = results_dir / "generation_5_planner_takeover_probe.json"
+    rollout_search_note = results_dir.parent / "notes" / "generation_5_rollout_search_probe.md"
+    rollout_search_probe_script = results_dir.parent / "probes" / "g5_rollout_search_probe.py"
+    rollout_search_probe_result = results_dir / "generation_5_rollout_search_probe.json"
+    rollout_mined_rule_note = results_dir.parent / "notes" / "generation_5_rollout_mined_rule_probe.md"
+    rollout_mined_rule_probe_script = results_dir.parent / "probes" / "g5_rollout_mined_rule_probe.py"
+    rollout_mined_rule_probe_result = results_dir / "generation_5_rollout_mined_rule_probe.json"
     holdout_artifact = results_dir / "holdout_g5_final.json"
 
     if not generation_ledger.exists():
@@ -2108,6 +2150,8 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-5 contact-quality probe note: `{contact_quality_note}`",
         f"- Generation-5 position/posture probe note: `{position_posture_note}`",
         f"- Generation-5 planner-takeover probe note: `{planner_takeover_note}`",
+        f"- Generation-5 rollout-search probe note: `{rollout_search_note}`",
+        f"- Generation-5 rollout-mined rule probe note: `{rollout_mined_rule_note}`",
         f"- Generation-5 ledger: `{generation_ledger}`",
         f"- Generation-5 summary: `{generation_summary}`",
         f"- Generation-5 final holdout artifact: `{holdout_artifact}`" + (" is present and is final-only evidence." if holdout_artifact.exists() else " is not present."),
@@ -2201,6 +2245,16 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     if planner_takeover_note.exists():
         lines.append(
             "- Additional planner-takeover structural probe on generation-5 development seeds: safe/grounded/wide transient planner delegation fired on the short screen but sharply regressed built-in and hard archived rows, while strict/net-clear variants were inert ties. No full-pool expansion, maintained edit, holdout, or audit run was promoted."
+        )
+
+    if rollout_search_note.exists():
+        lines.append(
+            "- Additional privileged rollout-search probe on generation-5 development seeds: broad non-terminal search was slow and harmful, while terminal-only search improved `net-pressure` on an 8-seed subset for built-in, `improved-v3`, `improved-v5`, and `improved-v6`, nearly matching `baseline-rnn` on `improved-v5/v6`, but regressed `improved-v4` and uses cloned simulator state. No full-pool expansion, maintained edit, holdout, or audit run was promoted; the next step is to mine its successful overrides into observation-only rules."
+        )
+
+    if rollout_mined_rule_note.exists():
+        lines.append(
+            "- Additional rollout-mined observation-rule probe on generation-5 development seeds: after an interrupted all-candidate screen exposed override-counter underreporting, selected rules were rerun on `12000..12007`; `mined_low_fast_noop` improved `improved-v3/v4` but regressed built-in. The more promising `mined_near_net_vertical` rule was then expanded to the full `12000..12049` development pool, where it tied built-in and easy rows, improved `improved-v4` by `+0.12`, but regressed `improved-v2/v3/v6` mean score and still trailed `baseline-rnn` on every hard archived opponent. No maintained edit, holdout, or audit run was promoted."
         )
 
     pool_opponents = ["builtin", "random", "initial", "improved-v0", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"]

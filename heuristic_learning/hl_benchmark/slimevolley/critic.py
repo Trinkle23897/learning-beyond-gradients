@@ -45,6 +45,8 @@ DEFAULT_GENERATION5_APPROACH_QUALITY_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).
 DEFAULT_GENERATION5_CONTACT_QUALITY_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_contact_quality_probe.md"
 DEFAULT_GENERATION5_POSITION_POSTURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_position_posture_probe.md"
 DEFAULT_GENERATION5_PLANNER_TAKEOVER_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_planner_takeover_probe.md"
+DEFAULT_GENERATION5_ROLLOUT_SEARCH_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_rollout_search_probe.md"
+DEFAULT_GENERATION5_ROLLOUT_MINED_RULE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_rollout_mined_rule_probe.md"
 DEFAULT_PARALLEL_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_parallel_synthesis_rallyserve.md"
 DEFAULT_PARALLEL_TRACE_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_trace_rally_attack_rnn_worker.md"
 DEFAULT_TASK = "Critique the current SlimeVolley heuristic-learning performance and propose the next improvement direction."
@@ -148,7 +150,9 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
             "- A contact-quality probe tried recent-contact gates, stricter descent gates, and `110`/`111` brace substitutions; hard-tail nudges came with built-in or `improved-v3/v4` regressions and no candidate was promoted.",
             "- A front-posture scalar/config probe tried front-shifted home anchors; minor archived-row nudges were offset by built-in or hard-tail regressions, so no candidate was promoted.",
             "- A planner-takeover structural probe tried short transparent-planner delegation; active gates sharply regressed built-in and hard archived rows, while narrow gates were inert.",
-            "- The next credible direction should avoid copying single RNN actions; it should model a longer phase controller or explicitly test draw-reduction goals separately from hard archived-opponent robustness.",
+            "- A privileged rollout-search probe found broad non-terminal search slow and harmful, but terminal-only model search improved several 8-seed development rows and nearly matched `baseline-rnn` on `improved-v5/v6`; it regressed `improved-v4` and is not promotion evidence because it uses cloned simulator state.",
+            "- A rollout-mined observation-rule probe fixed counter accounting and found `mined_near_net_vertical` promising on an 8-seed subset, then rejected it on full `12000..12049` development-pool validation because the `improved-v4` gain came with `improved-v2/v3/v6` mean regressions and it still trailed `baseline-rnn` on every hard archived opponent.",
+            "- The next credible direction should move beyond the current rollout-mined near-net rule, or explicitly test draw-reduction goals separately from hard archived-opponent robustness.",
             f"- Generation-5 net-pressure note, if present: `{DEFAULT_GENERATION5_NET_PRESSURE_NOTE}`.",
             f"- Generation-5 fixed-pool comparator note, if present: `{DEFAULT_GENERATION5_FIXED_POOL_NOTE}`.",
             f"- Generation-5 aggressive pressure/brace note, if present: `{DEFAULT_GENERATION5_AGGRESSIVE_NOTE}`.",
@@ -159,6 +163,8 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
             f"- Generation-5 contact-quality note, if present: `{DEFAULT_GENERATION5_CONTACT_QUALITY_NOTE}`.",
             f"- Generation-5 position/posture note, if present: `{DEFAULT_GENERATION5_POSITION_POSTURE_NOTE}`.",
             f"- Generation-5 planner-takeover note, if present: `{DEFAULT_GENERATION5_PLANNER_TAKEOVER_NOTE}`.",
+            f"- Generation-5 rollout-search note, if present: `{DEFAULT_GENERATION5_ROLLOUT_SEARCH_NOTE}`.",
+            f"- Generation-5 rollout-mined rule note, if present: `{DEFAULT_GENERATION5_ROLLOUT_MINED_RULE_NOTE}`.",
             "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
         ]
     return [
