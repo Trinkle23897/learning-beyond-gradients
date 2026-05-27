@@ -307,6 +307,9 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/generation_5_post_contact_comparison.md` | Development-only post-contact transfer and net-post-contact combination note for generation-5; records ledgered fixed-pool rows and no-promotion decision. | maintained after generation-5 post-contact comparison rows | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `notes/generation_5_aggressive_pressure_and_brace_probe.md` | Development-only aggressive pressure, brace-serve, and conditional brace probe note for generation-5; records rejected broad jump/brace directions. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `notes/generation_5_stacked_followthrough_and_posture_probe.md` | Development-only stacked followthrough, front-low recovery, and opponent-posture gated pressure note for generation-5; records mixed/rejected no-ledger probes. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `notes/generation_5_phase_pressure_probe.md` | Development-only phase-pressure note for generation-5; records mixed two-frame opponent-side pressure probes and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `probes/g5_phase_pressure_probe.py` | Development-only phase-pressure probe script for temporary generation-5 structural/history candidates around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_5_phase_pressure_probe.json` | JSON results for the development-only phase-pressure probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g5_phase_pressure_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_trials.jsonl` | Append-only generation-4 ledger for development rows and final-only holdout rows. | generation-4 development and final holdout commands | reviewer inspection, `reports/generation_4_temporal_history_attempt.md`, and `results/holdout_g4_final.json` |",
         "| `results/generation_4_summary.csv` | CSV projection of the generation-4 ledger, including final-only holdout rows when present. | generation-4 ledger-producing commands | reviewer inspection |",
         "| `results/holdout_g4_final.json` | Generation-4 final-only holdout matrix over frozen policies, including `rally-serve` and `baseline-rnn`. | `make slimevolley-final-eval` after policy/config/opponent/test freeze | reviewer inspection and `make slimevolley-audit` seed/matrix/anti-tuning checks |",
@@ -334,6 +337,9 @@ def _artifact_manifest_lines() -> list[str]:
         "| `probes/g4_post_contact_gate_probe.py` | Development-only post-contact gate probe script for temporary structural/history candidates around `rally-serve`. | manual no-ledger generation-4 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_post_contact_gate_probe.json` | JSON results for the development-only post-contact gate probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g4_post_contact_gate_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_post_contact_gate_probe.md` | Development-only post-contact gate probe note; records short-screen and fixed-pool results plus the no-promotion decision. | maintained after 2026-05-27 post-contact probe completion | reviewer inspection; development-seed evidence only |",
+        "| `probes/g4_stacked_low_receive_probe.py` | Development-only stacked low-receive probe script for temporary structural/history candidates around `post-contact`. | manual no-ledger generation-4 dev probe | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_4_stacked_low_receive_probe.json` | JSON results for the development-only stacked low-receive probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g4_stacked_low_receive_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_4_stacked_low_receive_probe.md` | Development-only stacked low-receive probe note; records short-screen hard-tail gains, full-pool built-in regression, and no-promotion decision. | maintained after 2026-05-27 stacked low-receive probe completion | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/g4_archived_opponent_robustness_post_contact_worker_e.md` | Development-only Worker E archived-opponent robustness note for `post-contact`; records fixed-pool rows and no final promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/generation_4_post_contact_front_conversion_attempt.md` | Development-only post-contact front-conversion note; records small archived-opponent gains, registered development-only candidate, and no final claim. | maintained after 2026-05-27 post-contact probe and code registration | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_parallel3_attack_scalar.md` | Development-only parallel3 scalar/config search around `rally-serve`; records built-in-only ties/small same-W-L-D gains and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
@@ -1456,6 +1462,9 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
     post_contact_worker_e_note = results_dir.parent / "notes" / "parallel" / "g4_archived_opponent_robustness_post_contact_worker_e.md"
     post_contact_probe_script = results_dir.parent / "probes" / "g4_post_contact_gate_probe.py"
     post_contact_probe_result = results_dir / "generation_4_post_contact_gate_probe.json"
+    stacked_low_receive_note = results_dir.parent / "notes" / "generation_4_stacked_low_receive_probe.md"
+    stacked_low_receive_probe_script = results_dir.parent / "probes" / "g4_stacked_low_receive_probe.py"
+    stacked_low_receive_probe_result = results_dir / "generation_4_stacked_low_receive_probe.json"
     parallel_g4_parallel3_attack_scalar_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel3_attack_scalar.md"
     parallel_g4_parallel3_grounded_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel3_grounded_low_receive.md"
     parallel_g4_parallel3_rear_wall_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel3_rear_wall_press.md"
@@ -1520,6 +1529,9 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-4 post-contact Worker E archived-opponent robustness note: `{post_contact_worker_e_note}`",
         f"- Generation-4 post-contact gate probe script: `{post_contact_probe_script}`",
         f"- Generation-4 post-contact gate probe results: `{post_contact_probe_result}`",
+        f"- Generation-4 stacked low-receive probe note: `{stacked_low_receive_note}`",
+        f"- Generation-4 stacked low-receive probe script: `{stacked_low_receive_probe_script}`",
+        f"- Generation-4 stacked low-receive probe results: `{stacked_low_receive_probe_result}`",
         f"- Generation-4 parallel3 scalar/config note: `{parallel_g4_parallel3_attack_scalar_note}`",
         f"- Generation-4 parallel3 grounded-low-receive history note: `{parallel_g4_parallel3_grounded_note}`",
         f"- Generation-4 parallel3 rear-wall press note: `{parallel_g4_parallel3_rear_wall_note}`",
@@ -1848,6 +1860,10 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
             lines.append(
                 "- Final-only holdout now supersedes the pre-holdout freeze recommendation: `rally-serve` failed to beat `baseline-rnn` on built-in holdout, so no generation-4 policy is promoted."
             )
+        if stacked_low_receive_note.exists():
+            lines.append(
+                "- Additional stacked low-receive probe: `stacked_low_101_wide` improved `improved-v5/v6` by `+0.04` on full generation-4 development seeds, but regressed built-in from `0.14` to `0.04` and fell below `baseline-rnn` (`0.12`), so no policy edit was promoted."
+            )
 
     improved_rows = [
         (opponent, latest_full.get(("improved", opponent)))
@@ -1963,6 +1979,7 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     post_contact_note = results_dir.parent / "notes" / "generation_5_post_contact_comparison.md"
     aggressive_pressure_note = results_dir.parent / "notes" / "generation_5_aggressive_pressure_and_brace_probe.md"
     stacked_followthrough_note = results_dir.parent / "notes" / "generation_5_stacked_followthrough_and_posture_probe.md"
+    phase_pressure_note = results_dir.parent / "notes" / "generation_5_phase_pressure_probe.md"
     holdout_artifact = results_dir / "holdout_g5_final.json"
 
     if not generation_ledger.exists():
@@ -1987,6 +2004,7 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-5 post-contact comparison note: `{post_contact_note}`",
         f"- Generation-5 aggressive pressure and brace probe note: `{aggressive_pressure_note}`",
         f"- Generation-5 stacked followthrough and posture probe note: `{stacked_followthrough_note}`",
+        f"- Generation-5 phase-pressure probe note: `{phase_pressure_note}`",
         f"- Generation-5 ledger: `{generation_ledger}`",
         f"- Generation-5 summary: `{generation_summary}`",
         f"- Generation-5 final holdout artifact: `{holdout_artifact}`" + (" is present and is final-only evidence." if holdout_artifact.exists() else " is not present."),
@@ -2133,6 +2151,10 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     if stacked_followthrough_note.exists():
         lines.append(
             "- Additional generation-5 mixed/failed direction: front-low recovery, stacked followthrough, and opponent-posture gated low-pressure probes were screened on development seeds; the best full-dev posture gate only nudged `improved-v5/v6` while regressing other fixed-pool rows, so no maintained policy edit was promoted."
+        )
+    if phase_pressure_note.exists():
+        lines.append(
+            "- Additional generation-5 mixed direction: phase-gated opponent-side low pressure improved some hard archived rows, with `phase_two_frame` moving built-in by `+0.04` and `improved-v5/v6` by `+0.10/+0.12`, but it regressed `improved-v2/v3` and stayed far below `baseline-rnn`; no maintained policy edit was promoted."
         )
     return lines
 
