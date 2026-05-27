@@ -83,6 +83,46 @@ Full checked absolute rows:
 | `phase_two_frame` | `-0.02`, `11/14/25` | `4.58`, `50/0/0` | `3.02`, `47/1/2` | `2.64`, `45/3/2` | `1.30`, `34/4/12` | `1.34`, `34/4/12` |
 | `phase_grounded` | `-0.08`, `11/15/24` | `4.62`, `50/0/0` | `3.04`, `48/1/1` | `2.60`, `46/2/2` | `1.28`, `34/5/11` | `1.30`, `34/5/11` |
 
+## Selective Follow-Up
+
+A later development-only selective pass used the corrected cumulative override
+counter and wrote `results/generation_5_phase_pressure_selective_probe.json`. No
+holdout or audit seeds were used. The pass screened narrower descending/depth
+variants on `12000..12015`, then expanded only `phase_two_frame_descending` to
+the full `12000..12049` development pool.
+
+Short-screen means:
+
+| Candidate | Built-in | improved-v3 | improved-v4 | improved-v5 | improved-v6 | Decision |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| `net-pressure` reference | `0.0625` | `2.8750` | `2.4375` | `1.5625` | `1.5625` | reference |
+| `baseline-rnn` | `0.2500` | `4.1875` | `3.7500` | `2.5625` | `2.5625` | comparator |
+| `phase_two_frame_descending` | `0.0625` | `2.8750` | `2.6250` | `1.7500` | `1.7500` | full check |
+| `phase_two_frame_back_grounded` | `0.0625` | `2.8125` | `2.4375` | `1.7500` | `1.7500` | reject |
+| `phase_two_frame_back_low` | `0.0625` | `2.8125` | `2.4375` | `1.5625` | `1.5625` | reject |
+| `phase_two_frame_mid_desc` | `0.0625` | `2.8125` | `2.5000` | `1.7500` | `1.7500` | reject |
+| `phase_two_frame_back_desc` | `0.0625` | `2.7500` | `2.5000` | `1.8125` | `1.8125` | short-screen only |
+| `phase_two_frame_back_low_desc` | `0.0625` | `2.8125` | `2.4375` | `1.5625` | `1.5625` | short-screen only |
+
+Full-pool deltas for `phase_two_frame_descending` versus `net-pressure`:
+
+| Opponent | Delta | Absolute mean | W/L/D | Overrides |
+| --- | ---: | ---: | --- | ---: |
+| `builtin` | `+0.04` | `-0.02` | `11/14/25` | `6091` |
+| `random` | `0.00` | `4.90` | `50/0/0` | `2540` |
+| `initial` | `0.00` | `4.86` | `50/0/0` | `11963` |
+| `improved-v0` | `0.00` | `4.84` | `50/0/0` | `12472` |
+| `improved-v2` | `-0.10` | `4.58` | `50/0/0` | `13387` |
+| `improved-v3` | `+0.02` | `3.10` | `47/1/2` | `20505` |
+| `improved-v4` | `+0.06` | `2.62` | `45/3/2` | `20465` |
+| `improved-v5` | `+0.08` | `1.28` | `34/5/11` | `23775` |
+| `improved-v6` | `+0.10` | `1.32` | `34/5/11` | `23735` |
+
+This selective pass is still a no-promotion result. The best variant preserves
+the built-in row better than `phase_posture_back`, but it regresses
+`improved-v2`, remains far below `baseline-rnn` on every hard archived row, and
+uses many override frames.
+
 ## Failure Analysis
 
 The phase gates confirm that opponent-side low pressure is a real lever, but
