@@ -101,7 +101,7 @@ Short-screen means:
 | `phase_two_frame_back_grounded` | `0.0625` | `2.8125` | `2.4375` | `1.7500` | `1.7500` | reject |
 | `phase_two_frame_back_low` | `0.0625` | `2.8125` | `2.4375` | `1.5625` | `1.5625` | reject |
 | `phase_two_frame_mid_desc` | `0.0625` | `2.8125` | `2.5000` | `1.7500` | `1.7500` | reject |
-| `phase_two_frame_back_desc` | `0.0625` | `2.7500` | `2.5000` | `1.8125` | `1.8125` | short-screen only |
+| `phase_two_frame_back_desc` | `0.0625` | `2.7500` | `2.5000` | `1.8125` | `1.8125` | later full check |
 | `phase_two_frame_back_low_desc` | `0.0625` | `2.8125` | `2.4375` | `1.5625` | `1.5625` | short-screen only |
 
 Full-pool deltas for `phase_two_frame_descending` versus `net-pressure`:
@@ -123,6 +123,38 @@ the built-in row better than `phase_posture_back`, but it regresses
 `improved-v2`, remains far below `baseline-rnn` on every hard archived row, and
 uses many override frames.
 
+
+## Selective Back-Descending Full Check
+
+After the selected descending check, the narrower `phase_two_frame_back_desc`
+candidate was expanded to the full fixed development pool because its short
+screen preserved built-in while improving `improved-v4/v5/v6` with fewer
+override frames than `phase_two_frame_descending`.
+
+The follow-up used only generation-5 development seeds `12000..12049` and wrote
+another run to `results/generation_5_phase_pressure_selective_probe.json`. No
+holdout seeds `13000..13049` or audit seeds `14000..14049` were used.
+
+Full-pool deltas for `phase_two_frame_back_desc` versus `net-pressure`:
+
+| Opponent | Delta | Absolute mean | W/L/D | Overrides |
+| --- | ---: | ---: | --- | ---: |
+| `builtin` | `-0.02` | `-0.08` | `11/15/24` | `2921` |
+| `random` | `0.00` | `4.90` | `50/0/0` | `2866` |
+| `initial` | `0.00` | `4.86` | `50/0/0` | `7137` |
+| `improved-v0` | `0.00` | `4.84` | `50/0/0` | `6939` |
+| `improved-v2` | `0.00` | `4.68` | `50/0/0` | `7670` |
+| `improved-v3` | `0.00` | `3.08` | `47/1/2` | `9976` |
+| `improved-v4` | `+0.06` | `2.62` | `45/2/3` | `9527` |
+| `improved-v5` | `+0.08` | `1.28` | `34/6/10` | `11997` |
+| `improved-v6` | `+0.08` | `1.30` | `34/6/10` | `12087` |
+
+This candidate is also rejected. It is cleaner than `phase_two_frame_descending`
+on `improved-v2/v3` and uses roughly half as many hard-row override frames, but
+it regresses built-in from `-0.06` to `-0.08` and remains far below
+`baseline-rnn` on `improved-v3/v4/v5/v6`. The hard-tail gains are too small to
+justify a maintained policy edit.
+
 ## Failure Analysis
 
 The phase gates confirm that opponent-side low pressure is a real lever, but
@@ -133,8 +165,10 @@ below `baseline-rnn` on the hard archived rows.
 
 `phase_posture_back` and `phase_grounded` are cleaner on `improved-v2/v3`, but
 they regress built-in and provide smaller hard-tail gains. The narrowed
-two-frame/depth screens did not produce a better candidate than the already
-full-checked variants.
+two-frame/depth screens did not produce a promotable candidate. The later
+`phase_two_frame_back_desc` check confirms the tradeoff: preserving
+`improved-v2/v3` is possible, but the price is built-in regression and only
+small hard-tail gains.
 
 This weakens the idea that a single opponent-side pressure gate will close the
 gap. The remaining RNN advantage likely involves earlier rally setup and return

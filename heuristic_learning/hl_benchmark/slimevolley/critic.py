@@ -47,6 +47,7 @@ DEFAULT_GENERATION5_POSITION_POSTURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).
 DEFAULT_GENERATION5_PLANNER_TAKEOVER_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_planner_takeover_probe.md"
 DEFAULT_GENERATION5_ROLLOUT_SEARCH_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_rollout_search_probe.md"
 DEFAULT_GENERATION5_ROLLOUT_MINED_RULE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_rollout_mined_rule_probe.md"
+DEFAULT_GENERATION5_PHASE_PRESSURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_phase_pressure_probe.md"
 DEFAULT_PARALLEL_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_parallel_synthesis_rallyserve.md"
 DEFAULT_PARALLEL_TRACE_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_trace_rally_attack_rnn_worker.md"
 DEFAULT_PARALLEL8_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_g4_parallel8_synthesis.md"
@@ -154,7 +155,8 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
             "- A planner-takeover structural probe tried short transparent-planner delegation; active gates sharply regressed built-in and hard archived rows, while narrow gates were inert.",
             "- A privileged rollout-search probe found broad non-terminal search slow and harmful, but terminal-only model search improved several 8-seed development rows and nearly matched `baseline-rnn` on `improved-v5/v6`; it regressed `improved-v4` and is not promotion evidence because it uses cloned simulator state.",
             "- A rollout-mined observation-rule probe fixed counter accounting and found `mined_near_net_vertical` promising on an 8-seed subset, then rejected it on full `12000..12049` development-pool validation because the `improved-v4` gain came with `improved-v2/v3/v6` mean regressions and it still trailed `baseline-rnn` on every hard archived opponent.",
-            "- The next credible direction should move beyond the current rollout-mined near-net rule, or explicitly test draw-reduction goals separately from hard archived-opponent robustness.",
+            "- A phase-pressure follow-up found the tradeoff directly: `phase_two_frame_descending` improved built-in and hard-tail means but regressed `improved-v2`, while `phase_two_frame_back_desc` preserved `improved-v2/v3` and nudged `improved-v4/v5/v6` but regressed built-in and stayed far below `baseline-rnn`. No phase-pressure candidate was promoted.",
+            "- The next credible direction should move beyond single pressure/terminal-frame overrides, or explicitly test draw-reduction goals separately from hard archived-opponent robustness.",
             f"- Generation-5 net-pressure note, if present: `{DEFAULT_GENERATION5_NET_PRESSURE_NOTE}`.",
             f"- Generation-5 fixed-pool comparator note, if present: `{DEFAULT_GENERATION5_FIXED_POOL_NOTE}`.",
             f"- Generation-5 aggressive pressure/brace note, if present: `{DEFAULT_GENERATION5_AGGRESSIVE_NOTE}`.",
@@ -167,6 +169,7 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
             f"- Generation-5 planner-takeover note, if present: `{DEFAULT_GENERATION5_PLANNER_TAKEOVER_NOTE}`.",
             f"- Generation-5 rollout-search note, if present: `{DEFAULT_GENERATION5_ROLLOUT_SEARCH_NOTE}`.",
             f"- Generation-5 rollout-mined rule note, if present: `{DEFAULT_GENERATION5_ROLLOUT_MINED_RULE_NOTE}`.",
+            f"- Generation-5 phase-pressure note, if present: `{DEFAULT_GENERATION5_PHASE_PRESSURE_NOTE}`.",
             "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
         ]
     return [
@@ -181,6 +184,7 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
         "- Trace diagnostics show `rally-serve` improves over `attack` by reducing point losses from `32` to `18`, but it wins fewer built-in matches than `baseline-rnn` (`13` versus `18`) and relies more on draws (`29` versus `20`).",
         "- The parallel8 worker pass used only generation-4 development seeds. `attack_rally_shape_low_x52` reached only `0.06` built-in mean on `9000..9049`, below `baseline-rnn` `0.12`; `stacked_low_101_wide` regressed built-in to `0.04` for tiny hard-tail gains; rear-wall branch swaps traded `improved-v4` for `improved-v5/v6` losses or were inert. No maintained edit was promoted.",
         "- Parallel8 trace diagnostics showed `attack` trailing `baseline-rnn` on `9000..9015` and never emitting `110` or `111`, while robustness checks kept `rally-serve-low-x52` and `post-contact` as development-only references because both trail `baseline-rnn` on hard archived opponents.",
+        "- The parallel9 worker pass again used only generation-4 development seeds. `rank1_builtin_combo` improved `attack_reference` but stayed below `baseline-rnn`; grounded low-receive and rear-wall branches tied the reference or regressed built-in; trace/robustness artifacts recommend no maintained edit.",
         f"- Joint scalar-search note, if present: `{DEFAULT_JOINT_ATTACK_SEARCH_NOTE}`.",
         f"- Low-receive teacher/scalar follow-up note, if present: `{DEFAULT_LOW_RECEIVE_FOLLOWUP_NOTE}`.",
         f"- Rally-serve candidate note, if present: `{DEFAULT_RALLY_SERVE_NOTE}`.",
