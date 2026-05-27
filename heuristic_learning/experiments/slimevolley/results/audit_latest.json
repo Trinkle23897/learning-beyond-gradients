@@ -1,0 +1,373 @@
+{
+  "artifact_hashes": {
+    "contact_diagnostics_json": "fada0e03ed30d6f7ceba79eb13e96d29b75af13d87fde3189e05f51629d3cd50",
+    "contact_diagnostics_report": "2bdfc58dabeac6c4fb4fabda0e5e0d75096982d955a6f12d2bebf3f23f586d53",
+    "diagnostics": "3ea5fade50fda269285a284b55d1ffa124c9c9f4436afa874e3945441269c736",
+    "experiment_readme": "61d4d38c0ed263781ad9300e3a0b9030b992bb0457247522b2a3ecd245ea5a6e",
+    "generation3_holdout": "fa108a13a7d0e300f0c0e9defd2bd8fd61d159cbc26952c1989d29d913de63da",
+    "generation3_ledger": "a911323f54e6bfac9053c2d426b8232972825fca6871b46cbc275a6433549f40",
+    "generation3_protocol": "38433c2a81799899662215f8b118b30d9602ae3d21d5adf3651da95066c10a10",
+    "generation3_protocol_report": "1e7e6952f753019f6fc0a2de8eeac31a10e2ac994fb708daf33f85f1c3c518fc",
+    "generation3_report": "35f5b8a0e351f0b85683b6bed08b997acf4492191a37710544b537bea014de95",
+    "generation3_search_best": "3d31a2c4cf491edf7d10972b29feb348912947c28ecdc203f56e99d35a975789",
+    "generation3_summary": "b8063ae56869c714e2f266c90b1f8df3fa8f66e04ba390fa951a04c0928f3074",
+    "generation3_tournament": "d58581408a69da0e3994f636e2a6c170f3383ad62deff6d82a6083180d6882c2",
+    "generation4_protocol": "d706eb80d4ddb2bb2ee4ba87b33df344ceee3a2019f16a020834adfd1328b475",
+    "generation4_protocol_report": "94f2d616d143a8897ee61f1ac6be63bf621ac85e38cb550f2e1798aedcae407f",
+    "generation_holdout": "e5ee613c26e3bf32cb770dd5b31accbf10abc1eddee1fb1d608884e8f7c5ec23",
+    "generation_ledger": "30f3d36ec77035481be8ed5d5dca05cd94b30a88d2d08e6c9833478ae2069a9f",
+    "generation_protocol": "7c8df480501803d1d8b04692f9cd6d0dd735c0f470c5aabb655f4ef7ad67fbb9",
+    "generation_protocol_report": "be1f73a5599769f93fd81fa2a546813e7bbae2acf391de7ba64559c7083e91e2",
+    "generation_report": "fc4b693b63e5c7559d7215ee1a26349d870ca901d3f21ad9b6743dac79a2cc1f",
+    "generation_search_best": "110aedf917b19fa989d0b92db8b5bd514621ccc3dcf762436bccf13548459c5d",
+    "generation_summary": "3aa4875b2a6a0782437493bba8a0a2e1711ae05ef3d19a003f7085cfdd452f3c",
+    "generation_tournament": "c452db4b7a534dd863604b1edd71369119335a99bf784d48674503e0dfbf409f",
+    "holdout": "651fcdfbffbaed9efbf19a43a255318e1f3c886809f1271768beda157cb9930c",
+    "ledger": "5fd566f917baa7be4c08b4226a05dbebc8823bf5f5d8f9585e02920f0e19aa12",
+    "ledger_amendments": "9932e9b92f8e250be82f9d37be2256b55b4e83b7ce8a893585382e6afc0becf2",
+    "performance_report": "f3012914f606def14ca68a77c2dc9af3ce2155d253cdbfb123f8dbfe99ecb70f",
+    "report": "00a9b71c54ad6dc83d944bdb5fd47e803254423b3d65c3b353edc7372ae0c4c6",
+    "requirements_audit": "984ba4772310924bd421b9b5c526a5c956c6ffa75f602188447c26d1e42695f5",
+    "search_best": "abee30211950177d338773a8eac371efb1cea71b055d5ae691577c6595980e0f",
+    "summary": "05d0758148508cbb5c7d9e4f6269f0fface7ed1a5ffae15f1f4ece543acd1db3",
+    "tournament": "04c55102a52458ca98904917ea05f900afc025966a8d54d71d061608cacbf3b8"
+  },
+  "change_type_counts": {
+    "bug fix": 5,
+    "evaluation-harness change": 119,
+    "logging/diagnostics": 1,
+    "logging/diagnostics change": 6,
+    "neural/RL baseline": 4,
+    "scalar/config tuning": 32,
+    "structural policy improvement": 19
+  },
+  "contact_diagnostics_json_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/contact_diagnostics_g3_dev.json",
+  "contact_diagnostics_report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/contact_diagnostics_g3_dev.md",
+  "diagnostics_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/environment_diagnostics.json",
+  "diagnostics_status": "available",
+  "expected_holdout_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009,
+    1010,
+    1011,
+    1012,
+    1013,
+    1014,
+    1015,
+    1016,
+    1017,
+    1018,
+    1019,
+    1020,
+    1021,
+    1022,
+    1023,
+    1024,
+    1025,
+    1026,
+    1027,
+    1028,
+    1029,
+    1030,
+    1031,
+    1032,
+    1033,
+    1034,
+    1035,
+    1036,
+    1037,
+    1038,
+    1039,
+    1040,
+    1041,
+    1042,
+    1043,
+    1044,
+    1045,
+    1046,
+    1047,
+    1048,
+    1049
+  ],
+  "experiment_readme_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/README.md",
+  "explicit_tests_pass_fail_required_after": "2026-05-25T00:00:00+00:00",
+  "generation3_holdout_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_g3_final.json",
+  "generation3_holdout_rows": 30,
+  "generation3_ledger_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_3_trials.jsonl",
+  "generation3_ledger_rows": 303,
+  "generation3_protocol_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/configs/generation_3_protocol.json",
+  "generation3_protocol_report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/generation_3_protocol.md",
+  "generation3_report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/generation_3_diagnosis.md",
+  "generation3_search_best_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/search_best_g3_dev.json",
+  "generation3_split_counts": {
+    "dev": 273,
+    "holdout": 30
+  },
+  "generation3_summary_content_checked": true,
+  "generation3_summary_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_3_summary.csv",
+  "generation3_summary_rows": 303,
+  "generation3_tournament_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/round_robin_g3_dev.json",
+  "generation4_protocol_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/configs/generation_4_protocol.json",
+  "generation4_protocol_report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/generation_4_protocol.md",
+  "generation4_protocol_status": "predeclared-not-run",
+  "generation4_seed_ranges": {
+    "audit": "11000..11049",
+    "dev": "9000..9049",
+    "holdout": "10000..10049",
+    "smoke": "9000..9001"
+  },
+  "generation_holdout_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_g2_final.json",
+  "generation_holdout_rows": 25,
+  "generation_ledger_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_2_trials.jsonl",
+  "generation_ledger_rows": 114,
+  "generation_protocol_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/configs/generation_2_protocol.json",
+  "generation_protocol_report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/generation_2_protocol.md",
+  "generation_report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/generation_2_diagnosis.md",
+  "generation_search_best_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/search_best_g2_dev.json",
+  "generation_split_counts": {
+    "dev": 89,
+    "holdout": 25
+  },
+  "generation_summary_content_checked": true,
+  "generation_summary_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_2_summary.csv",
+  "generation_summary_rows": 114,
+  "generation_tournament_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/round_robin_g2_dev.json",
+  "holdout_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_final.json",
+  "holdout_rows": 25,
+  "issues": [],
+  "ledger_amendment_counts": {
+    "amendment_rows": 186,
+    "applied_fields": 186,
+    "applied_rows": 186,
+    "tests_pass_fail_amended": 186
+  },
+  "ledger_amendment_rows": 186,
+  "ledger_amendments_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/trial_amendments.jsonl",
+  "ledger_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/trials.jsonl",
+  "ledger_rows": 186,
+  "noncanonical_change_types": [
+    "logging/diagnostics",
+    "neural/RL baseline"
+  ],
+  "pass_fail": "pass",
+  "pass_fail_counts": {
+    "fail": 1,
+    "pass": 185
+  },
+  "performance_report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/performance_deepdive.md",
+  "raw_tests_pass_fail_counts": {
+    "legacy_missing": 186
+  },
+  "report_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/final_report.md",
+  "requirements_audit_completion_blockers": [],
+  "requirements_audit_completion_recommendation": "eligible_for_completion_audit",
+  "requirements_audit_completion_state": "satisfied",
+  "requirements_audit_partial_row_classifications": {},
+  "requirements_audit_partial_row_details": [],
+  "requirements_audit_partial_rows": [],
+  "requirements_audit_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/reports/requirements_audit.md",
+  "requirements_audit_required_row_count": 25,
+  "requirements_audit_row_count": 25,
+  "requirements_audit_rows": [
+    {
+      "evidence": "`make verify` passes registry, artifact-layout, planned-env, and pytest gates. `make slimevolley-verify` and `make custom-verify ENV=SlimeVolley-v0` pass SlimeVolley summary/report/audit regeneration plus contact diagnostics and generation protocol refreshes. `make check-promotions` remains the documented promotion gate for all registered environments.",
+      "requirement": "Working repository",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`README.md`, `experiments/slimevolley/README.md`, and `experiments/slimevolley/reports/final_report.md` list setup, optional legacy Gym install, exact commands, and final-only holdout guardrails.",
+      "requirement": "Reproduction instructions",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/slimevolley/adapter.py` handles legacy Gym step/reset/seed behavior; `hl_benchmark/slimevolley/doctor.py` records environment diagnostics.",
+      "requirement": "SlimeVolley environment wrapper or compatibility layer",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`experiments/slimevolley/results/environment_diagnostics.json`, ledger `runtime_metadata`, and final report dependency/runtime sections record package versions and API observations.",
+      "requirement": "Exact package and runtime metadata",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/policies/slimevolley.py` exposes `initial`; final report describes it as a modest landing/home/jump heuristic.",
+      "requirement": "Initial handwritten heuristic",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/policies/slimevolley.py` keeps `improved-v0`, `improved-v1`, `improved-v2`, `improved-v3`, and current `improved` as interpretable structural archives.",
+      "requirement": "Agent-maintained heuristic policy versions",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/slimevolley/opponents.py` defines `builtin`, `random`, frozen heuristic opponents, current heuristic, and `baseline-rnn`; final report contains the opponent table.",
+      "requirement": "Opponent protocol",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark.envs.SEED_SPLITS` defines generation-1 dev `0..19`, holdout `1000..1049`, and audit `2000..2049`; generation-2 protocol predeclares dev `3000..3049`, holdout `4000..4049`, and audit `5000..5049`; generation-3 protocol predeclares dev `6000..6049`, holdout `7000..7049`, and audit `8000..8049`; generation-4 protocol predeclares dev `9000..9049`, holdout `10000..10049`, and audit `11000..11049` for future work. SlimeVolley audit checks the generation seed protocols.",
+      "requirement": "Fixed development and holdout seed ranges",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`experiments/slimevolley/results/trials.jsonl` contains 186 generation-1 rows including the initial dependency failure; `results/trial_amendments.jsonl` contains 186 append-only `tests_pass_fail=not_recorded` metadata amendments keyed to historical row indexes and SHA256 hashes; `generation_2_trials.jsonl` contains 114 rows including 25 final-only holdout rows; `generation_3_trials.jsonl` contains 303 rows including 30 final-only holdout rows. `generation_4_trials.jsonl` is intentionally absent until future generation-4 work begins under the predeclared protocol. Generation-2 and generation-3 rows record explicit test status directly.",
+      "requirement": "Append-only trial ledger",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/slimevolley/evaluate.py` records policy/opponent fixed-seed evaluations with win/loss/draw, life difference, per-episode scores, steps, action frequencies, trace windows, and costs.",
+      "requirement": "Evaluation harness",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/slimevolley/search.py` records development-only scalar search; `search_best_dev.json`, `search_best_g2_dev.json`, and `search_best_g3_dev.json` store selected configs.",
+      "requirement": "Scalar/config search baseline",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/slimevolley/tournament.py`, `round_robin_dev.json`, `round_robin_g2_dev.json`, and `round_robin_g3_dev.json` record development opponent-pool tournaments.",
+      "requirement": "Round-robin or opponent-pool robustness check",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/slimevolley/final_eval.py` produced `holdout_final.json`, `holdout_g2_final.json`, and `holdout_g3_final.json`; audit enforces final-only holdout labeling and seed matrix consistency.",
+      "requirement": "Final holdout evaluation",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`Makefile`, `README.md`, and `experiments/slimevolley/README.md` document commands for tests, one policy/opponent evaluation, development evaluation, final-only holdout reproduction, scalar search, round-robin tournament, summary regeneration, report regeneration, audit, and custom verification.",
+      "requirement": "Required command surface",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "Generation ledgers and diagnosis reports record evaluation rows, failure analysis, next hypotheses, change types, code/config/test edit labels, tests run, re-evaluation outcomes, and kept or rolled-back attempts including generation-3 failed structural directions.",
+      "requirement": "Heuristic-system improvement loop",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`evaluate.py` ledger rows and `contact_diagnostics.py` artifacts record per-episode scores, timesteps, final outcome, policy/opponent/seed, action frequencies, life-loss summaries, compact trace windows, and selected contact/loss diagnostics.",
+      "requirement": "Replay and diagnostics",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "Final and performance reports compare random, built-in, initial handwritten, scalar-tuned, agent-maintained, archived heuristic, and packaged `baseline-rnn` opponents/policies across fixed development and holdout protocols.",
+      "requirement": "Baseline comparison set",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`tests/test_slimevolley_optional.py` covers environment creation, action validity, deterministic evaluation, report generation, audit validation, holdout guardrails, archived-policy checks, contact diagnostics, and fixed-state/golden SlimeVolley policy behavior.",
+      "requirement": "Regression and golden tests",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "Ledger rows include `failure_analysis` and `next_hypothesis`; final report, generation diagnosis reports, and `experiments/slimevolley/notes/` list dependency failures, rolled-back attempts, kept structural changes, and the generation-3 pre-holdout freeze note.",
+      "requirement": "Failure-analysis notes",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "Ledger `change_type`, policy version names, final report, and audit checks distinguish structural policies from `scalar/config tuning`.",
+      "requirement": "Separation of structural improvement from scalar tuning",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`baseline-rnn` wraps slimevolleygym's packaged 120-parameter RNN baseline and is reported separately as a documented pretrained neural/RNN comparator. No local PPO/DQN/self-play training baseline was run.",
+      "requirement": "Packaged RNN comparator",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "Final report separates episodes/steps from ledger rows, wall time, code edits, agent iterations, scalar-search budget, generation-2 and generation-3 costs, and unavailable LLM token accounting.",
+      "requirement": "Cost accounting",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "Search rejects reserved splits, holdout rows are marked final-only, audit checks holdout seeds and summaries, failed rows remain visible, and all consumed holdout artifacts are treated as final-only evidence.",
+      "requirement": "Anti-cheating guardrails",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`hl_benchmark/environments/`, `hl_benchmark/policies/`, `hl_benchmark/custom_envs/`, `experiments/<env_slug>/`, and docs support future generic and custom RL envs. SlimeVolley is registered through `hl_benchmark/custom_envs/slimevolley/`, which delegates to the existing `hl_benchmark/slimevolley/` implementation for compatibility. `make check-promotion ENV=<EnvId>` and `make check-promotions` gate promotion readiness.",
+      "requirement": "Extensible multi-environment structure",
+      "status": "Satisfied"
+    },
+    {
+      "evidence": "`experiments/slimevolley/reports/final_report.md` contains setup, seed ranges, opponent protocol, timeline, generation-2 evidence, generation-3 holdout evidence, results, costs, limitations, and conclusion.",
+      "requirement": "Final Markdown report",
+      "status": "Satisfied"
+    }
+  ],
+  "requirements_audit_status_counts": {
+    "Satisfied": 25
+  },
+  "reserved_tuning_splits": [
+    "audit",
+    "holdout"
+  ],
+  "search_best_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/search_best_dev.json",
+  "source_hashes": {
+    "hl_benchmark/artifacts.py": "aa9db0739b1432a8d24f2ceff2af44405fa7362048f4c9056da54f4cdd42c0b6",
+    "hl_benchmark/custom.py": "f1b3117abe1f4264beeeec966b6ec7d02921d082f738fba0bd824b1f2ebc2448",
+    "hl_benchmark/custom_envs/slimevolley/__init__.py": "c63907af4f00af3939b192be7273bfb1bc7685ec7e8319e99c762e0dba86c132",
+    "hl_benchmark/custom_envs/slimevolley/adapter.py": "512c80c9cf1d80b673bff52f747b4cb68fb39479cdde68c88db8de6d83a3ab01",
+    "hl_benchmark/custom_envs/slimevolley/audit.py": "1d4993feb95a3687776146c9fa3708d85e8f34b025e0ed6ec54cf92a256a4a94",
+    "hl_benchmark/custom_envs/slimevolley/contact_diagnostics.py": "e3a9d66422a10429a4c0a3590f5641d5adade942d401a10f3065cb0a32effdf1",
+    "hl_benchmark/custom_envs/slimevolley/doctor.py": "740f005b30ba132c7fceafd2d770867c0a43bbbceba62329ac15c60e9fac5cbc",
+    "hl_benchmark/custom_envs/slimevolley/evaluate.py": "d0225a66bb0e256253508974b54c5fd36af32bbf59a7c0b260f32504a68659f7",
+    "hl_benchmark/custom_envs/slimevolley/final_eval.py": "4a0ba5116c4d1e82946b324baca28f93003a97ea9585f8acde23bccde3c142e0",
+    "hl_benchmark/custom_envs/slimevolley/generation_report.py": "b0b191def4cdf8e49648ff2898cb36259a7542609c948494502cfa1ce2af25e2",
+    "hl_benchmark/custom_envs/slimevolley/performance_report.py": "d4d04bfd31de8995d251094a218104ce7f395a7ec0fa426b92a998eee850e408",
+    "hl_benchmark/custom_envs/slimevolley/protocol.py": "82344819e9660ac51402406da8e623a4752049b0c9f09be0d0b13df43a03ed6a",
+    "hl_benchmark/custom_envs/slimevolley/report.py": "02aa0a8b098e0da94579785af7ad55e07a46292ef69246891a12055a16430e61",
+    "hl_benchmark/custom_envs/slimevolley/search.py": "e117ae711636bbe28043b89e9528c7e47e7b8c11db69c2a4c63bb68c8e561850",
+    "hl_benchmark/custom_envs/slimevolley/summarize.py": "b85a6189e0cc0c728d102d3ec5778808a2cac9c5d92b8c3c221c56fd7d527063",
+    "hl_benchmark/custom_envs/slimevolley/tournament.py": "b0e345b4ad434a9225e09cb3d9a6267e99bac18fc07990a9c0e1aeb758eb7ad5",
+    "hl_benchmark/environments/__init__.py": "4e67ec3d11512164ae0290bcdf39e9a85b13a5a03a6133b71866435a4cf1789c",
+    "hl_benchmark/environments/base.py": "77076b2f1ade040906a1f204626bd7f2a28a49428e9ba6ee1ca4f18a232a0d92",
+    "hl_benchmark/environments/slimevolley.py": "77d404732720d7aee3caaa0e3ba17df35ac869df975279c636c6adc4e9498341",
+    "hl_benchmark/envs.py": "fb295e12a2999aa678db3980bf6df2ee4881cb59f783e026b4e48ee4be92284a",
+    "hl_benchmark/ledger.py": "875b306e9f0071a96cb06ae6b00ea938e277e1d26924035b2ab36ed5c6edbdfd",
+    "hl_benchmark/policies/base.py": "dcd8adf3985597db1702f4e8282cb1e35c7e556151c048a6e1a48a28edc2ce57",
+    "hl_benchmark/policies/factory.py": "a0b076a5c9a3fc3d0e335e2a1d80c84046b6fa2177fe32b8bed90b0de20127f8",
+    "hl_benchmark/policies/slimevolley.py": "f121762f7a8be175bde3c7918db45c4aabd0e29d7c97aefb97375b75fef15c90",
+    "hl_benchmark/registry.py": "da8c9df568cacaceb08bf5cc5b0047b1334153386690c71afd3fd0b64ff048e8",
+    "hl_benchmark/slimevolley/adapter.py": "4b0f06fb2ff73463c5c657238f35d65be38735c95643f5d2819824a66b2fbe82",
+    "hl_benchmark/slimevolley/amendments.py": "6fda55d73978a8e1a9a535e1099f9f2ecc927f7f164c8ee8a46b357a196ac460",
+    "hl_benchmark/slimevolley/audit.py": "f24249afd98e11cf185696de819b922822e4621c23ebeb153b8660682725a6cd",
+    "hl_benchmark/slimevolley/contact_diagnostics.py": "626206bdb4ff1bd8ee9ea5ef5ff4fbcf83170c1ba0a2289d0811ca29425b04ed",
+    "hl_benchmark/slimevolley/doctor.py": "ced9ad9a483c117609140c7dc84421182e71433059cb4e1f611d60c527e12b1b",
+    "hl_benchmark/slimevolley/evaluate.py": "d655674bd8069c709d4a413234d7aeed8fa0471c3858332ab83e89b8ca90237b",
+    "hl_benchmark/slimevolley/final_eval.py": "6a6885d48565b61b2a2fb2a106444d9b68115fab6d658e28606139a1e52d73ca",
+    "hl_benchmark/slimevolley/generation_report.py": "13e5d54879765ac099881d946d5f0e02c0d2dae67e4333826f111c488650020d",
+    "hl_benchmark/slimevolley/opponents.py": "4da66649b628873f264b62ea620a8dbd2fb57caa1e23bde750e93d1cb0e60ee6",
+    "hl_benchmark/slimevolley/performance_report.py": "a0879d2562791fef3475c2cbd7fdb11593c1aee0fa9129f340bdc833d9f5c6b7",
+    "hl_benchmark/slimevolley/protocol.py": "52d8433b1a12d0c4cf5f36ffdd41f09b5b3bcfd53365eb367c07b2684a5bf634",
+    "hl_benchmark/slimevolley/report.py": "39abb610bbccfc359445a3a213bf594c1385572349c56674503e380c36d39a42",
+    "hl_benchmark/slimevolley/schema.py": "1fedafffbb2e09cffb738060571a564bee9e4954facb3ccc1dbb741d59c245e7",
+    "hl_benchmark/slimevolley/search.py": "712421df7ef4824bf84dcc8ac02e101afe2a9274697c2e9347eedc0b761c68b8",
+    "hl_benchmark/slimevolley/summarize.py": "3922285b669dec711ddf59c7dc74374af6ff5c1ec5f9c45df5a8d640c760c4d2",
+    "hl_benchmark/slimevolley/tournament.py": "d306ab76a9dcd0befaa974317e1e1fab87fed975b760821123236b852aa1daf2"
+  },
+  "split_counts": {
+    "dev": 152,
+    "holdout": 25,
+    "smoke": 9
+  },
+  "summary_content_checked": true,
+  "summary_path": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/summary.csv",
+  "summary_rows": 186,
+  "tests_pass_fail_counts": {
+    "not_recorded": 186
+  },
+  "tournament_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/round_robin_dev.json",
+  "warnings": [
+    "noncanonical change_type values remain append-only: logging/diagnostics, neural/RL baseline",
+    "legacy rows missing tests_pass_fail are covered by append-only amendments: 186"
+  ]
+}

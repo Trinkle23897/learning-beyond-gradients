@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import itertools
 from dataclasses import asdict, dataclass
 from typing import Any, ClassVar
 
 import numpy as np
 
-from .base import BasePolicy
+from .base import BasePolicy, config_from_dict
 
 
 @dataclass(frozen=True)
@@ -107,3 +108,40 @@ class MountainCarPolicy(BasePolicy):
 
     def config(self) -> dict[str, Any]:
         return asdict(self._config) | {"structural_model_based_planner": self._structural}
+
+
+def candidate_configs(*, max_candidates: int = 32) -> list[dict[str, Any]]:
+    """Return scalar-only MountainCar configs for the generic search baseline."""
+
+    candidates: list[dict[str, Any]] = []
+    for goal_commit_position, goal_commit_velocity, coast_velocity_window in itertools.product(
+        [-0.35, -0.20, -0.05, 0.10],
+        [-0.020, -0.012, -0.004, 0.0],
+        [0.0, 0.004],
+    ):
+        candidates.append(
+            {
+                "goal_commit_position": goal_commit_position,
+                "goal_commit_velocity": goal_commit_velocity,
+                "coast_velocity_window": coast_velocity_window,
+            }
+        )
+    return candidates[:max_candidates]
+
+
+SUPPORTED_POLICY_NAMES = ("initial", "improved", "tuned")
+
+
+def make_policy(
+    policy_name: str,
+    *,
+    config: dict[str, Any] | None = None,
+) -> BasePolicy:
+    """Build a MountainCarPolicy from this environment-local policy registry."""
+
+    if policy_name not in SUPPORTED_POLICY_NAMES:
+        raise ValueError(f"unsupported mountain_car policy {policy_name!r}")
+    return MountainCarPolicy(
+        config_from_dict(MountainCarConfig, config),
+        structural=policy_name == "improved",
+    )

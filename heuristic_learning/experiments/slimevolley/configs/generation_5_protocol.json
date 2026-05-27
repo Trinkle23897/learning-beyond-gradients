@@ -1,0 +1,214 @@
+{
+  "commands": {
+    "dev_builtin_trace": "make slimevolley-eval POLICY=rally-serve OPPONENT=builtin SPLIT=dev ARGS=\"--ledger experiments/slimevolley/results/generation_5_trials.jsonl --summary experiments/slimevolley/results/generation_5_summary.csv --seed-start 12000 --episodes 50 --trace-window 8 --tests-run 'python3 -m pytest tests/test_slimevolley_optional.py' --tests-pass-fail pass\"",
+    "development_rnn_comparator": "make slimevolley-eval POLICY=baseline-rnn OPPONENT=builtin SPLIT=dev ARGS=\"--ledger experiments/slimevolley/results/generation_5_trials.jsonl --summary experiments/slimevolley/results/generation_5_summary.csv --seed-start 12000 --episodes 50 --trace-window 8 --tests-run 'python3 -m pytest tests/test_slimevolley_optional.py' --tests-pass-fail pass\"",
+    "development_tournament": "make slimevolley-tournament SPLIT=dev ARGS=\"--ledger experiments/slimevolley/results/generation_5_trials.jsonl --summary experiments/slimevolley/results/generation_5_summary.csv --output experiments/slimevolley/results/round_robin_g5_dev.json --seed-start 12000 --episodes 50\"",
+    "final_holdout_once": "make slimevolley-final-eval ARGS=\"--policies random initial improved improved-tuned attack rally-serve net-pressure baseline-rnn --ledger experiments/slimevolley/results/generation_5_trials.jsonl --summary experiments/slimevolley/results/generation_5_summary.csv --output experiments/slimevolley/results/holdout_g5_final.json --best-config experiments/slimevolley/results/search_best_g5_dev.json --seed-start 13000 --episodes 50 --tests-run 'python3 -m pytest tests/test_slimevolley_optional.py' --tests-pass-fail pass\"",
+    "regenerate_protocol": "make slimevolley-generation5-protocol",
+    "scalar_search": "make slimevolley-search MAX_CANDIDATES=16 ARGS=\"--ledger experiments/slimevolley/results/generation_5_trials.jsonl --summary experiments/slimevolley/results/generation_5_summary.csv --output experiments/slimevolley/results/search_best_g5_dev.json --seed-start 12000 --episodes 50 --opponents builtin random initial improved-v0 improved-v2 improved-v3 improved-v5 improved-v6\"",
+    "verification_before_edits": "make slimevolley-verify"
+  },
+  "created_by": "hl_benchmark.custom_envs.slimevolley.protocol",
+  "diagnosis_targets": [
+    "fresh post-generation-4 built-in opponent gap on development seeds without using consumed holdout outcomes for tuning",
+    "whether `rally-serve` relies on draws rather than wins under new development seeds",
+    "serve/return timing, high-arc defense, and low-ball contact timing from generation-5 traces",
+    "robustness against archived heuristic opponents including improved-v4, improved-v5, improved-v6, attack, and rally-serve",
+    "candidate exploitability versus the packaged `baseline-rnn` comparator before any holdout use"
+  ],
+  "environment": "SlimeVolley-v0",
+  "generation_5": {
+    "artifacts": {
+      "holdout": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_g5_final.json",
+      "round_robin": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/round_robin_g5_dev.json",
+      "search_best": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/search_best_g5_dev.json"
+    },
+    "development_opponents": [
+      "builtin",
+      "random",
+      "initial",
+      "improved-v0",
+      "improved-v1",
+      "improved-v2",
+      "improved",
+      "improved-v3",
+      "improved-v4",
+      "improved-v5",
+      "improved-v6",
+      "improved-tuned",
+      "attack",
+      "rally-serve",
+      "temporal",
+      "planner",
+      "teacher-assisted",
+      "net-pressure"
+    ],
+    "holdout_opponents": [
+      "builtin",
+      "random",
+      "initial",
+      "improved-v0",
+      "improved-v2",
+      "improved-v3",
+      "improved-v4",
+      "improved-v5",
+      "improved-v6"
+    ],
+    "id": "slimevolley-g5",
+    "ledger": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_5_trials.jsonl",
+    "policies": [
+      "random",
+      "initial",
+      "tuned",
+      "improved",
+      "baseline-rnn",
+      "improved-v4",
+      "improved-v5",
+      "improved-v6",
+      "improved-tuned",
+      "attack",
+      "rally-serve",
+      "temporal",
+      "planner",
+      "teacher-assisted",
+      "net-pressure"
+    ],
+    "policy_start": "rally-serve",
+    "scalar_search_opponents": [
+      "builtin",
+      "random",
+      "initial",
+      "improved-v0",
+      "improved-v2",
+      "improved-v3",
+      "improved-v4",
+      "improved-v5",
+      "improved-v6"
+    ],
+    "seed_splits": {
+      "audit": {
+        "episodes": 50,
+        "label": "14000..14049",
+        "purpose": "reserved independent audit seeds, not available for tuning",
+        "start": 14000,
+        "stop_exclusive": 14050
+      },
+      "dev": {
+        "episodes": 50,
+        "label": "12000..12049",
+        "purpose": "fresh post-generation-4 diagnosis, structural policy iteration, scalar search, and tournament development evidence",
+        "start": 12000,
+        "stop_exclusive": 12050
+      },
+      "holdout": {
+        "episodes": 50,
+        "label": "13000..13049",
+        "purpose": "final-only generation-5 evaluation after policies and scalar configs are frozen",
+        "start": 13000,
+        "stop_exclusive": 13050
+      },
+      "smoke": {
+        "episodes": 2,
+        "label": "12000..12001",
+        "purpose": "dependency and command smoke checks only",
+        "start": 12000,
+        "stop_exclusive": 12002
+      }
+    },
+    "summary": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_5_summary.csv"
+  },
+  "guardrails": [
+    "Use the generation-5 ledger and summary paths for all generation-5 evidence; do not append generation-5 rows to earlier ledgers.",
+    "Use generation-5 development seeds for diagnosis, structural edits, scalar search, and tournaments.",
+    "Do not inspect generation-5 holdout seeds until the policy code, scalar config, opponent pool, and tests are frozen.",
+    "Do not use generation-1, generation-2, generation-3, or generation-4 holdout results as tuning feedback; treat them only as historical final evidence.",
+    "Do not use generation-4 audit seeds for tuning; they remain reserved even though generation-4 holdout has been consumed.",
+    "Record tests_run, tests_pass_fail, agent_iterations, code_edits, and failure_analysis on every generation-5 ledger-producing run.",
+    "Any candidate that beats `baseline-rnn` on built-in development seeds must also pass the fixed development opponent pool before any generation-5 holdout use."
+  ],
+  "prior_generations": [
+    {
+      "audit_seeds": {
+        "episodes": 50,
+        "label": "2000..2049",
+        "start": 2000,
+        "stop_exclusive": 2050
+      },
+      "holdout_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_final.json",
+      "holdout_seeds": {
+        "episodes": 50,
+        "label": "1000..1049",
+        "start": 1000,
+        "stop_exclusive": 1050
+      },
+      "id": "slimevolley-g1",
+      "ledger": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/trials.jsonl",
+      "rule": "Generation-1 holdout is already opened; do not tune, debug, or select policies on those seeds.",
+      "summary": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/summary.csv"
+    },
+    {
+      "audit_seeds": {
+        "episodes": 50,
+        "label": "5000..5049",
+        "start": 5000,
+        "stop_exclusive": 5050
+      },
+      "holdout_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_g2_final.json",
+      "holdout_seeds": {
+        "episodes": 50,
+        "label": "4000..4049",
+        "start": 4000,
+        "stop_exclusive": 4050
+      },
+      "id": "slimevolley-g2",
+      "ledger": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_2_trials.jsonl",
+      "rule": "Generation-2 holdout is already opened; do not tune, debug, or select policies on those seeds.",
+      "summary": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_2_summary.csv"
+    },
+    {
+      "audit_seeds": {
+        "episodes": 50,
+        "label": "8000..8049",
+        "start": 8000,
+        "stop_exclusive": 8050
+      },
+      "holdout_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_g3_final.json",
+      "holdout_seeds": {
+        "episodes": 50,
+        "label": "7000..7049",
+        "start": 7000,
+        "stop_exclusive": 7050
+      },
+      "id": "slimevolley-g3",
+      "ledger": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_3_trials.jsonl",
+      "rule": "Generation-3 holdout is already opened; do not tune, debug, or select policies on those seeds.",
+      "summary": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_3_summary.csv"
+    },
+    {
+      "audit_seeds": {
+        "episodes": 50,
+        "label": "11000..11049",
+        "start": 11000,
+        "stop_exclusive": 11050
+      },
+      "holdout_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_g4_final.json",
+      "holdout_seeds": {
+        "episodes": 50,
+        "label": "10000..10049",
+        "start": 10000,
+        "stop_exclusive": 10050
+      },
+      "id": "slimevolley-g4",
+      "ledger": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_4_trials.jsonl",
+      "rule": "Generation-4 holdout is already opened; do not tune, debug, or select policies on those seeds. Generation-4 audit seeds remain reserved and unavailable for tuning.",
+      "summary": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_4_summary.csv"
+    }
+  ],
+  "promotion_checks": [
+    "make verify",
+    "make slimevolley-verify",
+    "python3 -m hl_benchmark.custom_envs.slimevolley.audit --format json"
+  ],
+  "protocol_id": "slimevolley-g5",
+  "status": "predeclared-not-run"
+}

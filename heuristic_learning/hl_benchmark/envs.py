@@ -1,12 +1,27 @@
-"""Environment registry and runtime discovery for the benchmark."""
+"""Environment registry and runtime discovery for the benchmark.
+
+The public API in this module is intentionally stable because evaluation,
+search, reports, and older reproducibility notes import it directly. Static
+environment metadata now lives in per-environment modules under
+``hl_benchmark.environments`` so adding a new environment does not require
+editing a large central spec table.
+"""
 
 from __future__ import annotations
 
 import importlib.metadata as metadata
 import platform
 import sys
-from dataclasses import dataclass
 from typing import Any
+
+from .environments import (
+    active_env_specs,
+    custom_active_env_specs,
+    known_env_specs,
+    planned_env_specs,
+    registration_for,
+)
+from .environments.base import EnvSpec
 
 
 SEED_SPLITS: dict[str, range] = {
@@ -17,103 +32,16 @@ SEED_SPLITS: dict[str, range] = {
 }
 
 
-@dataclass(frozen=True)
-class EnvSpec:
-    """Static benchmark metadata for one environment."""
-
-    env_id: str
-    category: str
-    observation_summary: str
-    action_summary: str
-    reward_interpretation: str
-    episode_length: int
-    success_target: float
-    initial_policy: str
-    known_failure_modes: tuple[str, ...]
-    docs_url: str
-
-
-ENV_SPECS: dict[str, EnvSpec] = {
-    "CartPole-v1": EnvSpec(
-        env_id="CartPole-v1",
-        category="classic_control",
-        observation_summary="4 floats: cart position/velocity and pole angle/angular velocity.",
-        action_summary="Discrete left/right cart push.",
-        reward_interpretation="Reward +1 per step while the pole remains balanced.",
-        episode_length=500,
-        success_target=475.0,
-        initial_policy="Linear sign controller on pole angle and angular velocity.",
-        known_failure_modes=(
-            "Cart drifts to the track edge while pole is locally stable.",
-            "Large angular velocity cannot be recovered by the simple sign rule.",
-        ),
-        docs_url="https://gymnasium.farama.org/environments/classic_control/cart_pole/",
-    ),
-    "MountainCar-v0": EnvSpec(
-        env_id="MountainCar-v0",
-        category="classic_control",
-        observation_summary="2 floats: position and velocity.",
-        action_summary="Discrete push left, no push, or push right.",
-        reward_interpretation="Reward -1 per step until the car reaches the goal.",
-        episode_length=200,
-        success_target=-110.0,
-        initial_policy="Energy pumping by pushing in the direction of velocity.",
-        known_failure_modes=(
-            "Wastes momentum near the left wall.",
-            "Can reverse too early near the goal approach.",
-        ),
-        docs_url="https://gymnasium.farama.org/environments/classic_control/mountain_car/",
-    ),
-    "Acrobot-v1": EnvSpec(
-        env_id="Acrobot-v1",
-        category="classic_control",
-        observation_summary="Cos/sin joint angles plus two joint angular velocities.",
-        action_summary="Discrete negative, zero, or positive joint torque.",
-        reward_interpretation="Reward -1 per step until the free end reaches the target height.",
-        episode_length=500,
-        success_target=-100.0,
-        initial_policy="Swing-up torque rule based on link phase and angular velocity.",
-        known_failure_modes=(
-            "Pumps energy out of phase near the upright region.",
-            "Cannot stabilize the final swing if both joints reverse at the wrong time.",
-        ),
-        docs_url="https://gymnasium.farama.org/environments/classic_control/acrobot/",
-    ),
-    "LunarLander-v3": EnvSpec(
-        env_id="LunarLander-v3",
-        category="box2d",
-        observation_summary="8 floats: position, velocity, angle, angular velocity, and leg contacts.",
-        action_summary="Discrete no-op, left engine, main engine, or right engine.",
-        reward_interpretation="Dense shaping for safe centered landing, fuel penalty, crash/landing terminal rewards.",
-        episode_length=1000,
-        success_target=200.0,
-        initial_policy="PD-style hover and angle controller.",
-        known_failure_modes=(
-            "Burns fuel while correcting lateral error late in descent.",
-            "Over-rotates when one leg contacts before the other.",
-        ),
-        docs_url="https://gymnasium.farama.org/environments/box2d/lunar_lander/",
-    ),
-    "BipedalWalker-v3": EnvSpec(
-        env_id="BipedalWalker-v3",
-        category="box2d",
-        observation_summary="Hull state, joint states, leg contact flags, and lidar fractions.",
-        action_summary="4 continuous motor commands for hips and knees.",
-        reward_interpretation="Forward progress minus torque cost, with large penalty for falling.",
-        episode_length=1600,
-        success_target=300.0,
-        initial_policy="Open-loop alternating gait with hull stabilization.",
-        known_failure_modes=(
-            "Falls after phase drift because the open-loop gait ignores foot contact.",
-            "Trips when hull pitch exceeds the controller's recoverable range.",
-        ),
-        docs_url="https://gymnasium.farama.org/environments/box2d/bipedal_walker/",
-    ),
-}
+ENV_SPECS: dict[str, EnvSpec] = active_env_specs()
+CUSTOM_ENV_SPECS: dict[str, EnvSpec] = custom_active_env_specs()
+PLANNED_ENV_SPECS: dict[str, EnvSpec] = planned_env_specs()
+KNOWN_ENV_SPECS: dict[str, EnvSpec] = known_env_specs()
 
 
 OPTIONAL_SUBSTITUTIONS: dict[str, tuple[str, ...]] = {
-    "BipedalWalker-v3": ("CarRacing-v3",),
+    registration.spec.env_id: registration.optional_substitutions
+    for registration in (registration_for(env_id) for env_id in ENV_SPECS)
+    if registration.optional_substitutions
 }
 
 
@@ -133,17 +61,29 @@ def get_seeds(split: str, *, seed_start: int | None = None, episodes: int | None
 
 
 def benchmark_env_ids() -> list[str]:
-    """Return the canonical benchmark order."""
+    """Return the canonical active benchmark order."""
 
     return list(ENV_SPECS)
 
 
-def spec_for(env_id: str) -> EnvSpec:
-    """Return metadata for a registered environment."""
+def custom_env_ids() -> list[str]:
+    """Return environments with runnable custom harnesses outside eval-all."""
 
-    if env_id not in ENV_SPECS:
+    return list(CUSTOM_ENV_SPECS)
+
+
+def planned_env_ids() -> list[str]:
+    """Return registered environments that are scaffolded but not runnable."""
+
+    return list(PLANNED_ENV_SPECS)
+
+
+def spec_for(env_id: str) -> EnvSpec:
+    """Return metadata for any known registered environment."""
+
+    if env_id not in KNOWN_ENV_SPECS:
         raise KeyError(f"unregistered environment: {env_id}")
-    return ENV_SPECS[env_id]
+    return KNOWN_ENV_SPECS[env_id]
 
 
 def import_gymnasium() -> Any:
@@ -160,7 +100,7 @@ def import_gymnasium() -> Any:
 
 
 def make_env(env_id: str) -> Any:
-    """Create a Gymnasium environment from the registry."""
+    """Create a Gymnasium environment from the registry or a compatible env id."""
 
     gym = import_gymnasium()
     return gym.make(env_id)
@@ -192,6 +132,9 @@ def discover_runtime_metadata() -> dict[str, Any]:
         "pytest",
         "stable-baselines3",
         "torch",
+        "gym",
+        "opencv-python",
+        "slimevolleygym",
     ]
     versions: dict[str, str] = {}
     for package_name in package_names:
@@ -204,4 +147,3 @@ def discover_runtime_metadata() -> dict[str, Any]:
         "platform": platform.platform(),
         "packages": versions,
     }
-

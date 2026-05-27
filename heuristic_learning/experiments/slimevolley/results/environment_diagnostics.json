@@ -1,0 +1,45 @@
+{
+  "action_space": "MultiBinary(3)",
+  "environment_id": "SlimeVolley-v0",
+  "expected_action_space": "MultiBinary(3)",
+  "expected_observation_space": "Box(12)",
+  "expected_step_api": "legacy Gym: obs, reward, done, info; multi-agent step(action, otherAction)",
+  "has_multiagent_other_action": true,
+  "has_seed_method": true,
+  "max_episode_steps": 3000,
+  "message": "available",
+  "multiagent_step_api_observed": "legacy-4-tuple",
+  "observation_space": "Box([-3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38 -3.403e+38], [3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38 3.403e+38], (12,), float32)",
+  "observed_step_api": "legacy-4-tuple",
+  "packages": {
+    "gym": "0.20.0",
+    "numpy": "1.26.4",
+    "opencv-python": "4.11.0.86",
+    "slimevolleygym": "0.1.0"
+  },
+  "reward_semantics": "+1 when opponent loses a life, -1 when agent loses a life, episode ends at 5 lives or 3000 steps.",
+  "runtime_metadata": {
+    "packages": {
+      "Box2D": "2.3.10",
+      "box2d-py": "not_installed",
+      "gym": "0.20.0",
+      "gymnasium": "1.3.0",
+      "numpy": "1.26.4",
+      "opencv-python": "4.11.0.86",
+      "pandas": "2.3.3",
+      "pygame": "not_installed",
+      "pygame-ce": "2.5.7",
+      "pytest": "9.0.3",
+      "slimevolleygym": "0.1.0",
+      "stable-baselines3": "not_installed",
+      "swig": "4.4.1",
+      "torch": "not_installed"
+    },
+    "platform": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+    "python": "3.10.20 (main, Mar  3 2026, 14:59:16) [Clang 21.1.4 ]"
+  },
+  "same_seed_reset_observation_equal": true,
+  "seed_api_behavior": "env.seed(seed) before reset; reset(seed=seed) if accepted, otherwise reset()",
+  "seed_probe_seed": 12345,
+  "status": "available"
+}

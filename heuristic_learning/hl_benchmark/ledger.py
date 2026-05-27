@@ -149,6 +149,7 @@ def make_trial_entry(
     change_type: str,
     agent_iterations: int = 0,
     code_edits: int = 0,
+    tests_pass_fail: str = "not_recorded",
     per_episode: list[dict[str, Any]] | None = None,
     error: str | None = None,
 ) -> dict[str, Any]:
@@ -178,6 +179,7 @@ def make_trial_entry(
         "environment_steps": environment_steps,
         "wall_clock_seconds": round(float(wall_clock_seconds), 6),
         "tests_run": tests_run,
+        "tests_pass_fail": tests_pass_fail,
         "pass_fail": pass_fail,
         "change_summary": change_summary,
         "failure_analysis": failure_analysis,
@@ -202,15 +204,26 @@ def score_value(entry: dict[str, Any], key: str) -> str:
 def write_summary_csv(
     ledger_path: Path = DEFAULT_LEDGER_PATH,
     summary_path: Path = DEFAULT_SUMMARY_PATH,
+    *,
+    entries: list[dict[str, Any]] | None = None,
 ) -> None:
-    """Regenerate the CSV summary from the append-only ledger."""
+    """Regenerate the CSV summary from ledger entries.
 
-    entries = read_entries(ledger_path)
+    When entries are supplied they are treated as an explicit effective view of
+    the append-only ledger, for example after applying audited metadata
+    amendments that leave original JSONL rows unchanged.
+    """
+
+    if entries is None:
+        entries = read_entries(ledger_path)
     summary_path.parent.mkdir(parents=True, exist_ok=True)
     fieldnames = [
         "timestamp",
         "environment",
         "policy_version",
+        "opponent_name",
+        "opponent_version",
+        "opponent_kind",
         "change_type",
         "split",
         "seed_start",
@@ -221,9 +234,15 @@ def write_summary_csv(
         "median",
         "min",
         "max",
+        "wins",
+        "losses",
+        "draws",
+        "win_rate",
+        "life_difference_mean",
         "environment_steps",
         "wall_clock_seconds",
         "pass_fail",
+        "tests_pass_fail",
         "git_commit",
         "diff_identifier",
         "agent_iterations",
@@ -233,7 +252,7 @@ def write_summary_csv(
         "next_hypothesis",
     ]
     with summary_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for entry in entries:
             seed_range = entry["seed_range"]
@@ -242,6 +261,9 @@ def write_summary_csv(
                     "timestamp": entry["timestamp"],
                     "environment": entry["environment"],
                     "policy_version": entry["policy_version"],
+                    "opponent_name": entry.get("opponent_name", ""),
+                    "opponent_version": entry.get("opponent_version", ""),
+                    "opponent_kind": entry.get("opponent_kind", ""),
                     "change_type": entry["change_type"],
                     "split": seed_range["split"],
                     "seed_start": seed_range["start"],
@@ -252,9 +274,15 @@ def write_summary_csv(
                     "median": score_value(entry, "median"),
                     "min": score_value(entry, "min"),
                     "max": score_value(entry, "max"),
+                    "wins": entry.get("win_loss_draw", {}).get("wins", ""),
+                    "losses": entry.get("win_loss_draw", {}).get("losses", ""),
+                    "draws": entry.get("win_loss_draw", {}).get("draws", ""),
+                    "win_rate": entry.get("win_loss_draw", {}).get("win_rate", ""),
+                    "life_difference_mean": entry.get("life_difference_stats", {}).get("mean", ""),
                     "environment_steps": entry["environment_steps"],
                     "wall_clock_seconds": entry["wall_clock_seconds"],
                     "pass_fail": entry["pass_fail"],
+                    "tests_pass_fail": entry.get("tests_pass_fail", "legacy_missing"),
                     "git_commit": entry["git_commit"],
                     "diff_identifier": entry["diff_identifier"],
                     "agent_iterations": entry["agent_iterations"],

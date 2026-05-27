@@ -10,6 +10,7 @@ from typing import Any
 
 import numpy as np
 
+from .artifacts import env_ledger_path, env_summary_path
 from .envs import benchmark_env_ids, get_seeds, make_env
 from .ledger import (
     DEFAULT_LEDGER_PATH,
@@ -22,6 +23,26 @@ from .policies import make_policy
 
 
 DEFAULT_POLICIES = ["random", "initial", "improved"]
+
+
+def resolve_evaluation_paths(
+    *,
+    env_id: str,
+    ledger_path: Path | None,
+    summary_path: Path | None,
+    env_artifacts: bool = False,
+) -> tuple[Path, Path]:
+    """Return ledger and summary paths for a generic evaluation command."""
+
+    if env_artifacts:
+        return (
+            ledger_path or env_ledger_path(env_id),
+            summary_path or env_summary_path(env_id),
+        )
+    return (
+        ledger_path or DEFAULT_LEDGER_PATH,
+        summary_path or DEFAULT_SUMMARY_PATH,
+    )
 
 
 def _load_config(config_json: str | None) -> dict[str, Any] | None:
@@ -185,8 +206,13 @@ def main() -> None:
     parser.add_argument("--episodes", type=int, default=None, help="truncate the selected split")
     parser.add_argument("--seed-start", type=int, default=None, help="explicit seed range start")
     parser.add_argument("--config-json", default=None, help="JSON object or JSON file path")
-    parser.add_argument("--ledger", type=Path, default=DEFAULT_LEDGER_PATH)
-    parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY_PATH)
+    parser.add_argument("--ledger", type=Path, default=None)
+    parser.add_argument("--summary", type=Path, default=None)
+    parser.add_argument(
+        "--env-artifacts",
+        action="store_true",
+        help="Write a single-env run to experiments/<env_slug>/results/ instead of the legacy aggregate results/ ledger.",
+    )
     parser.add_argument("--tests-run", default="", help="comma-separated test/check names")
     parser.add_argument("--change-summary", default="Evaluation run.")
     parser.add_argument("--failure-analysis", default="No failure observed.")
@@ -198,13 +224,21 @@ def main() -> None:
 
     tests_run = [item for item in args.tests_run.split(",") if item]
     if args.all:
+        if args.env_artifacts:
+            parser.error("--env-artifacts is only supported with --env single-env evaluation")
+        ledger_path, summary_path = resolve_evaluation_paths(
+            env_id="aggregate",
+            ledger_path=args.ledger,
+            summary_path=args.summary,
+            env_artifacts=False,
+        )
         evaluate_many(
             env_ids=benchmark_env_ids(),
             policies=args.policies,
             split=args.split,
             episodes=args.episodes,
-            ledger_path=args.ledger,
-            summary_path=args.summary,
+            ledger_path=ledger_path,
+            summary_path=summary_path,
             tests_run=tests_run,
             agent_iterations=args.agent_iterations,
             code_edits=args.code_edits,
@@ -212,6 +246,12 @@ def main() -> None:
         return
     if not args.env_id:
         parser.error("--env is required unless --all is set")
+    ledger_path, summary_path = resolve_evaluation_paths(
+        env_id=args.env_id,
+        ledger_path=args.ledger,
+        summary_path=args.summary,
+        env_artifacts=args.env_artifacts,
+    )
     evaluate_policy(
         env_id=args.env_id,
         policy_name=args.policy,
@@ -219,8 +259,8 @@ def main() -> None:
         seed_start=args.seed_start,
         episodes=args.episodes,
         config=_load_config(args.config_json),
-        ledger_path=args.ledger,
-        summary_path=args.summary,
+        ledger_path=ledger_path,
+        summary_path=summary_path,
         tests_run=tests_run,
         change_summary=args.change_summary,
         failure_analysis=args.failure_analysis,

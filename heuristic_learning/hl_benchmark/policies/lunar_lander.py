@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import itertools
 from dataclasses import asdict, dataclass
 from typing import Any
 
 import numpy as np
 
-from .base import BasePolicy, _clip
+from .base import BasePolicy, _clip, config_from_dict
 
 
 @dataclass(frozen=True)
@@ -77,3 +78,40 @@ class LunarLanderPolicy(BasePolicy):
 
     def config(self) -> dict[str, Any]:
         return asdict(self._config) | {"structural_contact_landing_mode": self._structural}
+
+
+def candidate_configs(*, max_candidates: int = 32) -> list[dict[str, Any]]:
+    """Return scalar-only LunarLander configs for the generic search baseline."""
+
+    candidates: list[dict[str, Any]] = []
+    for angle_vx_gain, hover_y_gain, engine_deadband in itertools.product(
+        [0.70, 1.00, 1.30, 1.60],
+        [0.35, 0.50, 0.70, 0.90],
+        [0.03, 0.05],
+    ):
+        candidates.append(
+            {
+                "angle_vx_gain": angle_vx_gain,
+                "hover_y_gain": hover_y_gain,
+                "engine_deadband": engine_deadband,
+            }
+        )
+    return candidates[:max_candidates]
+
+
+SUPPORTED_POLICY_NAMES = ("initial", "improved", "tuned")
+
+
+def make_policy(
+    policy_name: str,
+    *,
+    config: dict[str, Any] | None = None,
+) -> BasePolicy:
+    """Build a LunarLanderPolicy from this environment-local policy registry."""
+
+    if policy_name not in SUPPORTED_POLICY_NAMES:
+        raise ValueError(f"unsupported lunar_lander policy {policy_name!r}")
+    return LunarLanderPolicy(
+        config_from_dict(LunarLanderConfig, config),
+        structural=policy_name == "improved",
+    )

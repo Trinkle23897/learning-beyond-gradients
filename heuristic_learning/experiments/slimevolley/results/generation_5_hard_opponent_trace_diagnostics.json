@@ -1,0 +1,3990 @@
+{
+  "episodes": 16,
+  "runs": [
+    {
+      "action_counts": {
+        "000": 18394,
+        "001": 2119,
+        "010": 10328,
+        "011": 217,
+        "100": 9998,
+        "101": 1783
+      },
+      "draws": 1,
+      "loss_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.375,
+            0.258,
+            -1.1
+          ],
+          "ball": [
+            0.122,
+            0.232,
+            -1.966,
+            -1.094
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 1045
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.908,
+            0.275,
+            1.154
+          ],
+          "ball": [
+            0.516,
+            0.22,
+            -1.797,
+            -1.353
+          ],
+          "bucket": "leftward_low_own_side",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12003,
+          "step": 2432
+        },
+        {
+          "action": "000",
+          "agent": [
+            0.258,
+            0.396,
+            0.762
+          ],
+          "ball": [
+            0.158,
+            0.217,
+            1.427,
+            -1.899
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12005,
+          "step": 713
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.258,
+            0.371,
+            0.86
+          ],
+          "ball": [
+            0.131,
+            0.205,
+            0.548,
+            -2.615
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12010,
+          "step": 1226
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.267,
+            0.371,
+            0.86
+          ],
+          "ball": [
+            0.112,
+            0.242,
+            -0.484,
+            -3.142
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "intercept",
+            "intercept",
+            "low_ball_rescue",
+            "late_contact_attack"
+          ],
+          "mode": "late_contact_attack",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12013,
+          "step": 288
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.492,
+            0.385,
+            -0.708
+          ],
+          "ball": [
+            0.251,
+            0.209,
+            -1.833,
+            -1.304
+          ],
+          "bucket": "leftward_low_own_side",
+          "last_modes": [
+            "low_ball_rescue",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12013,
+          "step": 2057
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.258,
+            0.396,
+            0.762
+          ],
+          "ball": [
+            0.1,
+            0.22,
+            0.618,
+            -2.163
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "intercept",
+            "intercept",
+            "intercept",
+            "late_contact_attack",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12014,
+          "step": 1131
+        }
+      ],
+      "losses": 1,
+      "mean": 2.875,
+      "opponent": "improved-v3",
+      "per_seed": [
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12000,
+          "steps": 2566
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12002,
+          "steps": 3000
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12003,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12006,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12007,
+          "steps": 1596
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12008,
+          "steps": 2990
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12009,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12010,
+          "steps": 1460
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12011,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12012,
+          "steps": 1514
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12013,
+          "steps": 2999
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12014,
+          "steps": 2714
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12015,
+          "steps": 3000
+        }
+      ],
+      "point_counts": {
+        "point_lost": 7,
+        "point_won": 53
+      },
+      "policy": "net-pressure",
+      "steps": 42839,
+      "terminal_actions": {
+        "point_lost:000": 1,
+        "point_lost:100": 3,
+        "point_lost:101": 3,
+        "point_won:000": 6,
+        "point_won:010": 18,
+        "point_won:100": 29
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 5,
+        "point_lost:leftward_low_own_side": 2,
+        "point_won:front_net_low": 53
+      },
+      "terminal_modes": {
+        "point_lost:grounded_low_receive": 4,
+        "point_lost:late_contact_attack": 1,
+        "point_lost:low_ball_rescue": 2,
+        "point_won:intercept": 34,
+        "point_won:recovery": 19
+      },
+      "trace_mode_counts": {
+        "point_lost:falling_floor_intercept": 6,
+        "point_lost:grounded_low_receive": 4,
+        "point_lost:intercept": 49,
+        "point_lost:late_contact_attack": 16,
+        "point_lost:low_ball_rescue": 36,
+        "point_lost:recovery": 1,
+        "point_won:falling_floor_intercept": 5,
+        "point_won:intercept": 362,
+        "point_won:late_contact_attack": 4,
+        "point_won:low_ball_rescue": 1,
+        "point_won:net_pressure": 15,
+        "point_won:recovery": 461
+      },
+      "win_examples": [
+        {
+          "action": "010",
+          "agent": [
+            0.667,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -1.01,
+            0.228,
+            -1.693,
+            -1.482
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 940
+        },
+        {
+          "action": "010",
+          "agent": [
+            1.017,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -1.813,
+            0.215,
+            -1.873,
+            -1.246
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1560
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.492,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            -0.1,
+            0.216,
+            -2.093,
+            -0.827
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1851
+        },
+        {
+          "action": "100",
+          "agent": [
+            1.075,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -2.246,
+            0.25,
+            1.534,
+            -1.646
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2414
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.9,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -2.122,
+            0.203,
+            1.276,
+            -1.853
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2565
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.958,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -2.121,
+            0.247,
+            1.643,
+            -1.538
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 954
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.492,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -0.846,
+            0.206,
+            1.831,
+            -1.307
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "101",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 2921
+        },
+        {
+          "action": "100",
+          "agent": [
+            1.017,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -2.231,
+            0.216,
+            1.761,
+            -1.4
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 1392
+        }
+      ],
+      "wins": 14
+    },
+    {
+      "action_counts": {
+        "000": 376,
+        "001": 2369,
+        "010": 3202,
+        "011": 203,
+        "100": 2068,
+        "101": 14259,
+        "110": 11401,
+        "111": 598
+      },
+      "draws": 0,
+      "loss_examples": [
+        {
+          "action": "001",
+          "agent": [
+            0.2,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            0.1,
+            0.271,
+            0.003,
+            -3.231
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12000,
+          "step": 671
+        },
+        {
+          "action": "010",
+          "agent": [
+            2.067,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            2.321,
+            0.213,
+            1.915,
+            -1.181
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 2134
+        },
+        {
+          "action": "010",
+          "agent": [
+            2.125,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            2.346,
+            0.208,
+            1.902,
+            -1.203
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12004,
+          "step": 2075
+        },
+        {
+          "action": "001",
+          "agent": [
+            0.317,
+            0.396,
+            0.762
+          ],
+          "ball": [
+            0.1,
+            0.229,
+            2.045,
+            -0.939
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12004,
+          "step": 2232
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.325,
+            0.342,
+            0.958
+          ],
+          "ball": [
+            0.106,
+            0.225,
+            0.172,
+            -2.243
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12007,
+          "step": 737
+        },
+        {
+          "action": "101",
+          "agent": [
+            1.842,
+            0.482,
+            -0.022
+          ],
+          "ball": [
+            2.146,
+            0.207,
+            -1.525,
+            -1.149
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12010,
+          "step": 297
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.317,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            0.189,
+            0.229,
+            1.073,
+            -1.796
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12015,
+          "step": 1506
+        }
+      ],
+      "losses": 0,
+      "mean": 4.1875,
+      "opponent": "improved-v3",
+      "per_seed": [
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12000,
+          "steps": 2188
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12002,
+          "steps": 2328
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12003,
+          "steps": 2483
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12006,
+          "steps": 1781
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12007,
+          "steps": 1493
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12008,
+          "steps": 1432
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12009,
+          "steps": 1400
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12010,
+          "steps": 1952
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12011,
+          "steps": 1851
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12012,
+          "steps": 1484
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12013,
+          "steps": 2896
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12014,
+          "steps": 1774
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12015,
+          "steps": 2414
+        }
+      ],
+      "point_counts": {
+        "point_lost": 7,
+        "point_won": 74
+      },
+      "policy": "baseline-rnn",
+      "steps": 34476,
+      "terminal_actions": {
+        "point_lost:001": 2,
+        "point_lost:010": 2,
+        "point_lost:101": 3,
+        "point_won:101": 73,
+        "point_won:111": 1
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 4,
+        "point_lost:rear_low": 3,
+        "point_won:front_net_low": 74
+      },
+      "terminal_modes": {
+        "point_lost:none": 7,
+        "point_won:none": 74
+      },
+      "trace_mode_counts": {},
+      "win_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.218,
+            -1.198
+          ],
+          "ball": [
+            -1.803,
+            0.24,
+            -1.847,
+            -1.285
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "011",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 393
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.46,
+            -0.316
+          ],
+          "ball": [
+            -0.092,
+            0.246,
+            0.169,
+            -2.244
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1476
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            -2.093,
+            0.237,
+            1.862,
+            -1.293
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1692
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.258,
+            -1.1
+          ],
+          "ball": [
+            -2.122,
+            0.203,
+            1.276,
+            -1.853
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1843
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.218,
+            -1.198
+          ],
+          "ball": [
+            -2.055,
+            0.2,
+            1.4,
+            -1.762
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2187
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.474,
+            0.272
+          ],
+          "ball": [
+            -2.257,
+            0.238,
+            -1.796,
+            -1.355
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 2021
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.31,
+            1.056
+          ],
+          "ball": [
+            -2.226,
+            0.251,
+            -0.619,
+            -2.163
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 2611
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.419,
+            0.664
+          ],
+          "ball": [
+            -2.019,
+            0.237,
+            1.9,
+            -1.205
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 617
+        }
+      ],
+      "wins": 16
+    },
+    {
+      "action_counts": {
+        "000": 18672,
+        "001": 2103,
+        "010": 10221,
+        "011": 215,
+        "100": 9883,
+        "101": 1673
+      },
+      "draws": 3,
+      "loss_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.375,
+            0.258,
+            -1.1
+          ],
+          "ball": [
+            0.122,
+            0.232,
+            -1.966,
+            -1.094
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 1301
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.908,
+            0.275,
+            1.154
+          ],
+          "ball": [
+            0.516,
+            0.22,
+            -1.797,
+            -1.353
+          ],
+          "bucket": "leftward_low_own_side",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12003,
+          "step": 2613
+        },
+        {
+          "action": "000",
+          "agent": [
+            0.258,
+            0.396,
+            0.762
+          ],
+          "ball": [
+            0.158,
+            0.217,
+            1.427,
+            -1.899
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12005,
+          "step": 713
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.258,
+            0.342,
+            0.958
+          ],
+          "ball": [
+            0.1,
+            0.247,
+            -0.321,
+            -1.775
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "falling_floor_intercept",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "intercept",
+            "low_ball_rescue",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12006,
+          "step": 1383
+        },
+        {
+          "action": "101",
+          "agent": [
+            2.192,
+            0.471,
+            -0.218
+          ],
+          "ball": [
+            2.293,
+            0.218,
+            -0.833,
+            -2.09
+          ],
+          "bucket": "rear_low",
+          "last_modes": [
+            "falling_floor_intercept",
+            "falling_floor_intercept",
+            "rear_wall_press",
+            "rear_wall_press",
+            "rear_wall_press",
+            "rear_wall_press",
+            "rear_wall_low_jump",
+            "rear_wall_low_jump"
+          ],
+          "mode": "rear_wall_low_jump",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12008,
+          "step": 2393
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.258,
+            0.371,
+            0.86
+          ],
+          "ball": [
+            0.131,
+            0.205,
+            0.548,
+            -2.615
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12010,
+          "step": 1311
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.267,
+            0.371,
+            0.86
+          ],
+          "ball": [
+            0.112,
+            0.242,
+            -0.484,
+            -3.142
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "intercept",
+            "intercept",
+            "low_ball_rescue",
+            "late_contact_attack"
+          ],
+          "mode": "late_contact_attack",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12013,
+          "step": 288
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.433,
+            0.237,
+            1.252
+          ],
+          "ball": [
+            0.132,
+            0.267,
+            0.639,
+            -2.157
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12014,
+          "step": 1684
+        }
+      ],
+      "losses": 1,
+      "mean": 2.4375,
+      "opponent": "improved-v4",
+      "per_seed": [
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12000,
+          "steps": 3000
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12002,
+          "steps": 3000
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12003,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12006,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12007,
+          "steps": 1772
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12008,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12009,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12010,
+          "steps": 1545
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12011,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12012,
+          "steps": 2308
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12013,
+          "steps": 1342
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12014,
+          "steps": 2800
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12015,
+          "steps": 3000
+        }
+      ],
+      "point_counts": {
+        "point_lost": 8,
+        "point_won": 47
+      },
+      "policy": "net-pressure",
+      "steps": 42767,
+      "terminal_actions": {
+        "point_lost:000": 1,
+        "point_lost:100": 1,
+        "point_lost:101": 6,
+        "point_won:000": 8,
+        "point_won:010": 20,
+        "point_won:100": 19
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 6,
+        "point_lost:leftward_low_own_side": 1,
+        "point_lost:rear_low": 1,
+        "point_won:front_net_low": 47
+      },
+      "terminal_modes": {
+        "point_lost:grounded_low_receive": 2,
+        "point_lost:late_contact_attack": 1,
+        "point_lost:low_ball_rescue": 4,
+        "point_lost:rear_wall_low_jump": 1,
+        "point_won:intercept": 26,
+        "point_won:recovery": 21
+      },
+      "trace_mode_counts": {
+        "point_lost:falling_floor_intercept": 9,
+        "point_lost:grounded_low_receive": 2,
+        "point_lost:intercept": 62,
+        "point_lost:late_contact_attack": 9,
+        "point_lost:low_ball_rescue": 39,
+        "point_lost:rear_wall_low_jump": 2,
+        "point_lost:rear_wall_press": 4,
+        "point_lost:recovery": 1,
+        "point_won:falling_floor_intercept": 3,
+        "point_won:intercept": 349,
+        "point_won:late_contact_attack": 6,
+        "point_won:low_ball_rescue": 2,
+        "point_won:net_pressure": 24,
+        "point_won:recovery": 368
+      },
+      "win_examples": [
+        {
+          "action": "010",
+          "agent": [
+            0.667,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -1.01,
+            0.228,
+            -1.693,
+            -1.482
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 940
+        },
+        {
+          "action": "010",
+          "agent": [
+            1.017,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -1.813,
+            0.215,
+            -1.873,
+            -1.246
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1560
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.492,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            -0.1,
+            0.216,
+            -2.093,
+            -0.827
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1851
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.842,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -0.785,
+            0.21,
+            1.816,
+            -1.329
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 1210
+        },
+        {
+          "action": "000",
+          "agent": [
+            0.55,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -0.1,
+            0.232,
+            1.701,
+            -1.543
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "recovery",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 2027
+        },
+        {
+          "action": "010",
+          "agent": [
+            1.075,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -0.175,
+            0.209,
+            -2.235,
+            -0.258
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "101",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 2274
+        },
+        {
+          "action": "000",
+          "agent": [
+            1.192,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -2.276,
+            0.215,
+            -1.875,
+            -1.244
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 2461
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.375,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -0.319,
+            0.2,
+            1.992,
+            -1.046
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12003,
+          "step": 964
+        }
+      ],
+      "wins": 12
+    },
+    {
+      "action_counts": {
+        "000": 400,
+        "001": 2480,
+        "010": 3517,
+        "011": 212,
+        "100": 2432,
+        "101": 17532,
+        "110": 13147,
+        "111": 752
+      },
+      "draws": 0,
+      "loss_examples": [
+        {
+          "action": "001",
+          "agent": [
+            0.2,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            0.1,
+            0.271,
+            0.003,
+            -3.231
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12000,
+          "step": 671
+        },
+        {
+          "action": "010",
+          "agent": [
+            2.067,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            2.321,
+            0.213,
+            1.915,
+            -1.181
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 2134
+        },
+        {
+          "action": "010",
+          "agent": [
+            2.125,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            2.346,
+            0.208,
+            1.902,
+            -1.203
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12004,
+          "step": 2304
+        },
+        {
+          "action": "001",
+          "agent": [
+            0.317,
+            0.396,
+            0.762
+          ],
+          "ball": [
+            0.1,
+            0.229,
+            2.045,
+            -0.939
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12004,
+          "step": 2461
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.325,
+            0.342,
+            0.958
+          ],
+          "ball": [
+            0.106,
+            0.225,
+            0.172,
+            -2.243
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12007,
+          "step": 737
+        },
+        {
+          "action": "101",
+          "agent": [
+            1.842,
+            0.482,
+            -0.022
+          ],
+          "ball": [
+            2.146,
+            0.207,
+            -1.525,
+            -1.149
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12010,
+          "step": 384
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.317,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            0.189,
+            0.229,
+            1.073,
+            -1.796
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12015,
+          "step": 1506
+        }
+      ],
+      "losses": 0,
+      "mean": 3.75,
+      "opponent": "improved-v4",
+      "per_seed": [
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12000,
+          "steps": 2718
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12002,
+          "steps": 2589
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12003,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12006,
+          "steps": 2232
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12007,
+          "steps": 1808
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12008,
+          "steps": 1416
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12009,
+          "steps": 2431
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12010,
+          "steps": 2039
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12011,
+          "steps": 2872
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12012,
+          "steps": 2100
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12013,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12014,
+          "steps": 2723
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12015,
+          "steps": 2544
+        }
+      ],
+      "point_counts": {
+        "point_lost": 7,
+        "point_won": 67
+      },
+      "policy": "baseline-rnn",
+      "steps": 40472,
+      "terminal_actions": {
+        "point_lost:001": 2,
+        "point_lost:010": 2,
+        "point_lost:101": 3,
+        "point_won:101": 66,
+        "point_won:111": 1
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 4,
+        "point_lost:rear_low": 3,
+        "point_won:front_net_low": 67
+      },
+      "terminal_modes": {
+        "point_lost:none": 7,
+        "point_won:none": 67
+      },
+      "trace_mode_counts": {},
+      "win_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.218,
+            -1.198
+          ],
+          "ball": [
+            -1.803,
+            0.24,
+            -1.847,
+            -1.285
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "011",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 393
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.471,
+            -0.218
+          ],
+          "ball": [
+            -1.369,
+            0.214,
+            1.577,
+            -1.605
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1661
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            -1.936,
+            0.207,
+            -1.841,
+            -1.293
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2226
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.295,
+            -1.002
+          ],
+          "ball": [
+            -2.205,
+            0.204,
+            1.82,
+            -1.323
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2376
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.328,
+            -0.904
+          ],
+          "ball": [
+            -2.313,
+            0.255,
+            1.095,
+            -1.965
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2717
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.474,
+            0.272
+          ],
+          "ball": [
+            -2.257,
+            0.238,
+            -1.796,
+            -1.355
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 2021
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            -1.958,
+            0.254,
+            -1.503,
+            -1.674
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 2728
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.46,
+            -0.316
+          ],
+          "ball": [
+            -1.008,
+            0.228,
+            -1.772,
+            -1.387
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 719
+        }
+      ],
+      "wins": 16
+    },
+    {
+      "action_counts": {
+        "000": 21465,
+        "001": 2598,
+        "010": 10952,
+        "011": 278,
+        "100": 10504,
+        "101": 2203
+      },
+      "draws": 1,
+      "loss_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.375,
+            0.258,
+            -1.1
+          ],
+          "ball": [
+            0.122,
+            0.232,
+            -1.966,
+            -1.094
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 971
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.608,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            0.245,
+            0.231,
+            -1.831,
+            -1.308
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 2392
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.317,
+            0.359,
+            -0.806
+          ],
+          "ball": [
+            0.14,
+            0.249,
+            -2.767,
+            -3.89
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack"
+          ],
+          "mode": "late_contact_attack",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12003,
+          "step": 1119
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.258,
+            0.371,
+            0.86
+          ],
+          "ball": [
+            0.145,
+            0.205,
+            0.978,
+            -2.3
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12015,
+          "step": 1366
+        }
+      ],
+      "losses": 3,
+      "mean": 1.5625,
+      "opponent": "improved-v5",
+      "per_seed": [
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12000,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12002,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12003,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12006,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12007,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12008,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12009,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12010,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12011,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12012,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12013,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12014,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12015,
+          "steps": 3000
+        }
+      ],
+      "point_counts": {
+        "point_lost": 4,
+        "point_won": 29
+      },
+      "policy": "net-pressure",
+      "steps": 48000,
+      "terminal_actions": {
+        "point_lost:100": 1,
+        "point_lost:101": 3,
+        "point_won:000": 5,
+        "point_won:010": 15,
+        "point_won:100": 9
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 4,
+        "point_won:front_net_low": 29
+      },
+      "terminal_modes": {
+        "point_lost:grounded_low_receive": 1,
+        "point_lost:late_contact_attack": 1,
+        "point_lost:low_ball_rescue": 2,
+        "point_won:intercept": 20,
+        "point_won:recovery": 9
+      },
+      "trace_mode_counts": {
+        "point_lost:falling_floor_intercept": 4,
+        "point_lost:grounded_low_receive": 1,
+        "point_lost:intercept": 22,
+        "point_lost:late_contact_attack": 9,
+        "point_lost:low_ball_rescue": 22,
+        "point_lost:net_pressure": 1,
+        "point_lost:recovery": 5,
+        "point_won:falling_floor_intercept": 7,
+        "point_won:intercept": 293,
+        "point_won:late_contact_attack": 8,
+        "point_won:low_ball_rescue": 5,
+        "point_won:net_pressure": 48,
+        "point_won:recovery": 103
+      },
+      "win_examples": [
+        {
+          "action": "010",
+          "agent": [
+            0.433,
+            0.419,
+            0.664
+          ],
+          "ball": [
+            -0.112,
+            0.231,
+            2.075,
+            -0.87
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1723
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.258,
+            0.429,
+            -0.512
+          ],
+          "ball": [
+            -0.051,
+            0.242,
+            1.212,
+            -1.896
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "net_pressure",
+            "net_pressure",
+            "net_pressure",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2553
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.492,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            -0.1,
+            0.216,
+            -2.093,
+            -0.827
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2844
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.317,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -2.047,
+            0.266,
+            0.565,
+            -2.178
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "101",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 880
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.842,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -0.137,
+            0.21,
+            -1.107,
+            -1.959
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12004,
+          "step": 831
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.433,
+            0.483,
+            0.076
+          ],
+          "ball": [
+            -0.219,
+            0.205,
+            1.532,
+            -1.648
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12005,
+          "step": 347
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.317,
+            0.385,
+            -0.708
+          ],
+          "ball": [
+            -0.1,
+            0.208,
+            2.447,
+            -1.126
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "net_pressure",
+            "net_pressure",
+            "net_pressure",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12005,
+          "step": 2068
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.317,
+            0.471,
+            -0.218
+          ],
+          "ball": [
+            -0.1,
+            0.219,
+            2.478,
+            -1.127
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "net_pressure",
+            "net_pressure",
+            "falling_floor_intercept",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12005,
+          "step": 2689
+        }
+      ],
+      "wins": 12
+    },
+    {
+      "action_counts": {
+        "000": 577,
+        "001": 3116,
+        "010": 4861,
+        "011": 314,
+        "100": 3193,
+        "101": 17602,
+        "110": 15137,
+        "111": 866
+      },
+      "draws": 2,
+      "loss_examples": [
+        {
+          "action": "001",
+          "agent": [
+            0.2,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            0.1,
+            0.271,
+            0.003,
+            -3.231
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12000,
+          "step": 2130
+        },
+        {
+          "action": "010",
+          "agent": [
+            2.067,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            2.321,
+            0.213,
+            1.915,
+            -1.181
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 857
+        },
+        {
+          "action": "101",
+          "agent": [
+            1.842,
+            0.482,
+            -0.022
+          ],
+          "ball": [
+            2.146,
+            0.207,
+            -1.525,
+            -1.149
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12010,
+          "step": 1714
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.317,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            0.189,
+            0.229,
+            1.073,
+            -1.796
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12015,
+          "step": 1279
+        }
+      ],
+      "losses": 0,
+      "mean": 2.5625,
+      "opponent": "improved-v5",
+      "per_seed": [
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12000,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12002,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12003,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12006,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12007,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12008,
+          "steps": 2060
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12009,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12010,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12011,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12012,
+          "steps": 2159
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12013,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12014,
+          "steps": 2447
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12015,
+          "steps": 3000
+        }
+      ],
+      "point_counts": {
+        "point_lost": 4,
+        "point_won": 45
+      },
+      "policy": "baseline-rnn",
+      "steps": 45666,
+      "terminal_actions": {
+        "point_lost:001": 1,
+        "point_lost:010": 1,
+        "point_lost:101": 2,
+        "point_won:101": 45
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 2,
+        "point_lost:rear_low": 2,
+        "point_won:front_net_low": 45
+      },
+      "terminal_modes": {
+        "point_lost:none": 4,
+        "point_won:none": 45
+      },
+      "trace_mode_counts": {},
+      "win_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.31,
+            1.056
+          ],
+          "ball": [
+            -0.234,
+            0.212,
+            -1.98,
+            -1.069
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1852
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            -0.159,
+            0.207,
+            -1.774,
+            -1.384
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 744
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.482,
+            -0.022
+          ],
+          "ball": [
+            -0.1,
+            0.209,
+            -1.257,
+            -1.866
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 1563
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.237,
+            1.252
+          ],
+          "ball": [
+            -0.348,
+            0.249,
+            0.583,
+            -2.173
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 640
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.409,
+            -0.61
+          ],
+          "ball": [
+            -2.267,
+            0.216,
+            1.429,
+            -0.958
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 2871
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.258,
+            0.31,
+            1.056
+          ],
+          "ball": [
+            -0.1,
+            0.266,
+            -0.889,
+            -1.906
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12003,
+          "step": 429
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.359,
+            -0.806
+          ],
+          "ball": [
+            -0.1,
+            0.216,
+            -1.145,
+            -1.937
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12003,
+          "step": 1678
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.175,
+            -1.296
+          ],
+          "ball": [
+            -2.35,
+            0.238,
+            0.588,
+            -2.172
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_won",
+          "seed": 12004,
+          "step": 788
+        }
+      ],
+      "wins": 14
+    },
+    {
+      "action_counts": {
+        "000": 21465,
+        "001": 2598,
+        "010": 10952,
+        "011": 278,
+        "100": 10504,
+        "101": 2203
+      },
+      "draws": 1,
+      "loss_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.375,
+            0.258,
+            -1.1
+          ],
+          "ball": [
+            0.122,
+            0.232,
+            -1.966,
+            -1.094
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "late_contact_attack",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 971
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.608,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            0.245,
+            0.231,
+            -1.831,
+            -1.308
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue"
+          ],
+          "mode": "low_ball_rescue",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 2392
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.317,
+            0.359,
+            -0.806
+          ],
+          "ball": [
+            0.14,
+            0.249,
+            -2.767,
+            -3.89
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack"
+          ],
+          "mode": "late_contact_attack",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12003,
+          "step": 1119
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.258,
+            0.371,
+            0.86
+          ],
+          "ball": [
+            0.145,
+            0.205,
+            0.978,
+            -2.3
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "late_contact_attack",
+            "low_ball_rescue",
+            "low_ball_rescue",
+            "grounded_low_receive"
+          ],
+          "mode": "grounded_low_receive",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12015,
+          "step": 1366
+        }
+      ],
+      "losses": 3,
+      "mean": 1.5625,
+      "opponent": "improved-v6",
+      "per_seed": [
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12000,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12002,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12003,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12006,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12007,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12008,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12009,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12010,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12011,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12012,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12013,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12014,
+          "steps": 3000
+        },
+        {
+          "outcome": "loss",
+          "score": -1.0,
+          "seed": 12015,
+          "steps": 3000
+        }
+      ],
+      "point_counts": {
+        "point_lost": 4,
+        "point_won": 29
+      },
+      "policy": "net-pressure",
+      "steps": 48000,
+      "terminal_actions": {
+        "point_lost:100": 1,
+        "point_lost:101": 3,
+        "point_won:000": 5,
+        "point_won:010": 15,
+        "point_won:100": 9
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 4,
+        "point_won:front_net_low": 29
+      },
+      "terminal_modes": {
+        "point_lost:grounded_low_receive": 1,
+        "point_lost:late_contact_attack": 1,
+        "point_lost:low_ball_rescue": 2,
+        "point_won:intercept": 20,
+        "point_won:recovery": 9
+      },
+      "trace_mode_counts": {
+        "point_lost:falling_floor_intercept": 4,
+        "point_lost:grounded_low_receive": 1,
+        "point_lost:intercept": 22,
+        "point_lost:late_contact_attack": 9,
+        "point_lost:low_ball_rescue": 22,
+        "point_lost:net_pressure": 1,
+        "point_lost:recovery": 5,
+        "point_won:falling_floor_intercept": 7,
+        "point_won:intercept": 293,
+        "point_won:late_contact_attack": 8,
+        "point_won:low_ball_rescue": 5,
+        "point_won:net_pressure": 48,
+        "point_won:recovery": 103
+      },
+      "win_examples": [
+        {
+          "action": "010",
+          "agent": [
+            0.433,
+            0.419,
+            0.664
+          ],
+          "ball": [
+            -0.112,
+            0.231,
+            2.075,
+            -0.87
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "low_ball_rescue",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1723
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.258,
+            0.429,
+            -0.512
+          ],
+          "ball": [
+            -0.051,
+            0.242,
+            1.212,
+            -1.896
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "net_pressure",
+            "net_pressure",
+            "net_pressure",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2553
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.492,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            -0.1,
+            0.216,
+            -2.093,
+            -0.827
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 2844
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.317,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -2.047,
+            0.266,
+            0.565,
+            -2.178
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "101",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 880
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.842,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            -0.137,
+            0.21,
+            -1.107,
+            -1.959
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery"
+          ],
+          "mode": "recovery",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12004,
+          "step": 831
+        },
+        {
+          "action": "100",
+          "agent": [
+            0.433,
+            0.483,
+            0.076
+          ],
+          "ball": [
+            -0.219,
+            0.205,
+            1.532,
+            -1.648
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "recovery",
+            "recovery",
+            "recovery",
+            "recovery",
+            "intercept",
+            "intercept",
+            "intercept",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12005,
+          "step": 347
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.317,
+            0.385,
+            -0.708
+          ],
+          "ball": [
+            -0.1,
+            0.208,
+            2.447,
+            -1.126
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "net_pressure",
+            "net_pressure",
+            "net_pressure",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12005,
+          "step": 2068
+        },
+        {
+          "action": "010",
+          "agent": [
+            0.317,
+            0.471,
+            -0.218
+          ],
+          "ball": [
+            -0.1,
+            0.219,
+            2.478,
+            -1.127
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [
+            "net_pressure",
+            "net_pressure",
+            "falling_floor_intercept",
+            "intercept",
+            "intercept",
+            "recovery",
+            "recovery",
+            "intercept"
+          ],
+          "mode": "intercept",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12005,
+          "step": 2689
+        }
+      ],
+      "wins": 12
+    },
+    {
+      "action_counts": {
+        "000": 577,
+        "001": 3116,
+        "010": 4861,
+        "011": 314,
+        "100": 3195,
+        "101": 17602,
+        "110": 15135,
+        "111": 866
+      },
+      "draws": 2,
+      "loss_examples": [
+        {
+          "action": "001",
+          "agent": [
+            0.2,
+            0.195,
+            1.35
+          ],
+          "ball": [
+            0.1,
+            0.271,
+            0.003,
+            -3.231
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12000,
+          "step": 2130
+        },
+        {
+          "action": "010",
+          "agent": [
+            2.067,
+            0.15,
+            0.0
+          ],
+          "ball": [
+            2.321,
+            0.213,
+            1.915,
+            -1.181
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_lost",
+          "seed": 12001,
+          "step": 857
+        },
+        {
+          "action": "101",
+          "agent": [
+            1.842,
+            0.482,
+            -0.022
+          ],
+          "ball": [
+            2.146,
+            0.207,
+            -1.525,
+            -1.149
+          ],
+          "bucket": "rear_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_lost",
+          "seed": 12010,
+          "step": 1714
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.317,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            0.189,
+            0.229,
+            1.073,
+            -1.796
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "010",
+          "outcome": "point_lost",
+          "seed": 12015,
+          "step": 1279
+        }
+      ],
+      "losses": 0,
+      "mean": 2.5625,
+      "opponent": "improved-v6",
+      "per_seed": [
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12000,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12001,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12002,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12003,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12004,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12005,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12006,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 4.0,
+          "seed": 12007,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12008,
+          "steps": 2060
+        },
+        {
+          "outcome": "draw",
+          "score": 0.0,
+          "seed": 12009,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 2.0,
+          "seed": 12010,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 1.0,
+          "seed": 12011,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12012,
+          "steps": 2159
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12013,
+          "steps": 3000
+        },
+        {
+          "outcome": "win",
+          "score": 5.0,
+          "seed": 12014,
+          "steps": 2447
+        },
+        {
+          "outcome": "win",
+          "score": 3.0,
+          "seed": 12015,
+          "steps": 3000
+        }
+      ],
+      "point_counts": {
+        "point_lost": 4,
+        "point_won": 45
+      },
+      "policy": "baseline-rnn",
+      "steps": 45666,
+      "terminal_actions": {
+        "point_lost:001": 1,
+        "point_lost:010": 1,
+        "point_lost:101": 2,
+        "point_won:101": 45
+      },
+      "terminal_buckets": {
+        "point_lost:front_net_low": 2,
+        "point_lost:rear_low": 2,
+        "point_won:front_net_low": 45
+      },
+      "terminal_modes": {
+        "point_lost:none": 4,
+        "point_won:none": 45
+      },
+      "trace_mode_counts": {},
+      "win_examples": [
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.31,
+            1.056
+          ],
+          "ball": [
+            -0.234,
+            0.212,
+            -1.98,
+            -1.069
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12000,
+          "step": 1852
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.437,
+            0.566
+          ],
+          "ball": [
+            -0.159,
+            0.207,
+            -1.774,
+            -1.384
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 744
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.482,
+            -0.022
+          ],
+          "ball": [
+            -0.1,
+            0.209,
+            -1.257,
+            -1.866
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12001,
+          "step": 1563
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.237,
+            1.252
+          ],
+          "ball": [
+            -0.348,
+            0.249,
+            0.583,
+            -2.173
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "100",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 640
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.429,
+            -0.512
+          ],
+          "ball": [
+            -2.315,
+            0.249,
+            1.051,
+            -1.989
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "101",
+          "outcome": "point_won",
+          "seed": 12002,
+          "step": 2870
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.258,
+            0.31,
+            1.056
+          ],
+          "ball": [
+            -0.1,
+            0.266,
+            -0.889,
+            -1.906
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12003,
+          "step": 429
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.359,
+            -0.806
+          ],
+          "ball": [
+            -0.1,
+            0.216,
+            -1.145,
+            -1.937
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "000",
+          "outcome": "point_won",
+          "seed": 12003,
+          "step": 1678
+        },
+        {
+          "action": "101",
+          "agent": [
+            0.2,
+            0.175,
+            -1.296
+          ],
+          "ball": [
+            -2.35,
+            0.238,
+            0.588,
+            -2.172
+          ],
+          "bucket": "front_net_low",
+          "last_modes": [],
+          "mode": "none",
+          "opponent_action": "101",
+          "outcome": "point_won",
+          "seed": 12004,
+          "step": 788
+        }
+      ],
+      "wins": 14
+    }
+  ],
+  "seeds": [
+    12000,
+    12015
+  ],
+  "trace_window": 16
+}

@@ -1,6 +1,29 @@
+# Python caches and local environments
 __pycache__/
-*.pyc
-.DS_Store
-.omx/
+*.py[cod]
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
 *.egg-info/
+
+# Build and packaging outputs
+build/
+dist/
+
+# Local editor/OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Local agent/runtime state
+.omx/
+.codex/
+AGENTS.md
+
+# Logs and local process files
+*.log
+*.pid

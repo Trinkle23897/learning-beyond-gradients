@@ -2,11 +2,22 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import Any
 
 
 def _clip(value: float, low: float = -1.0, high: float = 1.0) -> float:
     return float(min(high, max(low, value)))
+
+
+def config_from_dict(config_type: type[Any], values: dict[str, Any] | None) -> Any:
+    """Build a dataclass config while ignoring unknown scalar-search fields."""
+
+    base = config_type()
+    if not values:
+        return base
+    valid = {key: value for key, value in values.items() if hasattr(base, key)}
+    return replace(base, **valid)
 
 
 class BasePolicy:
