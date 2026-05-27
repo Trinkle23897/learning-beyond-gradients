@@ -8,11 +8,47 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from .artifacts import env_ledger_path, env_report_path, env_summary_path
 from .envs import ENV_SPECS, SEED_SPLITS, discover_runtime_metadata
 from .ledger import DEFAULT_LEDGER_PATH, DEFAULT_SUMMARY_PATH, read_entries, write_summary_csv
 
 
 DEFAULT_REPORT_PATH = Path(__file__).resolve().parents[1] / "results" / "final_report.md"
+
+
+def _report_env_specs(env_id: str | None = None) -> dict[str, Any]:
+    """Return environment specs for an aggregate or single-env report."""
+
+    if env_id is None:
+        return dict(ENV_SPECS)
+    if env_id not in ENV_SPECS:
+        raise ValueError(f"generic report does not know active environment {env_id!r}")
+    return {env_id: ENV_SPECS[env_id]}
+
+
+def resolve_report_paths(
+    *,
+    env_id: str | None,
+    ledger_path: Path | None,
+    summary_path: Path | None,
+    report_path: Path | None,
+    env_artifacts: bool = False,
+) -> tuple[Path, Path, Path]:
+    """Return ledger, summary, and report paths for report generation."""
+
+    if env_artifacts:
+        if env_id is None:
+            raise ValueError("--env is required with --env-artifacts")
+        return (
+            ledger_path or env_ledger_path(env_id),
+            summary_path or env_summary_path(env_id),
+            report_path or env_report_path(env_id),
+        )
+    return (
+        ledger_path or DEFAULT_LEDGER_PATH,
+        summary_path or DEFAULT_SUMMARY_PATH,
+        report_path or DEFAULT_REPORT_PATH,
+    )
 
 
 def _read_summary(path: Path) -> list[dict[str, str]]:
@@ -75,7 +111,7 @@ def _names(values: list[str]) -> str:
     return ", ".join(values) or "none"
 
 
-def _holdout_conclusion(rows: list[dict[str, str]]) -> str:
+def _holdout_conclusion(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> str:
     by_env_policy = {
         (row["environment"], row["policy_version"]): _float_or_none(row["mean"])
         for row in rows
@@ -85,7 +121,7 @@ def _holdout_conclusion(rows: list[dict[str, str]]) -> str:
     improved_tied: list[str] = []
     improved_worse: list[str] = []
     tuned_better_than_improved: list[str] = []
-    for env_id in ENV_SPECS:
+    for env_id in env_specs:
         initial = by_env_policy.get((env_id, "initial"))
         improved = by_env_policy.get((env_id, "improved"))
         tuned = by_env_policy.get((env_id, "tuned"))
@@ -102,22 +138,21 @@ def _holdout_conclusion(rows: list[dict[str, str]]) -> str:
         return "No holdout conclusion is justified until frozen holdout evaluations are recorded."
     return (
         f"On holdout, structural improved policies beat the initial heuristic on "
-        f"{len(improved_better)}/{len(ENV_SPECS)} environments "
+        f"{len(improved_better)}/{len(env_specs)} environments "
         f"({_names(improved_better)}), tied on {len(improved_tied)} "
         f"({_names(improved_tied)}), and regressed on {len(improved_worse)} "
         f"({_names(improved_worse)}). The dev-selected scalar baseline beat "
-        f"the structural policy on {len(tuned_better_than_improved)}/{len(ENV_SPECS)} "
+        f"the structural policy on {len(tuned_better_than_improved)}/{len(env_specs)} "
         f"environments ({_names(tuned_better_than_improved)}). This supports "
-        "the auditability and preservation parts of the hypothesis, but only partially "
-        "supports broad agent-maintained structural improvement: CartPole was already "
-        "solved, MountainCar and BipedalWalker improved structurally, and the strongest "
-        "Acrobot/LunarLander gains came from scalar tuning. The benchmark-threshold "
-        "view is the primary solved-score cutoff; recorded neural/RL runs are secondary "
-        "comparators because several local RL baselines remain undertrained."
+        "the auditability and preservation parts of the hypothesis, but only the "
+        "listed environment-level outcomes justify claims about structural improvement. "
+        "The benchmark-threshold view is the primary solved-score cutoff; recorded "
+        "neural/RL runs are secondary comparators because several local RL baselines "
+        "remain undertrained."
     )
 
 
-def _deep_rl_goal_summary(rows: list[dict[str, str]]) -> str:
+def _deep_rl_goal_summary(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> str:
     rl_versions = {"rl-ppo", "rl-dqn", "rl-sac", "rl-sac-hf"}
     heuristic_versions = {"initial", "improved", "tuned", "tree"}
     strict_within: list[str] = []
@@ -126,7 +161,7 @@ def _deep_rl_goal_summary(rows: list[dict[str, str]]) -> str:
     worse_than_rl: list[str] = []
     missing: list[str] = []
     rl_success: list[str] = []
-    for env_id, spec in ENV_SPECS.items():
+    for env_id, spec in env_specs.items():
         rl_row = _best_row(rows, env_id=env_id, policy_versions=rl_versions, split="holdout")
         heuristic_row = _best_row(rows, env_id=env_id, policy_versions=heuristic_versions, split="holdout")
         rl_mean = _row_mean(rl_row)
@@ -148,25 +183,25 @@ def _deep_rl_goal_summary(rows: list[dict[str, str]]) -> str:
             worse_than_rl.append(env_id)
     return (
         f"Against recorded deep-RL baselines, strict ±5% parity is met on "
-        f"{len(strict_within)}/{len(ENV_SPECS)} environments ({_names(strict_within)}) and not met on "
+        f"{len(strict_within)}/{len(env_specs)} environments ({_names(strict_within)}) and not met on "
         f"{len(not_strict)} ({_names(not_strict)}). The weaker performance target of being "
-        f"no more than 5% worse than recorded RL is met on {len(not_worse_than_rl)}/{len(ENV_SPECS)} "
+        f"no more than 5% worse than recorded RL is met on {len(not_worse_than_rl)}/{len(env_specs)} "
         f"({_names(not_worse_than_rl)}) and missed on {len(worse_than_rl)} ({_names(worse_than_rl)}); "
         f"missing RL evidence remains for {len(missing)} ({_names(missing)}). The best recorded "
-        f"RL comparator meets its environment success target on {len(rl_success)}/{len(ENV_SPECS)} "
+        f"RL comparator meets its environment success target on {len(rl_success)}/{len(env_specs)} "
         f"environments ({_names(rl_success)}). These recorded neural runs are useful reproducible "
         "comparators, while the published benchmark thresholds remain the primary solved-score cutoff."
     )
 
 
-def _holdout_partial_lines(rows: list[dict[str, str]]) -> list[str]:
+def _holdout_partial_lines(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> list[str]:
     by_env_policy = {
         (row["environment"], row["policy_version"]): _float_or_none(row["mean"])
         for row in rows
         if row["split"] == "holdout" and row["pass_fail"] == "pass"
     }
     lines: list[str] = []
-    for env_id in ENV_SPECS:
+    for env_id in env_specs:
         initial = by_env_policy.get((env_id, "initial"))
         improved = by_env_policy.get((env_id, "improved"))
         tuned = by_env_policy.get((env_id, "tuned"))
@@ -231,13 +266,13 @@ def _best_row(
     return max(candidates, key=lambda row: float(row["mean"]))
 
 
-def _deep_rl_comparison_lines(rows: list[dict[str, str]]) -> list[str]:
+def _deep_rl_comparison_lines(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> list[str]:
     lines = [
         "| Environment | Split | Best heuristic/search policy | Heuristic mean | Deep-RL policy | Deep-RL mean | Strict gap | Within ±5%? | At least 95% of RL? |",
         "| --- | --- | --- | ---: | --- | ---: | ---: | --- | --- |",
     ]
     heuristic_versions = {"initial", "improved", "tuned", "tree"}
-    for env_id in ENV_SPECS:
+    for env_id in env_specs:
         split = "holdout"
         rl_row = _best_row(rows, env_id=env_id, policy_versions={"rl-ppo", "rl-dqn", "rl-sac", "rl-sac-hf"}, split=split)
         if rl_row is None:
@@ -270,13 +305,13 @@ def _threshold_cutoff(success_target: float) -> float:
     return success_target - 0.05 * abs(success_target)
 
 
-def _benchmark_threshold_lines(rows: list[dict[str, str]]) -> list[str]:
+def _benchmark_threshold_lines(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> list[str]:
     lines = [
         "| Environment | Best transparent policy | Holdout mean | Success target | 5% tolerance cutoff | Meets target? | Within 5% cutoff? |",
         "| --- | --- | ---: | ---: | ---: | --- | --- |",
     ]
     heuristic_versions = {"initial", "improved", "tuned", "tree"}
-    for env_id, spec in ENV_SPECS.items():
+    for env_id, spec in env_specs.items():
         row = _best_row(rows, env_id=env_id, policy_versions=heuristic_versions, split="holdout")
         mean = _row_mean(row)
         cutoff = _threshold_cutoff(spec.success_target)
@@ -292,13 +327,13 @@ def _benchmark_threshold_lines(rows: list[dict[str, str]]) -> list[str]:
     return lines
 
 
-def _benchmark_threshold_summary(rows: list[dict[str, str]]) -> str:
+def _benchmark_threshold_summary(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> str:
     heuristic_versions = {"initial", "improved", "tuned", "tree"}
     meets: list[str] = []
     within: list[str] = []
     misses: list[str] = []
     missing: list[str] = []
-    for env_id, spec in ENV_SPECS.items():
+    for env_id, spec in env_specs.items():
         row = _best_row(rows, env_id=env_id, policy_versions=heuristic_versions, split="holdout")
         mean = _row_mean(row)
         if mean is None:
@@ -314,20 +349,20 @@ def _benchmark_threshold_summary(rows: list[dict[str, str]]) -> str:
             misses.append(env_id)
     return (
         f"Against benchmark solved-score cutoffs, the best transparent policies meet the target on "
-        f"{len(meets)}/{len(ENV_SPECS)} environments ({_names(meets)}). With a 5% below-target "
-        f"tolerance, they are within cutoff on {len(within)}/{len(ENV_SPECS)} ({_names(within)}) "
+        f"{len(meets)}/{len(env_specs)} environments ({_names(meets)}). With a 5% below-target "
+        f"tolerance, they are within cutoff on {len(within)}/{len(env_specs)} ({_names(within)}) "
         f"and outside cutoff on {len(set(misses) - set(within))} ({_names([env for env in misses if env not in within])}); "
         f"missing evidence remains for {len(missing)} ({_names(missing)})."
     )
 
 
-def _audit_threshold_lines(rows: list[dict[str, str]]) -> list[str]:
+def _audit_threshold_lines(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> list[str]:
     lines = [
         "| Environment | Best transparent policy | Audit mean | Success target | 5% tolerance cutoff | Meets target? | Within 5% cutoff? |",
         "| --- | --- | ---: | ---: | ---: | --- | --- |",
     ]
     heuristic_versions = {"initial", "improved", "tuned", "tree"}
-    for env_id, spec in ENV_SPECS.items():
+    for env_id, spec in env_specs.items():
         row = _best_row(rows, env_id=env_id, policy_versions=heuristic_versions, split="audit")
         mean = _row_mean(row)
         cutoff = _threshold_cutoff(spec.success_target)
@@ -343,12 +378,12 @@ def _audit_threshold_lines(rows: list[dict[str, str]]) -> list[str]:
     return lines
 
 
-def _audit_threshold_summary(rows: list[dict[str, str]]) -> str | None:
+def _audit_threshold_summary(rows: list[dict[str, str]], env_specs: dict[str, Any]) -> str | None:
     heuristic_versions = {"initial", "improved", "tuned", "tree"}
     evaluated: list[str] = []
     within: list[str] = []
     misses: list[str] = []
-    for env_id, spec in ENV_SPECS.items():
+    for env_id, spec in env_specs.items():
         row = _best_row(rows, env_id=env_id, policy_versions=heuristic_versions, split="audit")
         mean = _row_mean(row)
         if mean is None:
@@ -367,11 +402,11 @@ def _audit_threshold_summary(rows: list[dict[str, str]]) -> str | None:
     )
 
 
-def _rl_baseline_status(entries: list[dict[str, Any]]) -> str:
+def _rl_baseline_status(entries: list[dict[str, Any]], env_specs: dict[str, Any]) -> str:
     rl_entries = [entry for entry in entries if entry["policy_version"].startswith("rl")]
     if rl_entries:
         envs = sorted({entry["environment"] for entry in rl_entries})
-        missing = sorted(set(ENV_SPECS) - set(envs))
+        missing = sorted(set(env_specs) - set(envs))
         suffix = (
             f" Missing environments remain unproven: {', '.join(missing)}."
             if missing
@@ -431,6 +466,40 @@ def _pretrained_comparator_lines(entries: list[dict[str, Any]]) -> list[str]:
     return lines
 
 
+STRUCTURAL_CHANGE_NOTES = {
+    "CartPole-v1": "CartPole improved policy adds a center-cart guard that activates only when pole angle and angular velocity are already safe.",
+    "MountainCar-v0": "MountainCar improved policy adds a transparent finite-horizon planner over the known MountainCar dynamics.",
+    "Acrobot-v1": "Acrobot improved policy adds an upright-region mode and a later stateful low-height recovery experiment; the separate `tree` policy is an explicit decision tree distilled from the recorded PPO comparator on non-holdout seeds.",
+    "LunarLander-v3": "LunarLander improved policy adds leg-contact and low-altitude landing guards.",
+    "BipedalWalker-v3": "BipedalWalker improved policy uses an explicit support/swing/push-off state-machine gait adapted from Gymnasium's transparent heuristic and tuned only on development seeds.",
+}
+
+
+def _structural_change_lines(env_specs: dict[str, Any]) -> list[str]:
+    lines = [
+        f"- {STRUCTURAL_CHANGE_NOTES[env_id]}"
+        for env_id in env_specs
+        if env_id in STRUCTURAL_CHANGE_NOTES
+    ]
+    return lines or ["- No structural change notes are defined for this report scope yet."]
+
+
+def _limitation_lines(env_specs: dict[str, Any]) -> list[str]:
+    lines = [
+        "- This is a minimal benchmark, not a definitive control benchmark.",
+        "- Structural heuristic quality is constrained by the small implementation budget.",
+        "- Scalar search is capped and should be interpreted as a small baseline, not as exhaustive optimization.",
+        "- The neural/RL section mixes locally trained Stable-Baselines3 runs with optional pretrained comparators; local runs use limited fixed budgets and several attempts remain undertrained.",
+    ]
+    if any(env_id in env_specs for env_id in {"LunarLander-v3", "BipedalWalker-v3"}):
+        lines.insert(2, "- Box2D installation failures are treated as experiment failures unless resolved and rerun.")
+    if "Acrobot-v1" in env_specs:
+        lines.append(
+            "- The Acrobot `tree` policy is transparent at inference time but distilled from a PPO teacher, so it should be interpreted separately from purely hand-written structural rules."
+        )
+    return lines
+
+
 def _cost_summary(entries: list[dict[str, Any]]) -> dict[str, Any]:
     return {
         "trials": len(entries),
@@ -448,13 +517,18 @@ def render_report(
     ledger_path: Path = DEFAULT_LEDGER_PATH,
     summary_path: Path = DEFAULT_SUMMARY_PATH,
     report_path: Path = DEFAULT_REPORT_PATH,
+    env_id: str | None = None,
 ) -> str:
     """Render and write the final Markdown report."""
 
     if ledger_path.exists():
         write_summary_csv(ledger_path, summary_path)
+    env_specs = _report_env_specs(env_id)
     entries = read_entries(ledger_path)
     rows = _read_summary(summary_path)
+    if env_id is not None:
+        entries = [entry for entry in entries if entry.get("environment") == env_id]
+        rows = [row for row in rows if row.get("environment") == env_id]
     latest_rows = _representative_rows(rows)
     cost = _cost_summary(entries)
     failures_by_env: dict[str, list[str]] = defaultdict(list)
@@ -464,7 +538,7 @@ def render_report(
             failures_by_env[entry["environment"]].append(entry["failure_analysis"])
 
     lines: list[str] = [
-        "# Heuristic Learning Benchmark Report",
+        f"# Heuristic Learning Benchmark Report{': ' + env_id if env_id else ''}",
         "",
         "## Experimental Setup",
         "",
@@ -474,12 +548,11 @@ def render_report(
         f"- Holdout seeds: `{SEED_SPLITS['holdout'].start}..{SEED_SPLITS['holdout'].stop - 1}`",
         f"- Audit seeds: `{SEED_SPLITS['audit'].start}..{SEED_SPLITS['audit'].stop - 1}`",
         "- Holdout and audit seeds are reserved for frozen comparisons and must not be used by `search.py`.",
-        "- Later Acrobot diagnostics also use explicit non-holdout development ranges recorded in each ledger row; the seed range in the ledger is authoritative.",
         "",
         "## Environments",
         "",
     ]
-    for spec in ENV_SPECS.values():
+    for spec in env_specs.values():
         lines.extend(
             [
                 f"### {spec.env_id}",
@@ -509,7 +582,7 @@ def render_report(
             "",
             "## Neural/RL Baseline Status",
             "",
-            _rl_baseline_status(entries),
+            _rl_baseline_status(entries, env_specs),
             "",
         ]
     )
@@ -543,7 +616,7 @@ def render_report(
             "",
         ]
     )
-    lines.extend(_deep_rl_comparison_lines(rows))
+    lines.extend(_deep_rl_comparison_lines(rows, env_specs))
     lines.extend(
         [
             "",
@@ -553,7 +626,7 @@ def render_report(
             "",
         ]
     )
-    lines.extend(_benchmark_threshold_lines(rows))
+    lines.extend(_benchmark_threshold_lines(rows, env_specs))
     lines.extend(
         [
             "",
@@ -563,7 +636,7 @@ def render_report(
             "",
         ]
     )
-    lines.extend(_audit_threshold_lines(rows))
+    lines.extend(_audit_threshold_lines(rows, env_specs))
     lines.extend(
         [
             "",
@@ -585,17 +658,17 @@ def render_report(
             "",
             "## Structural Changes",
             "",
-            "- CartPole improved policy adds a center-cart guard that activates only when pole angle and angular velocity are already safe.",
-            "- MountainCar improved policy adds a transparent finite-horizon planner over the known MountainCar dynamics.",
-            "- Acrobot improved policy adds an upright-region mode and a later stateful low-height recovery experiment; the separate `tree` policy is an explicit decision tree distilled from the recorded PPO comparator on non-holdout seeds.",
-            "- LunarLander improved policy adds leg-contact and low-altitude landing guards.",
-            "- BipedalWalker improved policy uses an explicit support/swing/push-off state-machine gait adapted from Gymnasium's transparent heuristic and tuned only on development seeds.",
+        ]
+    )
+    lines.extend(_structural_change_lines(env_specs))
+    lines.extend(
+        [
             "",
             "## Failed Or Partial Directions",
             "",
         ]
     )
-    partial_lines = _holdout_partial_lines(latest_rows)
+    partial_lines = _holdout_partial_lines(latest_rows, env_specs)
     if failures_by_env:
         for env_id, failures in sorted(failures_by_env.items()):
             for failure in failures:
@@ -621,24 +694,23 @@ def render_report(
             "",
             "## Limitations",
             "",
-            "- This is a minimal benchmark, not a definitive control benchmark.",
-            "- Structural heuristic quality is constrained by the small implementation budget.",
-            "- Box2D installation failures are treated as experiment failures unless resolved and rerun.",
-            "- Scalar search is capped and should be interpreted as a small baseline, not as exhaustive optimization.",
-            "- The neural/RL section mixes locally trained Stable-Baselines3 runs with optional pretrained comparators; local runs use limited fixed budgets and several attempts remain undertrained.",
-            "- The Acrobot `tree` policy is transparent at inference time but distilled from a PPO teacher, so it should be interpreted separately from purely hand-written structural rules.",
+        ]
+    )
+    lines.extend(_limitation_lines(env_specs))
+    lines.extend(
+        [
             "",
             "## Conclusion",
             "",
         ]
     )
     if rows:
-        lines.append(_holdout_conclusion(latest_rows))
+        lines.append(_holdout_conclusion(latest_rows, env_specs))
         lines.append("")
-        lines.append(_deep_rl_goal_summary(rows))
+        lines.append(_deep_rl_goal_summary(rows, env_specs))
         lines.append("")
-        lines.append(_benchmark_threshold_summary(rows))
-        audit_summary = _audit_threshold_summary(rows)
+        lines.append(_benchmark_threshold_summary(rows, env_specs))
+        audit_summary = _audit_threshold_summary(rows, env_specs)
         if audit_summary is not None:
             lines.append("")
             lines.append(audit_summary)
@@ -655,12 +727,36 @@ def render_report(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--ledger", type=Path, default=DEFAULT_LEDGER_PATH)
-    parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY_PATH)
-    parser.add_argument("--report", type=Path, default=DEFAULT_REPORT_PATH)
+    parser.add_argument("--env", dest="env_id", default=None)
+    parser.add_argument("--ledger", type=Path, default=None)
+    parser.add_argument("--summary", type=Path, default=None)
+    parser.add_argument("--report", type=Path, default=None)
+    parser.add_argument(
+        "--env-artifacts",
+        action="store_true",
+        help="Generate report from experiments/<env_slug>/results/ into experiments/<env_slug>/reports/.",
+    )
     args = parser.parse_args()
-    render_report(ledger_path=args.ledger, summary_path=args.summary, report_path=args.report)
-    print(f"wrote {args.report}")
+    try:
+        ledger_path, summary_path, report_path = resolve_report_paths(
+            env_id=args.env_id,
+            ledger_path=args.ledger,
+            summary_path=args.summary,
+            report_path=args.report,
+            env_artifacts=args.env_artifacts,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+    try:
+        render_report(
+            ledger_path=ledger_path,
+            summary_path=summary_path,
+            report_path=report_path,
+            env_id=args.env_id,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
+    print(f"wrote {report_path}")
 
 
 if __name__ == "__main__":

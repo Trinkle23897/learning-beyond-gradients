@@ -9,6 +9,18 @@ from .cartpole import CartPoleConfig, CartPolePolicy
 from .factory import make_policy
 from .lunar_lander import LunarLanderConfig, LunarLanderPolicy
 from .mountain_car import MountainCarConfig, MountainCarPolicy
+from .slimevolley import (
+    SlimeVolleyBuiltInRnnPolicy,
+    SlimeVolleyConfig,
+    SlimeVolleyHeuristicPolicy,
+    SlimeVolleyImprovedV0Policy,
+    SlimeVolleyImprovedV1Policy,
+    SlimeVolleyImprovedV2Policy,
+    SlimeVolleyRallyServePolicy,
+    SlimeVolleyRallyServeLowX52Policy,
+    SlimeVolleyPostContactPolicy,
+    SlimeVolleyRandomPolicy,
+)
 
 __all__ = [
     "AcrobotConfig",
@@ -24,5 +36,15 @@ __all__ = [
     "MountainCarConfig",
     "MountainCarPolicy",
     "RandomPolicy",
+    "SlimeVolleyBuiltInRnnPolicy",
+    "SlimeVolleyConfig",
+    "SlimeVolleyHeuristicPolicy",
+    "SlimeVolleyImprovedV0Policy",
+    "SlimeVolleyImprovedV1Policy",
+    "SlimeVolleyImprovedV2Policy",
+    "SlimeVolleyRallyServePolicy",
+    "SlimeVolleyRallyServeLowX52Policy",
+    "SlimeVolleyPostContactPolicy",
+    "SlimeVolleyRandomPolicy",
     "make_policy",
 ]

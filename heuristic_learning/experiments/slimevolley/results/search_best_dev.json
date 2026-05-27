@@ -1,0 +1,31 @@
+{
+  "candidate_count": 8,
+  "candidate_index": 1,
+  "config": {
+    "contact_x_window": 0.18,
+    "home_x": 1.05,
+    "landing_horizon": 0.3
+  },
+  "entry_timestamps": [
+    "2026-05-24T18:45:18+00:00",
+    "2026-05-24T18:45:19+00:00",
+    "2026-05-24T18:45:19+00:00",
+    "2026-05-24T18:45:20+00:00"
+  ],
+  "environment": "SlimeVolley-v0",
+  "opponent_means": {
+    "builtin": -4.95,
+    "improved-v0": 1.2,
+    "initial": 1.35,
+    "random": 2.75
+  },
+  "opponents": [
+    "builtin",
+    "random",
+    "initial",
+    "improved-v0"
+  ],
+  "selection_score": 0.08749999999999997,
+  "split": "dev",
+  "std_penalty": 0.0
+}

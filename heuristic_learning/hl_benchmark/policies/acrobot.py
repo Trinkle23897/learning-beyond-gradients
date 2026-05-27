@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import itertools
 import json
 import math
 from dataclasses import asdict, dataclass, replace
@@ -10,7 +11,7 @@ from typing import Any
 
 import numpy as np
 
-from .base import BasePolicy
+from .base import BasePolicy, config_from_dict
 
 
 @dataclass(frozen=True)
@@ -127,3 +128,41 @@ class AcrobotDecisionTreePolicy(BasePolicy):
             "tree_validation_mean": self._metadata.get("tree_validation", {}).get("mean"),
             "teacher_validation_mean": self._metadata.get("teacher_validation", {}).get("mean"),
         }
+
+
+def candidate_configs(*, max_candidates: int = 32) -> list[dict[str, Any]]:
+    """Return scalar-only Acrobot configs for the generic search baseline."""
+
+    candidates: list[dict[str, Any]] = []
+    for velocity_gain_1, velocity_gain_2, phase_gain in itertools.product(
+        [0.20, 0.35, 0.50, 0.60, 0.75, 0.90, 1.00, 1.20],
+        [0.70, 0.90, 1.10, 1.30, 1.50, 1.60, 1.80],
+        [0.20, 0.35, 0.50, 0.65, 0.80],
+    ):
+        candidates.append(
+            {
+                "velocity_gain_1": velocity_gain_1,
+                "velocity_gain_2": velocity_gain_2,
+                "phase_gain": phase_gain,
+            }
+        )
+    return candidates[:max_candidates]
+
+
+SUPPORTED_POLICY_NAMES = ("initial", "improved", "tuned", "tree")
+
+
+def make_policy(
+    policy_name: str,
+    *,
+    config: dict[str, Any] | None = None,
+) -> BasePolicy:
+    """Build an Acrobot policy from this environment-local policy registry."""
+
+    if policy_name not in SUPPORTED_POLICY_NAMES:
+        raise ValueError(f"unsupported acrobot policy {policy_name!r}")
+    if policy_name == "tree":
+        return AcrobotDecisionTreePolicy()
+    structural = policy_name == "improved"
+    acrobot_config = None if config is None and structural else config_from_dict(AcrobotConfig, config)
+    return AcrobotPolicy(acrobot_config, structural=structural)

@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import itertools
 import math
 from dataclasses import asdict, dataclass
 from typing import Any
 
 import numpy as np
 
-from .base import BasePolicy, _clip
+from .base import BasePolicy, _clip, config_from_dict
 
 
 @dataclass(frozen=True)
@@ -164,3 +165,40 @@ class BipedalWalkerPolicy(BasePolicy):
 
     def config(self) -> dict[str, Any]:
         return asdict(self._config) | {"structural_state_machine_walker": self._structural}
+
+
+def candidate_configs(*, max_candidates: int = 32) -> list[dict[str, Any]]:
+    """Return scalar-only BipedalWalker configs for the generic search baseline."""
+
+    candidates: list[dict[str, Any]] = []
+    for gait_period, hip_amplitude, knee_drive in itertools.product(
+        [36, 44, 48, 56],
+        [0.45, 0.60, 0.75, 0.90],
+        [0.55, 0.75],
+    ):
+        candidates.append(
+            {
+                "gait_period": gait_period,
+                "hip_amplitude": hip_amplitude,
+                "knee_drive": knee_drive,
+            }
+        )
+    return candidates[:max_candidates]
+
+
+SUPPORTED_POLICY_NAMES = ("initial", "improved", "tuned")
+
+
+def make_policy(
+    policy_name: str,
+    *,
+    config: dict[str, Any] | None = None,
+) -> BasePolicy:
+    """Build a BipedalWalkerPolicy from this environment-local policy registry."""
+
+    if policy_name not in SUPPORTED_POLICY_NAMES:
+        raise ValueError(f"unsupported bipedal_walker policy {policy_name!r}")
+    return BipedalWalkerPolicy(
+        config_from_dict(BipedalWalkerConfig, config),
+        structural=policy_name == "improved",
+    )

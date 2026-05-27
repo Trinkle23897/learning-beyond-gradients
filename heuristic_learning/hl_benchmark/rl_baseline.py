@@ -9,6 +9,7 @@ from typing import Any
 
 import numpy as np
 
+from .artifacts import env_ledger_path, env_summary_path
 from .envs import get_seeds, make_env
 from .ledger import (
     DEFAULT_LEDGER_PATH,
@@ -17,6 +18,26 @@ from .ledger import (
     make_trial_entry,
     write_summary_csv,
 )
+
+
+def resolve_rl_baseline_paths(
+    *,
+    env_id: str,
+    ledger_path: Path | None,
+    summary_path: Path | None,
+    env_artifacts: bool = False,
+) -> tuple[Path, Path]:
+    """Return ledger and summary paths for an optional RL baseline command."""
+
+    if env_artifacts:
+        return (
+            ledger_path or env_ledger_path(env_id),
+            summary_path or env_summary_path(env_id),
+        )
+    return (
+        ledger_path or DEFAULT_LEDGER_PATH,
+        summary_path or DEFAULT_SUMMARY_PATH,
+    )
 
 
 def _score_stats(scores: list[float]) -> dict[str, float | None]:
@@ -437,8 +458,13 @@ def main() -> None:
     parser.add_argument("--train-seed", type=int, default=0)
     parser.add_argument("--split", choices=["smoke", "dev", "holdout", "audit"], default="dev")
     parser.add_argument("--episodes", type=int, default=None)
-    parser.add_argument("--ledger", type=Path, default=DEFAULT_LEDGER_PATH)
-    parser.add_argument("--summary", type=Path, default=DEFAULT_SUMMARY_PATH)
+    parser.add_argument("--ledger", type=Path, default=None)
+    parser.add_argument("--summary", type=Path, default=None)
+    parser.add_argument(
+        "--env-artifacts",
+        action="store_true",
+        help="Write the RL baseline ledger and summary under experiments/<env_slug>/results/.",
+    )
     parser.add_argument("--tests-run", default="")
     parser.add_argument("--learning-rate", type=float, default=None)
     parser.add_argument("--n-steps", type=int, default=None)
@@ -462,6 +488,12 @@ def main() -> None:
     parser.add_argument("--code-edits", type=int, default=0)
     args = parser.parse_args()
     tests_run = [item for item in args.tests_run.split(",") if item]
+    ledger_path, summary_path = resolve_rl_baseline_paths(
+        env_id=args.env_id,
+        ledger_path=args.ledger,
+        summary_path=args.summary,
+        env_artifacts=args.env_artifacts,
+    )
     entry = train_evaluate_baseline(
         env_id=args.env_id,
         algorithm=args.algo,
@@ -469,8 +501,8 @@ def main() -> None:
         train_seed=args.train_seed,
         split=args.split,
         episodes=args.episodes,
-        ledger_path=args.ledger,
-        summary_path=args.summary,
+        ledger_path=ledger_path,
+        summary_path=summary_path,
         tests_run=tests_run,
         agent_iterations=args.agent_iterations,
         code_edits=args.code_edits,

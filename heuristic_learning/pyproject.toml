@@ -17,12 +17,18 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+slimevolley = [
+    "gym==0.20.0",
+    "opencv-python>=4.8,<5",
+    "slimevolleygym==0.1.0",
+]
 rl = [
     "stable-baselines3>=2.3",
     "torch>=2.1",
     "huggingface-hub>=0.20",
 ]
 
-[tool.setuptools]
-packages = ["hl_benchmark"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["hl_benchmark*"]
 

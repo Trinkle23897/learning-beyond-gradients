@@ -1,0 +1,123 @@
+{
+  "commands": {
+    "dev_builtin_trace": "make slimevolley-eval POLICY=improved OPPONENT=builtin SPLIT=dev ARGS=\"--ledger experiments/slimevolley/results/generation_2_trials.jsonl --summary experiments/slimevolley/results/generation_2_summary.csv --seed-start 3000 --episodes 50 --trace-window 8 --tests-run 'python3 -m pytest tests/test_slimevolley_optional.py' --tests-pass-fail pass\"",
+    "development_tournament": "make slimevolley-tournament SPLIT=dev ARGS=\"--ledger experiments/slimevolley/results/generation_2_trials.jsonl --summary experiments/slimevolley/results/generation_2_summary.csv --output experiments/slimevolley/results/round_robin_g2_dev.json --seed-start 3000 --episodes 50\"",
+    "final_holdout_once": "make slimevolley-final-eval ARGS=\"--ledger experiments/slimevolley/results/generation_2_trials.jsonl --summary experiments/slimevolley/results/generation_2_summary.csv --output experiments/slimevolley/results/holdout_g2_final.json --best-config experiments/slimevolley/results/search_best_g2_dev.json --seed-start 4000 --episodes 50 --tests-run 'python3 -m pytest tests/test_slimevolley_optional.py' --tests-pass-fail pass\"",
+    "regenerate_protocol": "make slimevolley-protocol",
+    "scalar_search": "make slimevolley-search MAX_CANDIDATES=16 ARGS=\"--ledger experiments/slimevolley/results/generation_2_trials.jsonl --summary experiments/slimevolley/results/generation_2_summary.csv --output experiments/slimevolley/results/search_best_g2_dev.json --seed-start 3000 --episodes 50 --opponents builtin random initial improved-v0 improved-v2\"",
+    "verification_before_edits": "make slimevolley-verify"
+  },
+  "created_by": "hl_benchmark.custom_envs.slimevolley.protocol",
+  "diagnosis_targets": [
+    "built-in opponent serve and return timing",
+    "high-arc defense before the ball drops below reachable height",
+    "low-ball contact timing without late jump overcommit",
+    "recovery to defensive home position after contact",
+    "exploitability against archived heuristic opponents"
+  ],
+  "environment": "SlimeVolley-v0",
+  "generation_2": {
+    "artifacts": {
+      "holdout": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_g2_final.json",
+      "round_robin": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/round_robin_g2_dev.json",
+      "search_best": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/search_best_g2_dev.json"
+    },
+    "development_opponents": [
+      "builtin",
+      "random",
+      "initial",
+      "improved-v0",
+      "improved-v1",
+      "improved-v2",
+      "improved"
+    ],
+    "holdout_opponents": [
+      "builtin",
+      "random",
+      "initial",
+      "improved-v0",
+      "improved-v2"
+    ],
+    "id": "slimevolley-g2",
+    "ledger": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_2_trials.jsonl",
+    "policies": [
+      "random",
+      "initial",
+      "tuned",
+      "improved",
+      "baseline-rnn"
+    ],
+    "policy_start": "improved",
+    "scalar_search_opponents": [
+      "builtin",
+      "random",
+      "initial",
+      "improved-v0",
+      "improved-v2"
+    ],
+    "seed_splits": {
+      "audit": {
+        "episodes": 50,
+        "label": "5000..5049",
+        "purpose": "reserved independent audit seeds, not available for tuning",
+        "start": 5000,
+        "stop_exclusive": 5050
+      },
+      "dev": {
+        "episodes": 50,
+        "label": "3000..3049",
+        "purpose": "diagnosis, structural policy iteration, scalar search, and tournament development evidence",
+        "start": 3000,
+        "stop_exclusive": 3050
+      },
+      "holdout": {
+        "episodes": 50,
+        "label": "4000..4049",
+        "purpose": "final-only generation-2 evaluation after policies and scalar configs are frozen",
+        "start": 4000,
+        "stop_exclusive": 4050
+      },
+      "smoke": {
+        "episodes": 2,
+        "label": "3000..3001",
+        "purpose": "dependency and command smoke checks only",
+        "start": 3000,
+        "stop_exclusive": 3002
+      }
+    },
+    "summary": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/generation_2_summary.csv"
+  },
+  "guardrails": [
+    "Use the generation-2 ledger and summary paths for all generation-2 evidence; do not append generation-2 rows to the generation-1 ledger until audit support is explicitly extended.",
+    "Use generation-2 development seeds for diagnosis, structural edits, scalar search, and tournaments.",
+    "Do not inspect generation-2 holdout seeds until the policy code, scalar config, opponent pool, and tests are frozen.",
+    "Do not use generation-1 holdout results as tuning feedback; treat them only as historical final evidence.",
+    "Record tests_run, tests_pass_fail, agent_iterations, code_edits, and failure_analysis on every generation-2 ledger-producing run."
+  ],
+  "promotion_checks": [
+    "make verify",
+    "make slimevolley-verify",
+    "python3 -m hl_benchmark.custom_envs.slimevolley.audit --format json"
+  ],
+  "protocol_id": "slimevolley-g2",
+  "source_generation": {
+    "audit_seeds": {
+      "episodes": 50,
+      "label": "2000..2049",
+      "start": 2000,
+      "stop_exclusive": 2050
+    },
+    "holdout_artifact": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/holdout_final.json",
+    "holdout_seeds": {
+      "episodes": 50,
+      "label": "1000..1049",
+      "start": 1000,
+      "stop_exclusive": 1050
+    },
+    "id": "slimevolley-g1",
+    "ledger": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/trials.jsonl",
+    "rule": "Generation-1 holdout is already opened; do not tune, debug, or select policies on those seeds.",
+    "summary": "/home/alpha/dev/research/learning-beyond-gradients/heuristic_learning/experiments/slimevolley/results/summary.csv"
+  },
+  "status": "predeclared-not-run"
+}

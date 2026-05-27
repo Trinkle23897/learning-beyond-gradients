@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import itertools
 from dataclasses import asdict, dataclass
 from typing import Any
 
 import numpy as np
 
-from .base import BasePolicy
+from .base import BasePolicy, config_from_dict
 
 
 @dataclass(frozen=True)
@@ -53,3 +54,40 @@ class CartPolePolicy(BasePolicy):
 
     def config(self) -> dict[str, Any]:
         return asdict(self._config) | {"structural_center_guard": self._structural}
+
+
+def candidate_configs(*, max_candidates: int = 32) -> list[dict[str, Any]]:
+    """Return scalar-only CartPole configs for the generic search baseline."""
+
+    candidates: list[dict[str, Any]] = []
+    for pole_velocity_gain, cart_position_gain, cart_velocity_gain in itertools.product(
+        [0.25, 0.35, 0.50, 0.70],
+        [0.00, 0.03, 0.06, 0.10],
+        [0.00, 0.02],
+    ):
+        candidates.append(
+            {
+                "pole_velocity_gain": pole_velocity_gain,
+                "cart_position_gain": cart_position_gain,
+                "cart_velocity_gain": cart_velocity_gain,
+            }
+        )
+    return candidates[:max_candidates]
+
+
+SUPPORTED_POLICY_NAMES = ("initial", "improved", "tuned")
+
+
+def make_policy(
+    policy_name: str,
+    *,
+    config: dict[str, Any] | None = None,
+) -> BasePolicy:
+    """Build a CartPolePolicy from this environment-local policy registry."""
+
+    if policy_name not in SUPPORTED_POLICY_NAMES:
+        raise ValueError(f"unsupported cartpole policy {policy_name!r}")
+    return CartPolePolicy(
+        config_from_dict(CartPoleConfig, config),
+        structural=policy_name == "improved",
+    )

@@ -2,23 +2,43 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
+import importlib
+from types import ModuleType
 from typing import Any
 
-from .acrobot import AcrobotConfig, AcrobotDecisionTreePolicy, AcrobotPolicy
+from hl_benchmark.environments import ALL_REGISTRATIONS, registration_for
+
 from .base import BasePolicy, RandomPolicy
-from .bipedal_walker import BipedalWalkerConfig, BipedalWalkerPolicy
-from .cartpole import CartPoleConfig, CartPolePolicy
-from .lunar_lander import LunarLanderConfig, LunarLanderPolicy
-from .mountain_car import MountainCarConfig, MountainCarPolicy
 
 
-def _config_from_dict(config_type: type[Any], values: dict[str, Any] | None) -> Any:
-    base = config_type()
-    if not values:
-        return base
-    valid = {key: value for key, value in values.items() if hasattr(base, key)}
-    return replace(base, **valid)
+def _policy_module(module_name: str) -> ModuleType:
+    return importlib.import_module(module_name)
+
+
+def _supported_policy_names(module: ModuleType) -> set[str]:
+    names = getattr(module, "SUPPORTED_POLICY_NAMES", ())
+    if isinstance(names, str):
+        return {names}
+    return {str(name) for name in names}
+
+
+def _known_policy_names() -> set[str]:
+    names: set[str] = set()
+    for registration in ALL_REGISTRATIONS:
+        try:
+            module = _policy_module(registration.policy_module)
+        except Exception:
+            continue
+        names.update(_supported_policy_names(module))
+    return names
+
+
+def _require_supported_policy(env_id: str, policy_name: str, supported: set[str]) -> None:
+    if policy_name not in supported:
+        supported_names = ", ".join(sorted(supported | {"random"}))
+        raise ValueError(
+            f"{env_id} does not support policy {policy_name!r}; expected one of {supported_names}"
+        )
 
 
 def make_policy(
@@ -28,47 +48,40 @@ def make_policy(
     action_space: Any | None = None,
     config: dict[str, Any] | None = None,
 ) -> BasePolicy:
-    """Build a policy by environment and version name."""
+    """Build a policy by environment and version name.
+
+    Environment-specific policy construction lives in the module named by the
+    environment registration's ``policy_module``. This keeps adding a new
+    environment local to ``hl_benchmark/environments/<slug>.py`` and
+    ``hl_benchmark/policies/<slug>.py`` instead of growing this factory.
+    """
 
     if policy_name == "random":
         if action_space is None:
             raise ValueError("random policy requires an action_space")
         return RandomPolicy(action_space)
 
-    tuned = policy_name == "tuned"
-    structural = policy_name == "improved"
-    if policy_name not in {"initial", "improved", "tuned", "tree"}:
+    if policy_name not in _known_policy_names():
         raise ValueError(f"unknown policy {policy_name!r}")
 
-    if env_id == "CartPole-v1":
-        return CartPolePolicy(
-            _config_from_dict(CartPoleConfig, config),
-            structural=structural and not tuned,
+    try:
+        registration = registration_for(env_id)
+    except KeyError as exc:
+        raise ValueError(f"no policy registered for {env_id!r}") from exc
+
+    module = _policy_module(registration.policy_module)
+    supported = _supported_policy_names(module)
+    _require_supported_policy(env_id, policy_name, supported)
+
+    module_factory = getattr(module, "make_policy", None)
+    if not callable(module_factory):
+        raise ValueError(
+            f"policy module {registration.policy_module!r} does not expose callable make_policy()"
         )
-    if env_id == "MountainCar-v0":
-        return MountainCarPolicy(
-            _config_from_dict(MountainCarConfig, config),
-            structural=structural and not tuned,
+    policy = module_factory(policy_name, config=config)
+    if not isinstance(policy, BasePolicy):
+        raise TypeError(
+            f"policy module {registration.policy_module!r} returned {type(policy).__name__}, "
+            "expected BasePolicy"
         )
-    if env_id == "Acrobot-v1":
-        if policy_name == "tree":
-            return AcrobotDecisionTreePolicy()
-        acrobot_structural = structural and not tuned
-        acrobot_config = (
-            None if config is None and acrobot_structural else _config_from_dict(AcrobotConfig, config)
-        )
-        return AcrobotPolicy(
-            acrobot_config,
-            structural=acrobot_structural,
-        )
-    if env_id == "LunarLander-v3":
-        return LunarLanderPolicy(
-            _config_from_dict(LunarLanderConfig, config),
-            structural=structural and not tuned,
-        )
-    if env_id == "BipedalWalker-v3":
-        return BipedalWalkerPolicy(
-            _config_from_dict(BipedalWalkerConfig, config),
-            structural=structural and not tuned,
-        )
-    raise ValueError(f"no policy registered for {env_id!r}")
+    return policy

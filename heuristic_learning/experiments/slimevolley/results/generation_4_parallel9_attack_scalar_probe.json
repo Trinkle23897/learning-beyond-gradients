@@ -1,0 +1,698 @@
+{
+  "runs": [
+    {
+      "generated_at": "2026-05-27T13:06:26.028129+00:00",
+      "worker": "A",
+      "label": "generation_4_parallel9_attack_scalar_probe",
+      "holdout_audit_used": false,
+      "seed_policy": {
+        "short_screen": [
+          9000,
+          9001,
+          9002,
+          9003,
+          9004,
+          9005,
+          9006,
+          9007,
+          9008,
+          9009,
+          9010,
+          9011,
+          9012,
+          9013,
+          9014,
+          9015
+        ],
+        "full_check": [
+          9000,
+          9001,
+          9002,
+          9003,
+          9004,
+          9005,
+          9006,
+          9007,
+          9008,
+          9009,
+          9010,
+          9011,
+          9012,
+          9013,
+          9014,
+          9015,
+          9016,
+          9017,
+          9018,
+          9019,
+          9020,
+          9021,
+          9022,
+          9023,
+          9024,
+          9025,
+          9026,
+          9027,
+          9028,
+          9029,
+          9030,
+          9031,
+          9032,
+          9033,
+          9034,
+          9035,
+          9036,
+          9037,
+          9038,
+          9039,
+          9040,
+          9041,
+          9042,
+          9043,
+          9044,
+          9045,
+          9046,
+          9047,
+          9048,
+          9049
+        ],
+        "fixed_pool_opponents": [
+          "builtin",
+          "random",
+          "initial",
+          "improved-v0",
+          "improved-v2",
+          "improved-v3",
+          "improved-v4",
+          "improved-v5",
+          "improved-v6"
+        ]
+      },
+      "selection_rule": {
+        "screen_advancement": "Advance attack-family rows that meet or exceed the baseline_rnn short-screen mean; if fewer than four do, fill to four with the best rows that at least match attack_reference, ordered by mean, wins, fewer losses, then candidate label.",
+        "fixed_pool_gate": "Run the fixed development opponent pool only for attack-family rows whose full built-in mean beats baseline_rnn."
+      },
+      "candidate_definitions": [
+        {
+          "candidate": "attack_reference",
+          "label": "reference",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {},
+          "description": "Current maintained attack policy with its default improved-tuned scalar base."
+        },
+        {
+          "candidate": "baseline_rnn",
+          "label": "neural comparator",
+          "policy_name": "baseline-rnn",
+          "base_config": null,
+          "delta": {},
+          "description": "Packaged slimevolleygym baseline-rnn comparator."
+        },
+        {
+          "candidate": "low_x_0.48",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "low_ball_rescue_x_window": 0.48
+          },
+          "description": "Narrow low-ball rescue jump window."
+        },
+        {
+          "candidate": "low_x_0.52",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "low_ball_rescue_x_window": 0.52
+          },
+          "description": "Moderately narrower low-ball rescue jump window."
+        },
+        {
+          "candidate": "low_x_0.64",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "low_ball_rescue_x_window": 0.64
+          },
+          "description": "Broader low-ball rescue jump window."
+        },
+        {
+          "candidate": "low_horizon_0.04",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "low_ball_rescue_horizon": 0.04
+          },
+          "description": "Shorter low-ball rescue intercept lookahead."
+        },
+        {
+          "candidate": "low_horizon_0.08",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "low_ball_rescue_horizon": 0.08
+          },
+          "description": "Longer low-ball rescue intercept lookahead."
+        },
+        {
+          "candidate": "late_vx_m0.45",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "late_attack_vx": -0.45
+          },
+          "description": "Fire attack on less negative horizontal ball velocity."
+        },
+        {
+          "candidate": "late_vx_m0.55",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "late_attack_vx": -0.55
+          },
+          "description": "Fire attack only on faster opponent-bound balls."
+        },
+        {
+          "candidate": "late_vy_m0.30",
+          "label": "scalar",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "late_attack_vy": -0.3
+          },
+          "description": "Require steeper descending ball before forcing forward+jump."
+        },
+        {
+          "candidate": "late_dx_wide",
+          "label": "config",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "late_attack_dx_min": -0.02,
+            "late_attack_dx_max": 0.34
+          },
+          "description": "Wider behind-contact attack window."
+        },
+        {
+          "candidate": "rank1_builtin_combo",
+          "label": "config",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "high_arc_horizon": 0.95,
+            "overcommit_guard_x": 0.2,
+            "grounded_low_receive_airborne_margin": 0.16,
+            "late_attack_vx": -0.45
+          },
+          "description": "Best built-in-only combo from the earlier joint attack scalar search."
+        },
+        {
+          "candidate": "rank2_lowx64_combo",
+          "label": "config",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "high_arc_horizon": 0.95,
+            "low_ball_rescue_x_window": 0.64,
+            "grounded_low_receive_airborne_margin": 0.2,
+            "late_attack_vx": -0.45,
+            "late_attack_dx_max": 0.42
+          },
+          "description": "Prior built-in-biased low-x and wide-dx combo from the joint search."
+        },
+        {
+          "candidate": "fast_contact_combo",
+          "label": "config",
+          "policy_name": "attack",
+          "base_config": "IMPROVED_TUNED_CONFIG",
+          "delta": {
+            "late_attack_vx": -0.55,
+            "late_attack_vy": -0.3,
+            "late_attack_dx_min": -0.02,
+            "late_attack_dx_max": 0.34
+          },
+          "description": "Steeper, faster late-contact trigger with widened dx band."
+        }
+      ],
+      "phase_results": [
+        {
+          "phase": "screen",
+          "opponents": [
+            "builtin"
+          ],
+          "seeds": "9000..9015",
+          "rows": [
+            {
+              "candidate": "attack_reference",
+              "label": "reference",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.125,
+              "std": 0.5994789404140899,
+              "wins": 2,
+              "losses": 4,
+              "draws": 10,
+              "steps": 48000
+            },
+            {
+              "candidate": "baseline_rnn",
+              "label": "neural comparator",
+              "policy_name": "baseline-rnn",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": 0.125,
+              "std": 0.9921567416492215,
+              "wins": 6,
+              "losses": 4,
+              "draws": 6,
+              "steps": 48000
+            },
+            {
+              "candidate": "low_x_0.48",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": 0.0625,
+              "std": 0.8267972847076845,
+              "wins": 3,
+              "losses": 2,
+              "draws": 11,
+              "steps": 48000
+            },
+            {
+              "candidate": "low_x_0.52",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.0625,
+              "std": 0.8267972847076845,
+              "wins": 2,
+              "losses": 3,
+              "draws": 11,
+              "steps": 48000
+            },
+            {
+              "candidate": "low_x_0.64",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.25,
+              "std": 0.9013878188659973,
+              "wins": 2,
+              "losses": 4,
+              "draws": 10,
+              "steps": 48000
+            },
+            {
+              "candidate": "low_horizon_0.04",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.625,
+              "std": 1.1110243021644486,
+              "wins": 2,
+              "losses": 8,
+              "draws": 6,
+              "steps": 48000
+            },
+            {
+              "candidate": "low_horizon_0.08",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -1.1875,
+              "std": 1.184205957593526,
+              "wins": 1,
+              "losses": 11,
+              "draws": 4,
+              "steps": 48000
+            },
+            {
+              "candidate": "late_vx_m0.45",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.125,
+              "std": 0.5994789404140899,
+              "wins": 2,
+              "losses": 4,
+              "draws": 10,
+              "steps": 48000
+            },
+            {
+              "candidate": "late_vx_m0.55",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.1875,
+              "std": 0.6343057228182637,
+              "wins": 2,
+              "losses": 5,
+              "draws": 9,
+              "steps": 48000
+            },
+            {
+              "candidate": "late_vy_m0.30",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.25,
+              "std": 0.5590169943749475,
+              "wins": 1,
+              "losses": 5,
+              "draws": 10,
+              "steps": 48000
+            },
+            {
+              "candidate": "late_dx_wide",
+              "label": "config",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": -0.25,
+              "std": 0.9682458365518543,
+              "wins": 4,
+              "losses": 6,
+              "draws": 6,
+              "steps": 48000
+            },
+            {
+              "candidate": "rank1_builtin_combo",
+              "label": "config",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": 0.1875,
+              "std": 0.5266343608235224,
+              "wins": 4,
+              "losses": 1,
+              "draws": 11,
+              "steps": 48000
+            },
+            {
+              "candidate": "rank2_lowx64_combo",
+              "label": "config",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": 0.125,
+              "std": 0.5994789404140899,
+              "wins": 4,
+              "losses": 2,
+              "draws": 10,
+              "steps": 48000
+            },
+            {
+              "candidate": "fast_contact_combo",
+              "label": "config",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9015",
+              "episodes": 16,
+              "mean": 0.0625,
+              "std": 1.1439378261076953,
+              "wins": 7,
+              "losses": 5,
+              "draws": 4,
+              "steps": 48000
+            }
+          ]
+        },
+        {
+          "phase": "full_builtin",
+          "opponents": [
+            "builtin"
+          ],
+          "seeds": "9000..9049",
+          "rows": [
+            {
+              "candidate": "baseline_rnn",
+              "label": "neural comparator",
+              "policy_name": "baseline-rnn",
+              "opponent": "builtin",
+              "seeds": "9000..9049",
+              "episodes": 50,
+              "mean": 0.12,
+              "std": 0.9724196624914575,
+              "wins": 18,
+              "losses": 12,
+              "draws": 20,
+              "steps": 150000
+            },
+            {
+              "candidate": "attack_reference",
+              "label": "reference",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9049",
+              "episodes": 50,
+              "mean": -0.3,
+              "std": 1.044030650891055,
+              "wins": 7,
+              "losses": 18,
+              "draws": 25,
+              "steps": 150000
+            },
+            {
+              "candidate": "rank1_builtin_combo",
+              "label": "config",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9049",
+              "episodes": 50,
+              "mean": -0.1,
+              "std": 1.02469507659596,
+              "wins": 11,
+              "losses": 13,
+              "draws": 26,
+              "steps": 150000
+            },
+            {
+              "candidate": "rank2_lowx64_combo",
+              "label": "config",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9049",
+              "episodes": 50,
+              "mean": -0.1,
+              "std": 1.004987562112089,
+              "wins": 11,
+              "losses": 14,
+              "draws": 25,
+              "steps": 150000
+            },
+            {
+              "candidate": "fast_contact_combo",
+              "label": "config",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9049",
+              "episodes": 50,
+              "mean": -0.16,
+              "std": 0.9457272334029511,
+              "wins": 11,
+              "losses": 17,
+              "draws": 22,
+              "steps": 150000
+            },
+            {
+              "candidate": "low_x_0.48",
+              "label": "scalar",
+              "policy_name": "attack",
+              "opponent": "builtin",
+              "seeds": "9000..9049",
+              "episodes": 50,
+              "mean": -0.12,
+              "std": 0.8634813257969162,
+              "wins": 7,
+              "losses": 14,
+              "draws": 29,
+              "steps": 150000
+            }
+          ]
+        },
+        {
+          "phase": "fixed_pool",
+          "opponents": [
+            "builtin",
+            "random",
+            "initial",
+            "improved-v0",
+            "improved-v2",
+            "improved-v3",
+            "improved-v4",
+            "improved-v5",
+            "improved-v6"
+          ],
+          "seeds": "9000..9049",
+          "rows": [],
+          "candidate_pool_means": {}
+        }
+      ],
+      "summary": {
+        "screen_baseline_mean": 0.125,
+        "screen_attack_mean": -0.125,
+        "advanced_candidates": [
+          "rank1_builtin_combo",
+          "rank2_lowx64_combo",
+          "fast_contact_combo",
+          "low_x_0.48"
+        ],
+        "full_baseline_mean": 0.12,
+        "full_attack_mean": -0.3,
+        "beating_baseline_candidates": [],
+        "fixed_pool_means": {},
+        "best_screen_attack_rows": [
+          {
+            "candidate": "rank1_builtin_combo",
+            "label": "config",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9015",
+            "episodes": 16,
+            "mean": 0.1875,
+            "wins": 4,
+            "losses": 1,
+            "draws": 11,
+            "steps": 48000
+          },
+          {
+            "candidate": "rank2_lowx64_combo",
+            "label": "config",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9015",
+            "episodes": 16,
+            "mean": 0.125,
+            "wins": 4,
+            "losses": 2,
+            "draws": 10,
+            "steps": 48000
+          },
+          {
+            "candidate": "fast_contact_combo",
+            "label": "config",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9015",
+            "episodes": 16,
+            "mean": 0.0625,
+            "wins": 7,
+            "losses": 5,
+            "draws": 4,
+            "steps": 48000
+          },
+          {
+            "candidate": "low_x_0.48",
+            "label": "scalar",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9015",
+            "episodes": 16,
+            "mean": 0.0625,
+            "wins": 3,
+            "losses": 2,
+            "draws": 11,
+            "steps": 48000
+          },
+          {
+            "candidate": "low_x_0.52",
+            "label": "scalar",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9015",
+            "episodes": 16,
+            "mean": -0.0625,
+            "wins": 2,
+            "losses": 3,
+            "draws": 11,
+            "steps": 48000
+          }
+        ],
+        "best_full_attack_rows": [
+          {
+            "candidate": "rank1_builtin_combo",
+            "label": "config",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9049",
+            "episodes": 50,
+            "mean": -0.1,
+            "wins": 11,
+            "losses": 13,
+            "draws": 26,
+            "steps": 150000
+          },
+          {
+            "candidate": "rank2_lowx64_combo",
+            "label": "config",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9049",
+            "episodes": 50,
+            "mean": -0.1,
+            "wins": 11,
+            "losses": 14,
+            "draws": 25,
+            "steps": 150000
+          },
+          {
+            "candidate": "low_x_0.48",
+            "label": "scalar",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9049",
+            "episodes": 50,
+            "mean": -0.12,
+            "wins": 7,
+            "losses": 14,
+            "draws": 29,
+            "steps": 150000
+          },
+          {
+            "candidate": "fast_contact_combo",
+            "label": "config",
+            "policy_name": "attack",
+            "opponent": "builtin",
+            "seeds": "9000..9049",
+            "episodes": 50,
+            "mean": -0.16,
+            "wins": 11,
+            "losses": 17,
+            "draws": 22,
+            "steps": 150000
+          }
+        ]
+      }
+    }
+  ]
+}
