@@ -310,6 +310,64 @@ def test_slimevolley_critic_prompt_uses_dev_rows_and_excludes_holdout_context(tm
     assert "planner_floor_intercept" in prompt
 
 
+def test_slimevolley_critic_prompt_uses_generation_5_guardrails(tmp_path) -> None:
+    ledger_path = tmp_path / "generation_5_trials.jsonl"
+    summary_path = tmp_path / "generation_5_summary.csv"
+    report_path = tmp_path / "final_report.md"
+    dev_entry = {
+        "timestamp": "2026-05-27T00:00:00+00:00",
+        "environment": "SlimeVolley-v0",
+        "policy_version": "net-pressure",
+        "opponent_name": "builtin",
+        "git_commit": "test",
+        "diff_identifier": "test",
+        "config": {},
+        "seed_range": {"split": "dev", "start": 12000, "stop_exclusive": 12002, "seeds": [12000, 12001]},
+        "episodes": 2,
+        "score_stats": {"mean": -0.06, "std": 0.0, "median": -0.06, "min": -0.06, "max": -0.06},
+        "environment_steps": 123,
+        "wall_clock_seconds": 0.1,
+        "tests_run": TESTS_RUN_FIXTURE,
+        "pass_fail": "pass",
+        "change_summary": "critic generation-5 fixture",
+        "failure_analysis": "generation-5 dev row",
+        "next_hypothesis": "fixture",
+        "change_type": "structural policy improvement",
+        "agent_iterations": 0,
+        "code_edits": 0,
+        "llm_cost": {"source": "test"},
+        "runtime_metadata": {"python": "test"},
+        "win_loss_draw": {"wins": 0, "losses": 1, "draws": 1},
+    }
+    holdout_entry = {
+        **dev_entry,
+        "policy_version": "forbidden-holdout-policy",
+        "seed_range": {"split": "holdout", "start": 13000, "stop_exclusive": 13001, "seeds": [13000]},
+        "failure_analysis": "must stay sealed",
+    }
+    ledger_path.write_text(json.dumps(dev_entry) + "\n" + json.dumps(holdout_entry) + "\n", encoding="utf-8")
+    summary_path.write_text("header\n", encoding="utf-8")
+    report_path.write_text("## Generation-5 Development Attempt\nreport text\n", encoding="utf-8")
+
+    prompt = build_critic_prompt(
+        ledger_path=ledger_path,
+        summary_path=summary_path,
+        report_path=report_path,
+        context="full",
+    )
+
+    assert "Current generation-5 guardrails" in prompt
+    assert "Development seeds: 12000..12049" in prompt
+    assert "Holdout seeds: 13000..13049; sealed and unavailable for tuning" in prompt
+    assert "Audit seeds: 14000..14049" in prompt
+    assert "net-pressure" in prompt
+    assert "generation-5 dev row" in prompt
+    assert "forbidden-holdout-policy" not in prompt
+    assert "must stay sealed" not in prompt
+    assert "generation_5_stacked_followthrough_and_posture_probe.md" in prompt
+    assert "## Generation-5 Development Attempt" in prompt
+
+
 def test_slimevolley_critic_mock_run_writes_auditable_artifacts(tmp_path) -> None:
     ledger_path = tmp_path / "generation_4_trials.jsonl"
     summary_path = tmp_path / "generation_4_summary.csv"

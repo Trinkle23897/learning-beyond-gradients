@@ -305,6 +305,8 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/generation_5_fixed_pool_comparator.md` | Development-only fixed-pool comparator note for `net-pressure`, `baseline-rnn`, and `rally-serve` on generation-5 dev seeds. | maintained after generation-5 fixed-pool comparator rows | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `notes/generation_5_hard_opponent_trace_and_probe.md` | Development-only hard-opponent trace and failed/mixed front-net, brace-action, and contact-quality probe note for generation-5. | maintained after generation-5 hard-opponent diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `notes/generation_5_post_contact_comparison.md` | Development-only post-contact transfer and net-post-contact combination note for generation-5; records ledgered fixed-pool rows and no-promotion decision. | maintained after generation-5 post-contact comparison rows | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `notes/generation_5_aggressive_pressure_and_brace_probe.md` | Development-only aggressive pressure, brace-serve, and conditional brace probe note for generation-5; records rejected broad jump/brace directions. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `notes/generation_5_stacked_followthrough_and_posture_probe.md` | Development-only stacked followthrough, front-low recovery, and opponent-posture gated pressure note for generation-5; records mixed/rejected no-ledger probes. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `results/generation_4_trials.jsonl` | Append-only generation-4 ledger for development rows and final-only holdout rows. | generation-4 development and final holdout commands | reviewer inspection, `reports/generation_4_temporal_history_attempt.md`, and `results/holdout_g4_final.json` |",
         "| `results/generation_4_summary.csv` | CSV projection of the generation-4 ledger, including final-only holdout rows when present. | generation-4 ledger-producing commands | reviewer inspection |",
         "| `results/holdout_g4_final.json` | Generation-4 final-only holdout matrix over frozen policies, including `rally-serve` and `baseline-rnn`. | `make slimevolley-final-eval` after policy/config/opponent/test freeze | reviewer inspection and `make slimevolley-audit` seed/matrix/anti-tuning checks |",
@@ -320,13 +322,16 @@ def _artifact_manifest_lines() -> list[str]:
         "| `reports/parallel/20260527_trace_rally_attack_rnn_worker.md` | Dated development-only trace comparison of `rally-serve`, `attack`, and `baseline-rnn` against the built-in opponent. | parallel trace diagnostics worker on generation-4 dev seeds | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_attack_scalar_subagent_v2.md` | Development-only v2 scalar/config probe around `rally-serve`; records tied built-in variants, incomplete/mixed fixed-pool rows, and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_grounded_low_receive_subagent_v2.md` | Development-only v2 stacked-frame grounded-low-receive probe; records a tie with `rally-serve` and rejects broad low-incoming modes. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/g4_grounded_low_receive_worker_b_screen.md` | Development-only Worker B grounded-low-receive short-screen note; records harmful/tied structural branch probes and no full-pool expansion. | no-ledger generation-4 short-screen diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_rear_wall_press_subagent_v2.md` | Development-only v2 rear-wall press probe; records harmful/tied wall-clear variants and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_archived_robustness_subagent_v2.md` | Development-only v2 archived-opponent robustness note; records interrupted rerun and canonical fixed-pool regression versus `baseline-rnn`. | no-ledger generation-4 dev diagnostics plus existing summary rows | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_trace_attack_vs_rnn_subagent_v2.md` | Development-only v2 attack/rally-serve/RNN trace report on `9000..9015`. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `reports/parallel/g4_trace_attack_vs_baseline_rnn_worker_d_20260527.md` | Development-only Worker D trace report comparing `attack`, `net-pressure`, and `baseline-rnn` on generation-4 dev seeds; records no promotion. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel_subagent_synthesis_v2.md` | Development-only v2 synthesis of scalar, structural, trace, and robustness subagent artifacts; records no promotion decision. | maintained after 2026-05-27 v2 parallel worker completion | reviewer inspection; development-seed evidence only |",
         "| `probes/g4_post_contact_gate_probe.py` | Development-only post-contact gate probe script for temporary structural/history candidates around `rally-serve`. | manual no-ledger generation-4 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_post_contact_gate_probe.json` | JSON results for the development-only post-contact gate probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g4_post_contact_gate_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_post_contact_gate_probe.md` | Development-only post-contact gate probe note; records short-screen and fixed-pool results plus the no-promotion decision. | maintained after 2026-05-27 post-contact probe completion | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/g4_archived_opponent_robustness_post_contact_worker_e.md` | Development-only Worker E archived-opponent robustness note for `post-contact`; records fixed-pool rows and no final promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/generation_4_post_contact_front_conversion_attempt.md` | Development-only post-contact front-conversion note; records small archived-opponent gains, registered development-only candidate, and no final claim. | maintained after 2026-05-27 post-contact probe and code registration | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_parallel3_attack_scalar.md` | Development-only parallel3 scalar/config search around `rally-serve`; records built-in-only ties/small same-W-L-D gains and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_parallel3_grounded_low_receive.md` | Development-only parallel3 grounded-low-receive history probe; records action-changing ties, fixed-pool no-gain results, and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
@@ -1435,11 +1440,14 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
     parallel_g4_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel_subagent_synthesis.md"
     parallel_g4_attack_scalar_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_attack_scalar_subagent_v2.md"
     parallel_g4_grounded_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_grounded_low_receive_subagent_v2.md"
+    parallel_g4_worker_b_grounded_note = results_dir.parent / "notes" / "parallel" / "g4_grounded_low_receive_worker_b_screen.md"
     parallel_g4_rear_wall_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_rear_wall_press_subagent_v2.md"
     parallel_g4_robustness_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_archived_robustness_subagent_v2.md"
     parallel_g4_trace_v2_report = reports_dir / "parallel" / "20260527_g4_trace_attack_vs_rnn_subagent_v2.md"
+    parallel_g4_worker_d_trace_report = reports_dir / "parallel" / "g4_trace_attack_vs_baseline_rnn_worker_d_20260527.md"
     parallel_g4_synthesis_v2_report = reports_dir / "parallel" / "20260527_g4_parallel_subagent_synthesis_v2.md"
     post_contact_candidate_note = results_dir.parent / "notes" / "generation_4_post_contact_front_conversion_attempt.md"
+    post_contact_worker_e_note = results_dir.parent / "notes" / "parallel" / "g4_archived_opponent_robustness_post_contact_worker_e.md"
     post_contact_probe_script = results_dir.parent / "probes" / "g4_post_contact_gate_probe.py"
     post_contact_probe_result = results_dir / "generation_4_post_contact_gate_probe.json"
     parallel_g4_parallel3_attack_scalar_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel3_attack_scalar.md"
@@ -1493,11 +1501,14 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-4 subagent synthesis report: `{parallel_g4_synthesis_report}`",
         f"- Generation-4 subagent scalar/config v2 note: `{parallel_g4_attack_scalar_v2_note}`",
         f"- Generation-4 subagent grounded-low-receive v2 note: `{parallel_g4_grounded_v2_note}`",
+        f"- Generation-4 Worker B grounded-low-receive screen note: `{parallel_g4_worker_b_grounded_note}`",
         f"- Generation-4 subagent rear-wall press v2 note: `{parallel_g4_rear_wall_v2_note}`",
         f"- Generation-4 subagent archived-opponent robustness v2 note: `{parallel_g4_robustness_v2_note}`",
         f"- Generation-4 subagent attack/rally-serve/RNN trace v2 report: `{parallel_g4_trace_v2_report}`",
+        f"- Generation-4 Worker D attack/net-pressure/RNN trace report: `{parallel_g4_worker_d_trace_report}`",
         f"- Generation-4 subagent synthesis v2 report: `{parallel_g4_synthesis_v2_report}`",
         f"- Generation-4 post-contact front-conversion candidate note: `{post_contact_candidate_note}`",
+        f"- Generation-4 post-contact Worker E archived-opponent robustness note: `{post_contact_worker_e_note}`",
         f"- Generation-4 post-contact gate probe script: `{post_contact_probe_script}`",
         f"- Generation-4 post-contact gate probe results: `{post_contact_probe_result}`",
         f"- Generation-4 parallel3 scalar/config note: `{parallel_g4_parallel3_attack_scalar_note}`",
@@ -1941,6 +1952,8 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     fixed_pool_note = results_dir.parent / "notes" / "generation_5_fixed_pool_comparator.md"
     hard_opponent_note = results_dir.parent / "notes" / "generation_5_hard_opponent_trace_and_probe.md"
     post_contact_note = results_dir.parent / "notes" / "generation_5_post_contact_comparison.md"
+    aggressive_pressure_note = results_dir.parent / "notes" / "generation_5_aggressive_pressure_and_brace_probe.md"
+    stacked_followthrough_note = results_dir.parent / "notes" / "generation_5_stacked_followthrough_and_posture_probe.md"
     holdout_artifact = results_dir / "holdout_g5_final.json"
 
     if not generation_ledger.exists():
@@ -1963,6 +1976,8 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-5 fixed-pool comparator note: `{fixed_pool_note}`",
         f"- Generation-5 hard-opponent trace/probe note: `{hard_opponent_note}`",
         f"- Generation-5 post-contact comparison note: `{post_contact_note}`",
+        f"- Generation-5 aggressive pressure and brace probe note: `{aggressive_pressure_note}`",
+        f"- Generation-5 stacked followthrough and posture probe note: `{stacked_followthrough_note}`",
         f"- Generation-5 ledger: `{generation_ledger}`",
         f"- Generation-5 summary: `{generation_summary}`",
         f"- Generation-5 final holdout artifact: `{holdout_artifact}`" + (" is present and is final-only evidence." if holdout_artifact.exists() else " is not present."),
@@ -2101,6 +2116,14 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
             )
         lines.append(
             "- Promotion recommendation: do not open generation-5 holdout. The fixed-pool comparator rows are now present, and neither `net-pressure` nor `post-contact` beats the neural comparator across the harder archived opponents."
+        )
+    if aggressive_pressure_note.exists():
+        lines.append(
+            "- Additional generation-5 failed direction: aggressive low-contact jump/brace rules and brace-serve macros were screened on `12000..12015`; broad pressure collapsed, brace variants either regressed built-in or became no-ops, and no candidate justified a maintained policy edit."
+        )
+    if stacked_followthrough_note.exists():
+        lines.append(
+            "- Additional generation-5 mixed/failed direction: front-low recovery, stacked followthrough, and opponent-posture gated low-pressure probes were screened on development seeds; the best full-dev posture gate only nudged `improved-v5/v6` while regressing other fixed-pool rows, so no maintained policy edit was promoted."
         )
     return lines
 

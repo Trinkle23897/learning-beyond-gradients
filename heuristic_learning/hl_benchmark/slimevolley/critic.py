@@ -25,12 +25,20 @@ from hl_benchmark.slimevolley.adapter import SLIMEVOLLEY_ENV_ID
 
 DEFAULT_GENERATION4_LEDGER = env_results_dir(SLIMEVOLLEY_ENV_ID) / "generation_4_trials.jsonl"
 DEFAULT_GENERATION4_SUMMARY = env_results_dir(SLIMEVOLLEY_ENV_ID) / "generation_4_summary.csv"
+DEFAULT_GENERATION5_LEDGER = env_results_dir(SLIMEVOLLEY_ENV_ID) / "generation_5_trials.jsonl"
+DEFAULT_GENERATION5_SUMMARY = env_results_dir(SLIMEVOLLEY_ENV_ID) / "generation_5_summary.csv"
+DEFAULT_CRITIC_LEDGER = DEFAULT_GENERATION5_LEDGER if DEFAULT_GENERATION5_LEDGER.exists() else DEFAULT_GENERATION4_LEDGER
+DEFAULT_CRITIC_SUMMARY = DEFAULT_GENERATION5_SUMMARY if DEFAULT_GENERATION5_LEDGER.exists() else DEFAULT_GENERATION4_SUMMARY
 DEFAULT_FINAL_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "final_report.md"
 DEFAULT_CRITIC_REPORT_DIR = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "critic"
 DEFAULT_OMX_ARTIFACT_DIR = PROJECT_ROOT / ".omx" / "artifacts"
 DEFAULT_JOINT_ATTACK_SEARCH_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_4_joint_attack_scalar_search_attempt.md"
 DEFAULT_LOW_RECEIVE_FOLLOWUP_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_4_low_receive_teacher_scalar_followup.md"
 DEFAULT_RALLY_SERVE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_4_rally_serve_candidate.md"
+DEFAULT_GENERATION5_NET_PRESSURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_net_pressure_attempt.md"
+DEFAULT_GENERATION5_FIXED_POOL_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_fixed_pool_comparator.md"
+DEFAULT_GENERATION5_AGGRESSIVE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_aggressive_pressure_and_brace_probe.md"
+DEFAULT_GENERATION5_STACKED_POSTURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_stacked_followthrough_and_posture_probe.md"
 DEFAULT_PARALLEL_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_parallel_synthesis_rallyserve.md"
 DEFAULT_PARALLEL_TRACE_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_trace_rally_attack_rnn_worker.md"
 DEFAULT_TASK = "Critique the current SlimeVolley heuristic-learning performance and propose the next improvement direction."
@@ -79,6 +87,82 @@ def _seed_label(entry: dict[str, Any]) -> str:
     return "unknown"
 
 
+@dataclass(frozen=True)
+class CriticGenerationContext:
+    """Human-readable seed and interpretation context for one selected ledger."""
+
+    label: str
+    dev_seeds: str
+    holdout_seeds: str
+    audit_seeds: str
+    holdout_note: str
+    audit_note: str
+
+
+def _critic_generation_context(ledger_path: Path) -> CriticGenerationContext:
+    name = ledger_path.name
+    if "generation_5" in name:
+        return CriticGenerationContext(
+            label="generation-5",
+            dev_seeds="12000..12049",
+            holdout_seeds="13000..13049",
+            holdout_note="sealed and unavailable for tuning",
+            audit_seeds="14000..14049",
+            audit_note="reserved for independent checks and unavailable for tuning",
+        )
+    if "generation_4" in name:
+        return CriticGenerationContext(
+            label="generation-4",
+            dev_seeds="9000..9049",
+            holdout_seeds="10000..10049",
+            holdout_note="consumed for final-only evaluation and unavailable for tuning",
+            audit_seeds="11000..11049",
+            audit_note="reserved for independent checks and unavailable for tuning",
+        )
+    return CriticGenerationContext(
+        label="selected generation",
+        dev_seeds="the selected ledger's development split",
+        holdout_seeds="the selected ledger's holdout split",
+        holdout_note="excluded from next-direction development context",
+        audit_seeds="the selected ledger's audit split",
+        audit_note="excluded from next-direction development context",
+    )
+
+
+def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str]:
+    if generation.label == "generation-5":
+        return [
+            "- Generation-5 is fresh post-generation-4 development context; generation-5 holdout and audit seeds remain sealed and must not be used for tuning.",
+            "- `net-pressure` is the current best generation-5 structural probe: it beats `baseline-rnn` on built-in development mean but remains behind on hard archived opponents.",
+            "- `post-contact` did not transfer into a fixed-pool improvement over `net-pressure` and is not promoted.",
+            "- Broad aggressive low-contact, brace-serve, front-low recovery, stacked followthrough, and opponent-posture low-pressure probes produced mixed or negative development evidence and should not be promoted without stronger fixed-pool rows.",
+            "- The remaining gap is not a single terminal-frame action problem; the most credible next direction is earlier contact setup or a higher-level rally phase classifier that is checked against the fixed development opponent pool before any holdout use.",
+            f"- Generation-5 net-pressure note, if present: `{DEFAULT_GENERATION5_NET_PRESSURE_NOTE}`.",
+            f"- Generation-5 fixed-pool comparator note, if present: `{DEFAULT_GENERATION5_FIXED_POOL_NOTE}`.",
+            f"- Generation-5 aggressive pressure/brace note, if present: `{DEFAULT_GENERATION5_AGGRESSIVE_NOTE}`.",
+            f"- Generation-5 stacked followthrough/posture note, if present: `{DEFAULT_GENERATION5_STACKED_POSTURE_NOTE}`.",
+            "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
+        ]
+    return [
+        "- The current maintained `improved` heuristic remains stronger than `planner` and `teacher-assisted` against the built-in opponent on development seeds.",
+        "- `improved-tuned` is a scalar/config baseline: it improves built-in development score but remains below `baseline-rnn` and is not structural improvement evidence.",
+        "- The `attack` candidate is a structural partial: it improves built-in development score but remains below `baseline-rnn` and regresses nearest archived opponents, so it is not promoted.",
+        "- A follow-up scalar search around `attack` found a built-in-only development candidate at mean `-0.10`, still below `baseline-rnn` mean `0.12` and worse or tied against all non-built-in opponents; it is not promoted.",
+        "- A later parallel scalar/config search found a stronger built-in-only candidate at mean `-0.02` with `low_ball_rescue_x_window=0.48`; it still trails `baseline-rnn` mean `0.12`, is scalar-only, and is not promoted.",
+        "- A low-receive teacher-action follow-up found RNN jump signals in low own-side loss windows, but targeted `LowDriveFinish` and `NetVerticalBlock` structural probes tied or worsened the short screen; a bounded 98-config scalar follow-up again topped out at mean `-0.02` and is not promoted.",
+        "- The `rally-serve` candidate adds a point-reset serve detector plus scalar fields; it beat `baseline-rnn` on built-in development seeds (`0.14` vs `0.12`) but failed to beat it on final-only built-in holdout (`-0.22` vs `-0.12`). Do not propose tuning from this holdout outcome; any new policy-selection work needs a fresh predeclared generation.",
+        "- The latest parallel rally-serve pass found no new promotion: scalar/config variants, stacked grounded-low-receive probes, and stacked rear-wall probes only tied or regressed versus current `rally-serve`; minimum recorded new dev cost was `6,540,000` environment steps.",
+        "- Trace diagnostics show `rally-serve` improves over `attack` by reducing point losses from `32` to `18`, but it wins fewer built-in matches than `baseline-rnn` (`13` versus `18`) and relies more on draws (`29` versus `20`).",
+        f"- Joint scalar-search note, if present: `{DEFAULT_JOINT_ATTACK_SEARCH_NOTE}`.",
+        f"- Low-receive teacher/scalar follow-up note, if present: `{DEFAULT_LOW_RECEIVE_FOLLOWUP_NOTE}`.",
+        f"- Rally-serve candidate note, if present: `{DEFAULT_RALLY_SERVE_NOTE}`.",
+        f"- Parallel synthesis report, if present: `{DEFAULT_PARALLEL_SYNTHESIS_REPORT}`.",
+        f"- Parallel trace report, if present: `{DEFAULT_PARALLEL_TRACE_REPORT}`.",
+        "- The planner variants should not be promoted without new evidence; their failed rows remain append-only evidence.",
+        "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
+    ]
+
+
 def _latest_dev_entries(entries: list[dict[str, Any]]) -> dict[tuple[str, str], dict[str, Any]]:
     latest: dict[tuple[str, str], dict[str, Any]] = {}
     for entry in entries:
@@ -120,26 +204,38 @@ def _performance_table(entries: list[dict[str, Any]]) -> list[str]:
         "| --- | --- | --- | ---: | ---: | --- | ---: | --- |",
     ]
     interesting = [
-        ("improved", "builtin"),
-        ("improved-tuned", "builtin"),
-        ("attack", "builtin"),
+        ("baseline-rnn", "builtin"),
+        ("net-pressure", "builtin"),
         ("rally-serve", "builtin"),
+        ("post-contact", "builtin"),
+        ("attack", "builtin"),
+        ("improved-tuned", "builtin"),
         ("temporal", "builtin"),
         ("planner", "builtin"),
         ("teacher-assisted", "builtin"),
-        ("baseline-rnn", "builtin"),
-        ("improved", "random"),
-        ("improved", "initial"),
-        ("improved", "improved-v3"),
-        ("improved", "improved-v4"),
-        ("improved", "improved-v5"),
-        ("improved", "improved-v6"),
-        ("improved-tuned", "improved-v5"),
-        ("improved-tuned", "improved-v6"),
-        ("attack", "improved-v5"),
-        ("attack", "improved-v6"),
+        ("net-pressure", "random"),
+        ("baseline-rnn", "random"),
+        ("net-pressure", "initial"),
+        ("baseline-rnn", "initial"),
+        ("net-pressure", "improved-v0"),
+        ("baseline-rnn", "improved-v0"),
+        ("net-pressure", "improved-v2"),
+        ("baseline-rnn", "improved-v2"),
+        ("net-pressure", "improved-v3"),
+        ("baseline-rnn", "improved-v3"),
+        ("net-pressure", "improved-v4"),
+        ("baseline-rnn", "improved-v4"),
+        ("net-pressure", "improved-v5"),
+        ("baseline-rnn", "improved-v5"),
+        ("net-pressure", "improved-v6"),
+        ("baseline-rnn", "improved-v6"),
         ("rally-serve", "improved-v5"),
         ("rally-serve", "improved-v6"),
+        ("post-contact", "improved-v5"),
+        ("post-contact", "improved-v6"),
+        ("improved", "builtin"),
+        ("improved", "improved-v5"),
+        ("improved", "improved-v6"),
     ]
     seen: set[tuple[str, str]] = set()
     for key in interesting:
@@ -196,7 +292,13 @@ def _report_excerpt(report_path: Path, *, context: str) -> str:
     if context != "full" or not report_path.exists():
         return ""
     text = report_path.read_text(encoding="utf-8")
-    headings = ["## Generation-4 Development Attempt", "## Neural/RL Comparator", "## Current Conclusion", "## Next Steps"]
+    headings = [
+        "## Generation-5 Development Attempt",
+        "## Generation-4 Development Attempt",
+        "## Neural/RL Comparator",
+        "## Current Conclusion",
+        "## Next Steps",
+    ]
     chunks: list[str] = []
     for heading in headings:
         start = text.find(heading)
@@ -209,8 +311,8 @@ def _report_excerpt(report_path: Path, *, context: str) -> str:
 
 def build_critic_prompt(
     *,
-    ledger_path: Path = DEFAULT_GENERATION4_LEDGER,
-    summary_path: Path = DEFAULT_GENERATION4_SUMMARY,
+    ledger_path: Path = DEFAULT_CRITIC_LEDGER,
+    summary_path: Path = DEFAULT_CRITIC_SUMMARY,
     report_path: Path = DEFAULT_FINAL_REPORT,
     context: str = "sanitized",
     task: str = DEFAULT_TASK,
@@ -220,6 +322,7 @@ def build_critic_prompt(
     entries = read_entries(ledger_path) if ledger_path.exists() else []
     dev_entries = [entry for entry in entries if entry.get("seed_range", {}).get("split") == "dev"]
     sealed_entries = [entry for entry in entries if entry.get("seed_range", {}).get("split") in {"holdout", "audit"}]
+    generation = _critic_generation_context(ledger_path)
     lines = [
         "You are an external critic for a transparent SlimeVolley heuristic-learning experiment.",
         "Your job is to critique current development performance and propose auditable next directions.",
@@ -228,13 +331,13 @@ def build_critic_prompt(
         "",
         f"Task: {task}",
         "",
-        "Current generation-4 guardrails:",
-        "- Development seeds: 9000..9049.",
-        "- Holdout seeds: 10000..10049; consumed for final-only evaluation and unavailable for tuning.",
-        "- Audit seeds: 11000..11049; reserved for independent checks and not available for tuning.",
+        f"Current {generation.label} guardrails:",
+        f"- Development seeds: {generation.dev_seeds}.",
+        f"- Holdout seeds: {generation.holdout_seeds}; {generation.holdout_note}.",
+        f"- Audit seeds: {generation.audit_seeds}; {generation.audit_note}.",
         f"- Selected ledger path: {ledger_path}",
         f"- Selected summary path: {summary_path}",
-        f"- Sealed holdout/audit rows in this selected ledger (consumed final holdout or reserved audit): {len(sealed_entries)}; these rows are excluded from next-direction development context.",
+        f"- Sealed holdout/audit rows in this selected ledger: {len(sealed_entries)}; these rows are excluded from next-direction development context.",
         "",
         f"Development rows available: {len(dev_entries)}",
         "",
@@ -245,22 +348,7 @@ def build_critic_prompt(
         *_diagnostic_lines(dev_entries),
         "",
         "Known interpretation before critic review:",
-        "- The current maintained `improved` heuristic remains stronger than `planner` and `teacher-assisted` against the built-in opponent on development seeds.",
-        "- `improved-tuned` is a scalar/config baseline: it improves built-in development score but remains below `baseline-rnn` and is not structural improvement evidence.",
-        "- The `attack` candidate is a structural partial: it improves built-in development score but remains below `baseline-rnn` and regresses nearest archived opponents, so it is not promoted.",
-        "- A follow-up scalar search around `attack` found a built-in-only development candidate at mean `-0.10`, still below `baseline-rnn` mean `0.12` and worse or tied against all non-built-in opponents; it is not promoted.",
-        "- A later parallel scalar/config search found a stronger built-in-only candidate at mean `-0.02` with `low_ball_rescue_x_window=0.48`; it still trails `baseline-rnn` mean `0.12`, is scalar-only, and is not promoted.",
-        "- A low-receive teacher-action follow-up found RNN jump signals in low own-side loss windows, but targeted `LowDriveFinish` and `NetVerticalBlock` structural probes tied or worsened the short screen; a bounded 98-config scalar follow-up again topped out at mean `-0.02` and is not promoted.",
-        "- The `rally-serve` candidate adds a point-reset serve detector plus scalar fields; it beat `baseline-rnn` on built-in development seeds (`0.14` vs `0.12`) but failed to beat it on final-only built-in holdout (`-0.22` vs `-0.12`). Do not propose tuning from this holdout outcome; any new policy-selection work needs a fresh predeclared generation.",
-        "- The latest parallel rally-serve pass found no new promotion: scalar/config variants, stacked grounded-low-receive probes, and stacked rear-wall probes only tied or regressed versus current `rally-serve`; minimum recorded new dev cost was `6,540,000` environment steps.",
-        "- Trace diagnostics show `rally-serve` improves over `attack` by reducing point losses from `32` to `18`, but it wins fewer built-in matches than `baseline-rnn` (`13` versus `18`) and relies more on draws (`29` versus `20`).",
-        f"- Joint scalar-search note, if present: `{DEFAULT_JOINT_ATTACK_SEARCH_NOTE}`.",
-        f"- Low-receive teacher/scalar follow-up note, if present: `{DEFAULT_LOW_RECEIVE_FOLLOWUP_NOTE}`.",
-        f"- Rally-serve candidate note, if present: `{DEFAULT_RALLY_SERVE_NOTE}`.",
-        f"- Parallel synthesis report, if present: `{DEFAULT_PARALLEL_SYNTHESIS_REPORT}`.",
-        f"- Parallel trace report, if present: `{DEFAULT_PARALLEL_TRACE_REPORT}`.",
-        "- The planner variants should not be promoted without new evidence; their failed rows remain append-only evidence.",
-        "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
+        *_known_interpretation_lines(generation),
         "",
         "Please return:",
         "1. A blunt performance critique.",
@@ -379,8 +467,8 @@ def render_critic_artifact(
 
 def run_claude_critic(
     *,
-    ledger_path: Path = DEFAULT_GENERATION4_LEDGER,
-    summary_path: Path = DEFAULT_GENERATION4_SUMMARY,
+    ledger_path: Path = DEFAULT_CRITIC_LEDGER,
+    summary_path: Path = DEFAULT_CRITIC_SUMMARY,
     report_path: Path = DEFAULT_FINAL_REPORT,
     context: str = "sanitized",
     task: str = DEFAULT_TASK,
@@ -412,6 +500,7 @@ def run_claude_critic(
         "ledger_path": str(ledger_path),
         "summary_path": str(summary_path),
         "report_path": str(report_path),
+        "critic_generation": _critic_generation_context(ledger_path).label,
         "ledger_sha256": _sha256_file(ledger_path),
         "summary_sha256": _sha256_file(summary_path),
         "report_sha256": _sha256_file(report_path),
@@ -462,8 +551,8 @@ def run_claude_critic(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--ledger", type=Path, default=DEFAULT_GENERATION4_LEDGER)
-    parser.add_argument("--summary", type=Path, default=DEFAULT_GENERATION4_SUMMARY)
+    parser.add_argument("--ledger", type=Path, default=DEFAULT_CRITIC_LEDGER)
+    parser.add_argument("--summary", type=Path, default=DEFAULT_CRITIC_SUMMARY)
     parser.add_argument("--report", type=Path, default=DEFAULT_FINAL_REPORT)
     parser.add_argument("--context", choices=["sanitized", "full"], default="sanitized")
     parser.add_argument("--task", default=DEFAULT_TASK)
