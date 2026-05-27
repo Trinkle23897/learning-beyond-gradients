@@ -383,6 +383,14 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/parallel/20260527_g4_parallel7_rear_wall_press.md` | Development-only parallel7 rear-wall press probe; records rejected force-jump, early-guard, release-forward, and no-op brace variants with no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_parallel7_archived_robustness.md` | Development-only parallel7 archived-opponent robustness note comparing `baseline-rnn`, `rally-serve`, `rally-serve-low-x52`, `post-contact`, and `attack`; records no promotion. | existing generation-4 dev artifacts and summary rows | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel7_synthesis.md` | Development-only parallel7 synthesis across attack scalar, grounded-low-receive, rear-wall, trace, and robustness workers; records no maintained edit. | maintained after 2026-05-27 parallel7 worker completion | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel8_attack_scalar.md` | Development-only parallel8 attack scalar/config search; records `attack_rally_shape_low_x52` as a built-in improvement that still failed to beat `baseline-rnn`, with no fixed-pool promotion check. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel8_grounded_low_receive.md` | Development-only parallel8 grounded-low-receive rerun; records short-screen hard-tail nudges, full-pool built-in regression, and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_4_parallel8_grounded_low_receive_probe.json` | JSON rows for the development-only parallel8 grounded-low-receive screen and full-pool `stacked_low_101_wide` rejection. | `.venv/bin/python experiments/slimevolley/probes/g4_stacked_low_receive_probe.py --phase screen/full --output experiments/slimevolley/results/generation_4_parallel8_grounded_low_receive_probe.json` | reviewer inspection; development-seed evidence only, no holdout/audit opened |",
+        "| `reports/parallel/20260527_g4_parallel8_trace_attack_rnn.md` | Development-only parallel8 trace diagnostic comparing `attack` and `baseline-rnn` on generation-4 dev seeds. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel8_rear_wall_press.md` | Development-only parallel8 rear-wall press probe; records a narrow `improved-v4` gain that regressed `improved-v5/v6`, plus inert rear-wall action swaps. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_4_parallel8_rear_wall_press_probe.json` | JSON rows for the development-only parallel8 rear-wall press short screen on `9000..9015`. | transient `/tmp/g4_parallel8_rear_wall_press_probe.py --phase screen` | reviewer inspection; development-seed evidence only, no holdout/audit opened |",
+        "| `notes/parallel/20260527_g4_parallel8_archived_robustness.md` | Development-only parallel8 archived-opponent robustness note comparing `baseline-rnn`, `rally-serve`, `rally-serve-low-x52`, `post-contact`, `net-pressure`, and `attack`; records no promotion. | existing generation-4 dev artifacts and summary rows | reviewer inspection; development-seed evidence only |",
+        "| `reports/parallel/20260527_g4_parallel8_synthesis.md` | Development-only parallel8 synthesis across attack scalar, grounded-low-receive, rear-wall, trace, and robustness workers; records no maintained edit. | maintained after 2026-05-27 parallel8 worker completion | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel_subagent_synthesis_v2.md` | Development-only v2 synthesis of scalar, structural, trace, and robustness subagent artifacts; records no promotion decision. | maintained after 2026-05-27 v2 parallel worker completion | reviewer inspection; development-seed evidence only |",
         "| `probes/g4_post_contact_gate_probe.py` | Development-only post-contact gate probe script for temporary structural/history candidates around `rally-serve`. | manual no-ledger generation-4 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_post_contact_gate_probe.json` | JSON results for the development-only post-contact gate probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g4_post_contact_gate_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
@@ -1526,6 +1534,14 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
     parallel_g4_parallel7_rear_wall_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel7_rear_wall_press.md"
     parallel_g4_parallel7_archived_robustness_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel7_archived_robustness.md"
     parallel_g4_parallel7_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel7_synthesis.md"
+    parallel_g4_parallel8_attack_scalar_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel8_attack_scalar.md"
+    parallel_g4_parallel8_grounded_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel8_grounded_low_receive.md"
+    parallel_g4_parallel8_grounded_result = results_dir / "generation_4_parallel8_grounded_low_receive_probe.json"
+    parallel_g4_parallel8_rear_wall_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel8_rear_wall_press.md"
+    parallel_g4_parallel8_rear_wall_result = results_dir / "generation_4_parallel8_rear_wall_press_probe.json"
+    parallel_g4_parallel8_trace_report = reports_dir / "parallel" / "20260527_g4_parallel8_trace_attack_rnn.md"
+    parallel_g4_parallel8_archived_robustness_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel8_archived_robustness.md"
+    parallel_g4_parallel8_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel8_synthesis.md"
     parallel_g4_synthesis_v2_report = reports_dir / "parallel" / "20260527_g4_parallel_subagent_synthesis_v2.md"
     post_contact_candidate_note = results_dir.parent / "notes" / "generation_4_post_contact_front_conversion_attempt.md"
     post_contact_worker_e_note = results_dir.parent / "notes" / "parallel" / "g4_archived_opponent_robustness_post_contact_worker_e.md"
@@ -1605,6 +1621,14 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-4 parallel7 rear-wall press note: `{parallel_g4_parallel7_rear_wall_note}`",
         f"- Generation-4 parallel7 archived-opponent robustness note: `{parallel_g4_parallel7_archived_robustness_note}`",
         f"- Generation-4 parallel7 synthesis report: `{parallel_g4_parallel7_synthesis_report}`",
+        f"- Generation-4 parallel8 attack scalar/config note: `{parallel_g4_parallel8_attack_scalar_note}`",
+        f"- Generation-4 parallel8 grounded-low-receive note: `{parallel_g4_parallel8_grounded_note}`",
+        f"- Generation-4 parallel8 grounded-low-receive result: `{parallel_g4_parallel8_grounded_result}`",
+        f"- Generation-4 parallel8 attack/baseline-rnn trace report: `{parallel_g4_parallel8_trace_report}`",
+        f"- Generation-4 parallel8 rear-wall press note: `{parallel_g4_parallel8_rear_wall_note}`",
+        f"- Generation-4 parallel8 rear-wall press result: `{parallel_g4_parallel8_rear_wall_result}`",
+        f"- Generation-4 parallel8 archived-opponent robustness note: `{parallel_g4_parallel8_archived_robustness_note}`",
+        f"- Generation-4 parallel8 synthesis report: `{parallel_g4_parallel8_synthesis_report}`",
         f"- Generation-4 subagent synthesis v2 report: `{parallel_g4_synthesis_v2_report}`",
         f"- Generation-4 post-contact front-conversion candidate note: `{post_contact_candidate_note}`",
         f"- Generation-4 post-contact Worker E archived-opponent robustness note: `{post_contact_worker_e_note}`",
@@ -1968,9 +1992,15 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
             or parallel_g4_parallel7_rear_wall_note.exists()
             or parallel_g4_parallel7_archived_robustness_note.exists()
             or parallel_g4_parallel7_synthesis_report.exists()
+            or parallel_g4_parallel8_attack_scalar_note.exists()
+            or parallel_g4_parallel8_grounded_note.exists()
+            or parallel_g4_parallel8_trace_report.exists()
+            or parallel_g4_parallel8_rear_wall_note.exists()
+            or parallel_g4_parallel8_archived_robustness_note.exists()
+            or parallel_g4_parallel8_synthesis_report.exists()
         ):
             lines.append(
-                "- Additional parallel7 diagnostics on generation-4 development seeds: local `attack` scalar/config tuning produced only a tiny built-in improvement (`late_vx_m0.40` from `-0.30` to `-0.28`) and stayed below `baseline-rnn` and `rally-serve`; grounded-low-receive `stacked_low_101_wide` kept only small hard-row gains while regressing built-in to `0.04`; rear-wall variants were either harmful, inert, or behaviorally identical to `post-contact`; trace and robustness notes kept `rally-serve-low-x52` and `post-contact` as development-only references because both still trail `baseline-rnn` across archived hard opponents. No holdout or audit seeds were opened."
+                "- Additional parallel7/parallel8 diagnostics on generation-4 development seeds: local `attack` scalar/config tuning stayed below `baseline-rnn` and `rally-serve`; the parallel8 `attack_rally_shape_low_x52` row reached only `0.06` on full built-in dev seeds versus `baseline-rnn` `0.12`; grounded-low-receive `stacked_low_101_wide` kept only small hard-row gains while regressing built-in to `0.04`; rear-wall variants either traded `improved-v4` for `improved-v5/v6` losses or were inert; trace diagnostics showed `attack` trailing `baseline-rnn` on `9000..9015` while never emitting `110`/`111`; robustness notes kept `rally-serve-low-x52` and `post-contact` as development-only references because both still trail `baseline-rnn` across archived hard opponents. No holdout or audit seeds were opened, and no maintained edit was promoted."
             )
 
     improved_rows = [

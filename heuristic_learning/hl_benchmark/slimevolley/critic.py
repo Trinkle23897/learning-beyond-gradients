@@ -49,6 +49,8 @@ DEFAULT_GENERATION5_ROLLOUT_SEARCH_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).pa
 DEFAULT_GENERATION5_ROLLOUT_MINED_RULE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_rollout_mined_rule_probe.md"
 DEFAULT_PARALLEL_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_parallel_synthesis_rallyserve.md"
 DEFAULT_PARALLEL_TRACE_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_trace_rally_attack_rnn_worker.md"
+DEFAULT_PARALLEL8_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_g4_parallel8_synthesis.md"
+DEFAULT_PARALLEL8_TRACE_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_g4_parallel8_trace_attack_rnn.md"
 DEFAULT_TASK = "Critique the current SlimeVolley heuristic-learning performance and propose the next improvement direction."
 CRITIC_FILENAME_PREFIX = "claude-slimevolley-critic"
 
@@ -177,11 +179,15 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
         "- The `rally-serve` candidate adds a point-reset serve detector plus scalar fields; it beat `baseline-rnn` on built-in development seeds (`0.14` vs `0.12`) but failed to beat it on final-only built-in holdout (`-0.22` vs `-0.12`). Do not propose tuning from this holdout outcome; any new policy-selection work needs a fresh predeclared generation.",
         "- The latest parallel6 rally-serve pass found one scalar/config candidate, `rally-serve-low-x52`, after fixed development opponent-pool checks: built-in mean `0.18` versus current `rally-serve` `0.14` and `baseline-rnn` `0.12`. It is scalar-only development evidence, not structural progress, and holdout/audit seeds remain closed.",
         "- Trace diagnostics show `rally-serve` improves over `attack` by reducing point losses from `32` to `18`, but it wins fewer built-in matches than `baseline-rnn` (`13` versus `18`) and relies more on draws (`29` versus `20`).",
+        "- The parallel8 worker pass used only generation-4 development seeds. `attack_rally_shape_low_x52` reached only `0.06` built-in mean on `9000..9049`, below `baseline-rnn` `0.12`; `stacked_low_101_wide` regressed built-in to `0.04` for tiny hard-tail gains; rear-wall branch swaps traded `improved-v4` for `improved-v5/v6` losses or were inert. No maintained edit was promoted.",
+        "- Parallel8 trace diagnostics showed `attack` trailing `baseline-rnn` on `9000..9015` and never emitting `110` or `111`, while robustness checks kept `rally-serve-low-x52` and `post-contact` as development-only references because both trail `baseline-rnn` on hard archived opponents.",
         f"- Joint scalar-search note, if present: `{DEFAULT_JOINT_ATTACK_SEARCH_NOTE}`.",
         f"- Low-receive teacher/scalar follow-up note, if present: `{DEFAULT_LOW_RECEIVE_FOLLOWUP_NOTE}`.",
         f"- Rally-serve candidate note, if present: `{DEFAULT_RALLY_SERVE_NOTE}`.",
         f"- Parallel synthesis report, if present: `{DEFAULT_PARALLEL_SYNTHESIS_REPORT}`.",
         f"- Parallel trace report, if present: `{DEFAULT_PARALLEL_TRACE_REPORT}`.",
+        f"- Parallel8 synthesis report, if present: `{DEFAULT_PARALLEL8_SYNTHESIS_REPORT}`.",
+        f"- Parallel8 trace report, if present: `{DEFAULT_PARALLEL8_TRACE_REPORT}`.",
         "- The planner variants should not be promoted without new evidence; their failed rows remain append-only evidence.",
         "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
     ]
