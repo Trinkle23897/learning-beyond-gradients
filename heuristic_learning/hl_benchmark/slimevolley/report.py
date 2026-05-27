@@ -328,6 +328,12 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/generation_5_contact_quality_probe.md` | Development-only contact-quality note for generation-5; records recent-contact/descent/brace probes, hard-tail nudges with built-in regressions, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `probes/g5_contact_quality_probe.py` | Development-only contact-quality probe script for short-history pressure gates and RNN-like brace action candidates around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_5_contact_quality_probe.json` | JSON results for the development-only contact-quality short screen on `12000..12015`. | `python experiments/slimevolley/probes/g5_contact_quality_probe.py --phase screen` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_position_posture_probe.md` | Development-only position/posture scalar-config note for generation-5; records front-shifted home-anchor probes, archived-row tradeoffs, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `probes/g5_position_posture_probe.py` | Development-only front-posture scalar/config probe script around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_5_position_posture_probe.json` | JSON results for the development-only position/posture short screen on `12000..12015`. | `python experiments/slimevolley/probes/g5_position_posture_probe.py --phase screen` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_planner_takeover_probe.md` | Development-only planner-takeover structural note for generation-5; records harmful/inert transient planner delegation probes and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `probes/g5_planner_takeover_probe.py` | Development-only transient planner-takeover probe script around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_5_planner_takeover_probe.json` | JSON results for the development-only planner-takeover short screen on `12000..12015`. | `python experiments/slimevolley/probes/g5_planner_takeover_probe.py --phase screen` | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_trials.jsonl` | Append-only generation-4 ledger for development rows and final-only holdout rows. | generation-4 development and final holdout commands | reviewer inspection, `reports/generation_4_temporal_history_attempt.md`, and `results/holdout_g4_final.json` |",
         "| `results/generation_4_summary.csv` | CSV projection of the generation-4 ledger, including final-only holdout rows when present. | generation-4 ledger-producing commands | reviewer inspection |",
         "| `results/holdout_g4_final.json` | Generation-4 final-only holdout matrix over frozen policies, including `rally-serve` and `baseline-rnn`. | `make slimevolley-final-eval` after policy/config/opponent/test freeze | reviewer inspection and `make slimevolley-audit` seed/matrix/anti-tuning checks |",
@@ -2063,6 +2069,12 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     contact_quality_note = results_dir.parent / "notes" / "generation_5_contact_quality_probe.md"
     contact_quality_probe_script = results_dir.parent / "probes" / "g5_contact_quality_probe.py"
     contact_quality_probe_result = results_dir / "generation_5_contact_quality_probe.json"
+    position_posture_note = results_dir.parent / "notes" / "generation_5_position_posture_probe.md"
+    position_posture_probe_script = results_dir.parent / "probes" / "g5_position_posture_probe.py"
+    position_posture_probe_result = results_dir / "generation_5_position_posture_probe.json"
+    planner_takeover_note = results_dir.parent / "notes" / "generation_5_planner_takeover_probe.md"
+    planner_takeover_probe_script = results_dir.parent / "probes" / "g5_planner_takeover_probe.py"
+    planner_takeover_probe_result = results_dir / "generation_5_planner_takeover_probe.json"
     holdout_artifact = results_dir / "holdout_g5_final.json"
 
     if not generation_ledger.exists():
@@ -2094,6 +2106,8 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-5 contact-timing probe note: `{contact_timing_note}`",
         f"- Generation-5 approach-quality probe note: `{approach_quality_note}`",
         f"- Generation-5 contact-quality probe note: `{contact_quality_note}`",
+        f"- Generation-5 position/posture probe note: `{position_posture_note}`",
+        f"- Generation-5 planner-takeover probe note: `{planner_takeover_note}`",
         f"- Generation-5 ledger: `{generation_ledger}`",
         f"- Generation-5 summary: `{generation_summary}`",
         f"- Generation-5 final holdout artifact: `{holdout_artifact}`" + (" is present and is final-only evidence." if holdout_artifact.exists() else " is not present."),
@@ -2177,6 +2191,16 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     if contact_quality_note.exists():
         lines.append(
             "- Additional contact-quality structural/history probe on generation-5 development seeds: recent-contact gates and `110`/`111` brace substitutions were active, but hard-tail nudges came with built-in or `improved-v3/v4` regressions and remained far below `baseline-rnn`. No full-pool expansion, maintained edit, holdout, or audit run was promoted."
+        )
+
+    if position_posture_note.exists():
+        lines.append(
+            "- Additional position/posture scalar-config probe on generation-5 development seeds: front-shifted home anchors preserved or nudged some early archived rows, but the harder-tail gains came with built-in or `improved-v3/v4` regressions and remained far below `baseline-rnn`. No full-pool expansion, maintained config, holdout, or audit run was promoted."
+        )
+
+    if planner_takeover_note.exists():
+        lines.append(
+            "- Additional planner-takeover structural probe on generation-5 development seeds: safe/grounded/wide transient planner delegation fired on the short screen but sharply regressed built-in and hard archived rows, while strict/net-clear variants were inert ties. No full-pool expansion, maintained edit, holdout, or audit run was promoted."
         )
 
     pool_opponents = ["builtin", "random", "initial", "improved-v0", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"]

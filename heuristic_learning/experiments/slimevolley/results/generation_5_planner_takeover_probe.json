@@ -1,0 +1,1444 @@
+{
+  "runs": [
+    {
+      "holdout_audit_used": false,
+      "phase_result": {
+        "candidates": [
+          "net_pressure_reference",
+          "baseline_rnn",
+          "planner_takeover_safe",
+          "planner_takeover_strict",
+          "planner_takeover_netclear",
+          "planner_takeover_grounded",
+          "planner_takeover_wide"
+        ],
+        "opponents": [
+          "builtin",
+          "improved-v3",
+          "improved-v4",
+          "improved-v5",
+          "improved-v6"
+        ],
+        "phase": "screen",
+        "rows": [
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "net_pressure_reference",
+            "draws": 9,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 4,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "opportunity_modes": {},
+            "points_lost": 6,
+            "points_won": 7,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "net_pressure_reference",
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "opportunity_modes": {},
+            "points_lost": 7,
+            "points_won": 53,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "net_pressure_reference",
+            "draws": 3,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "opportunity_modes": {},
+            "points_lost": 8,
+            "points_won": 47,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 850,
+              "001": 3985,
+              "010": 7108,
+              "011": 357,
+              "100": 3121,
+              "101": 17347,
+              "110": 14330,
+              "111": 902
+            },
+            "candidate": "baseline_rnn",
+            "draws": 6,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 3,
+            "mean": 0.25,
+            "opponent": "builtin",
+            "opportunity_modes": {},
+            "points_lost": 9,
+            "points_won": 13,
+            "seeds": "12000..12015",
+            "std": 1.25,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {},
+            "wins": 7
+          },
+          {
+            "action_counts": {
+              "000": 376,
+              "001": 2369,
+              "010": 3202,
+              "011": 203,
+              "100": 2068,
+              "101": 14259,
+              "110": 11401,
+              "111": 598
+            },
+            "candidate": "baseline_rnn",
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 4.1875,
+            "opponent": "improved-v3",
+            "opportunity_modes": {},
+            "points_lost": 7,
+            "points_won": 74,
+            "seeds": "12000..12015",
+            "std": 1.184205957593526,
+            "steps": 34476,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 400,
+              "001": 2480,
+              "010": 3517,
+              "011": 212,
+              "100": 2432,
+              "101": 17532,
+              "110": 13147,
+              "111": 752
+            },
+            "candidate": "baseline_rnn",
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 3.75,
+            "opponent": "improved-v4",
+            "opportunity_modes": {},
+            "points_lost": 7,
+            "points_won": 67,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 40472,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3193,
+              "101": 17602,
+              "110": 15137,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v5",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 45,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3195,
+              "101": 17602,
+              "110": 15135,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v6",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 45,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 19692,
+              "001": 2794,
+              "010": 11183,
+              "011": 410,
+              "100": 10647,
+              "101": 2150
+            },
+            "candidate": "planner_takeover_safe",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: 3-frame takeover on early safe intercept geometry",
+            "losses": 13,
+            "mean": -2.125,
+            "opponent": "builtin",
+            "opportunity_modes": {
+              "planner_intercept": 5
+            },
+            "points_lost": 39,
+            "points_won": 5,
+            "seeds": "12000..12015",
+            "std": 1.899835519196333,
+            "steps": 46876,
+            "takeover_action_changes": 14,
+            "takeover_action_counts": {
+              "000": 2,
+              "001": 9,
+              "010": 3,
+              "101": 1
+            },
+            "takeover_fired": 15,
+            "takeover_opportunities": 5,
+            "takeover_point_outcomes": {
+              "point_lost": 30
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 33,
+              "intercept": 3,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 2,
+              "recovery": 2
+            },
+            "wins": 2
+          },
+          {
+            "action_counts": {
+              "000": 17228,
+              "001": 1838,
+              "010": 10714,
+              "011": 206,
+              "100": 10217,
+              "101": 1892
+            },
+            "candidate": "planner_takeover_safe",
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural/planner: 3-frame takeover on early safe intercept geometry",
+            "losses": 4,
+            "mean": 1.625,
+            "opponent": "improved-v3",
+            "opportunity_modes": {
+              "planner_intercept": 1
+            },
+            "points_lost": 26,
+            "points_won": 52,
+            "seeds": "12000..12015",
+            "std": 2.341874249399399,
+            "steps": 42095,
+            "takeover_action_changes": 3,
+            "takeover_action_counts": {
+              "001": 2,
+              "010": 1
+            },
+            "takeover_fired": 3,
+            "takeover_opportunities": 1,
+            "takeover_point_outcomes": {
+              "point_lost": 21
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 21,
+              "intercept": 30,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 3,
+              "rear_wall_low_jump": 1,
+              "recovery": 22
+            },
+            "wins": 9
+          },
+          {
+            "action_counts": {
+              "000": 17722,
+              "001": 1856,
+              "010": 10937,
+              "011": 201,
+              "100": 10367,
+              "101": 1862
+            },
+            "candidate": "planner_takeover_safe",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: 3-frame takeover on early safe intercept geometry",
+            "losses": 5,
+            "mean": 1.3125,
+            "opponent": "improved-v4",
+            "opportunity_modes": {
+              "planner_intercept": 1
+            },
+            "points_lost": 25,
+            "points_won": 46,
+            "seeds": "12000..12015",
+            "std": 2.228192933746986,
+            "steps": 42945,
+            "takeover_action_changes": 3,
+            "takeover_action_counts": {
+              "001": 2,
+              "010": 1
+            },
+            "takeover_fired": 3,
+            "takeover_opportunities": 1,
+            "takeover_point_outcomes": {
+              "point_lost": 20
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 18,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 5,
+              "rear_wall_low_jump": 1,
+              "recovery": 26
+            },
+            "wins": 10
+          },
+          {
+            "action_counts": {
+              "000": 20572,
+              "001": 2292,
+              "010": 11707,
+              "011": 226,
+              "100": 11055,
+              "101": 2148
+            },
+            "candidate": "planner_takeover_safe",
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural/planner: 3-frame takeover on early safe intercept geometry",
+            "losses": 8,
+            "mean": -0.625,
+            "opponent": "improved-v5",
+            "opportunity_modes": {
+              "planner_intercept": 5
+            },
+            "points_lost": 35,
+            "points_won": 25,
+            "seeds": "12000..12015",
+            "std": 1.5360257159305635,
+            "steps": 48000,
+            "takeover_action_changes": 14,
+            "takeover_action_counts": {
+              "000": 2,
+              "001": 10,
+              "010": 3
+            },
+            "takeover_fired": 15,
+            "takeover_opportunities": 5,
+            "takeover_point_outcomes": {
+              "point_lost": 33
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 29,
+              "intercept": 13,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 2,
+              "low_ball_rescue": 3,
+              "recovery": 12
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 20572,
+              "001": 2292,
+              "010": 11707,
+              "011": 226,
+              "100": 11055,
+              "101": 2148
+            },
+            "candidate": "planner_takeover_safe",
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural/planner: 3-frame takeover on early safe intercept geometry",
+            "losses": 8,
+            "mean": -0.625,
+            "opponent": "improved-v6",
+            "opportunity_modes": {
+              "planner_intercept": 5
+            },
+            "points_lost": 35,
+            "points_won": 25,
+            "seeds": "12000..12015",
+            "std": 1.5360257159305635,
+            "steps": 48000,
+            "takeover_action_changes": 14,
+            "takeover_action_counts": {
+              "000": 2,
+              "001": 10,
+              "010": 3
+            },
+            "takeover_fired": 15,
+            "takeover_opportunities": 5,
+            "takeover_point_outcomes": {
+              "point_lost": 33
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 29,
+              "intercept": 13,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 2,
+              "low_ball_rescue": 3,
+              "recovery": 12
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "planner_takeover_strict",
+            "draws": 9,
+            "episodes": 16,
+            "label": "structural/planner: stricter low-time intercept with planner jump",
+            "losses": 4,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "opportunity_modes": {},
+            "points_lost": 6,
+            "points_won": 7,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "planner_takeover_strict",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: stricter low-time intercept with planner jump",
+            "losses": 1,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "opportunity_modes": {},
+            "points_lost": 7,
+            "points_won": 53,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "planner_takeover_strict",
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural/planner: stricter low-time intercept with planner jump",
+            "losses": 1,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "opportunity_modes": {},
+            "points_lost": 8,
+            "points_won": 47,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "planner_takeover_strict",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: stricter low-time intercept with planner jump",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "planner_takeover_strict",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: stricter low-time intercept with planner jump",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "planner_takeover_netclear",
+            "draws": 9,
+            "episodes": 16,
+            "label": "structural/planner: takeover only for low predicted net-clearance guard",
+            "losses": 4,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "opportunity_modes": {},
+            "points_lost": 6,
+            "points_won": 7,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "planner_takeover_netclear",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: takeover only for low predicted net-clearance guard",
+            "losses": 1,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "opportunity_modes": {},
+            "points_lost": 7,
+            "points_won": 53,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "planner_takeover_netclear",
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural/planner: takeover only for low predicted net-clearance guard",
+            "losses": 1,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "opportunity_modes": {},
+            "points_lost": 8,
+            "points_won": 47,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "planner_takeover_netclear",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: takeover only for low predicted net-clearance guard",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "planner_takeover_netclear",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: takeover only for low predicted net-clearance guard",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "opportunity_modes": {},
+            "points_lost": 4,
+            "points_won": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "takeover_action_changes": 0,
+            "takeover_action_counts": {},
+            "takeover_fired": 0,
+            "takeover_opportunities": 0,
+            "takeover_point_outcomes": {},
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 19692,
+              "001": 2794,
+              "010": 11183,
+              "011": 410,
+              "100": 10647,
+              "101": 2150
+            },
+            "candidate": "planner_takeover_grounded",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: safe intercept takeover only while grounded",
+            "losses": 13,
+            "mean": -2.125,
+            "opponent": "builtin",
+            "opportunity_modes": {
+              "planner_intercept": 5
+            },
+            "points_lost": 39,
+            "points_won": 5,
+            "seeds": "12000..12015",
+            "std": 1.899835519196333,
+            "steps": 46876,
+            "takeover_action_changes": 14,
+            "takeover_action_counts": {
+              "000": 2,
+              "001": 9,
+              "010": 3,
+              "101": 1
+            },
+            "takeover_fired": 15,
+            "takeover_opportunities": 5,
+            "takeover_point_outcomes": {
+              "point_lost": 30
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 33,
+              "intercept": 3,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 2,
+              "recovery": 2
+            },
+            "wins": 2
+          },
+          {
+            "action_counts": {
+              "000": 17228,
+              "001": 1838,
+              "010": 10714,
+              "011": 206,
+              "100": 10217,
+              "101": 1892
+            },
+            "candidate": "planner_takeover_grounded",
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural/planner: safe intercept takeover only while grounded",
+            "losses": 4,
+            "mean": 1.625,
+            "opponent": "improved-v3",
+            "opportunity_modes": {
+              "planner_intercept": 1
+            },
+            "points_lost": 26,
+            "points_won": 52,
+            "seeds": "12000..12015",
+            "std": 2.341874249399399,
+            "steps": 42095,
+            "takeover_action_changes": 3,
+            "takeover_action_counts": {
+              "001": 2,
+              "010": 1
+            },
+            "takeover_fired": 3,
+            "takeover_opportunities": 1,
+            "takeover_point_outcomes": {
+              "point_lost": 21
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 21,
+              "intercept": 30,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 3,
+              "rear_wall_low_jump": 1,
+              "recovery": 22
+            },
+            "wins": 9
+          },
+          {
+            "action_counts": {
+              "000": 17722,
+              "001": 1856,
+              "010": 10937,
+              "011": 201,
+              "100": 10367,
+              "101": 1862
+            },
+            "candidate": "planner_takeover_grounded",
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural/planner: safe intercept takeover only while grounded",
+            "losses": 5,
+            "mean": 1.3125,
+            "opponent": "improved-v4",
+            "opportunity_modes": {
+              "planner_intercept": 1
+            },
+            "points_lost": 25,
+            "points_won": 46,
+            "seeds": "12000..12015",
+            "std": 2.228192933746986,
+            "steps": 42945,
+            "takeover_action_changes": 3,
+            "takeover_action_counts": {
+              "001": 2,
+              "010": 1
+            },
+            "takeover_fired": 3,
+            "takeover_opportunities": 1,
+            "takeover_point_outcomes": {
+              "point_lost": 20
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 18,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 5,
+              "rear_wall_low_jump": 1,
+              "recovery": 26
+            },
+            "wins": 10
+          },
+          {
+            "action_counts": {
+              "000": 20572,
+              "001": 2292,
+              "010": 11707,
+              "011": 226,
+              "100": 11055,
+              "101": 2148
+            },
+            "candidate": "planner_takeover_grounded",
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural/planner: safe intercept takeover only while grounded",
+            "losses": 8,
+            "mean": -0.625,
+            "opponent": "improved-v5",
+            "opportunity_modes": {
+              "planner_intercept": 5
+            },
+            "points_lost": 35,
+            "points_won": 25,
+            "seeds": "12000..12015",
+            "std": 1.5360257159305635,
+            "steps": 48000,
+            "takeover_action_changes": 14,
+            "takeover_action_counts": {
+              "000": 2,
+              "001": 10,
+              "010": 3
+            },
+            "takeover_fired": 15,
+            "takeover_opportunities": 5,
+            "takeover_point_outcomes": {
+              "point_lost": 33
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 29,
+              "intercept": 13,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 2,
+              "low_ball_rescue": 3,
+              "recovery": 12
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 20572,
+              "001": 2292,
+              "010": 11707,
+              "011": 226,
+              "100": 11055,
+              "101": 2148
+            },
+            "candidate": "planner_takeover_grounded",
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural/planner: safe intercept takeover only while grounded",
+            "losses": 8,
+            "mean": -0.625,
+            "opponent": "improved-v6",
+            "opportunity_modes": {
+              "planner_intercept": 5
+            },
+            "points_lost": 35,
+            "points_won": 25,
+            "seeds": "12000..12015",
+            "std": 1.5360257159305635,
+            "steps": 48000,
+            "takeover_action_changes": 14,
+            "takeover_action_counts": {
+              "000": 2,
+              "001": 10,
+              "010": 3
+            },
+            "takeover_fired": 15,
+            "takeover_opportunities": 5,
+            "takeover_point_outcomes": {
+              "point_lost": 33
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 29,
+              "intercept": 13,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 2,
+              "low_ball_rescue": 3,
+              "recovery": 12
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 12403,
+              "001": 1537,
+              "010": 8234,
+              "011": 255,
+              "100": 7553,
+              "101": 1680
+            },
+            "candidate": "planner_takeover_wide",
+            "draws": 0,
+            "episodes": 16,
+            "label": "structural/planner: wider early intercept geometry screen",
+            "losses": 16,
+            "mean": -4.5,
+            "opponent": "builtin",
+            "opportunity_modes": {
+              "planner_intercept": 21
+            },
+            "points_lost": 79,
+            "points_won": 7,
+            "seeds": "12000..12015",
+            "std": 0.8660254037844386,
+            "steps": 31662,
+            "takeover_action_changes": 37,
+            "takeover_action_counts": {
+              "000": 14,
+              "001": 11,
+              "010": 7,
+              "011": 1,
+              "100": 2,
+              "101": 6
+            },
+            "takeover_fired": 41,
+            "takeover_opportunities": 21,
+            "takeover_point_outcomes": {
+              "point_lost": 78,
+              "point_won": 1
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 65,
+              "intercept": 5,
+              "late_contact_attack": 3,
+              "late_low_ball_guard": 2,
+              "low_ball_rescue": 9,
+              "recovery": 2
+            },
+            "wins": 0
+          },
+          {
+            "action_counts": {
+              "000": 10279,
+              "001": 952,
+              "010": 7762,
+              "011": 159,
+              "100": 7261,
+              "101": 1352
+            },
+            "candidate": "planner_takeover_wide",
+            "draws": 0,
+            "episodes": 16,
+            "label": "structural/planner: wider early intercept geometry screen",
+            "losses": 13,
+            "mean": -2.25,
+            "opponent": "improved-v3",
+            "opportunity_modes": {
+              "planner_intercept": 24,
+              "planner_net_clearance_guard": 1
+            },
+            "points_lost": 72,
+            "points_won": 36,
+            "seeds": "12000..12015",
+            "std": 2.680951323690902,
+            "steps": 27765,
+            "takeover_action_changes": 38,
+            "takeover_action_counts": {
+              "000": 12,
+              "001": 17,
+              "010": 10,
+              "100": 6,
+              "101": 8
+            },
+            "takeover_fired": 53,
+            "takeover_opportunities": 25,
+            "takeover_point_outcomes": {
+              "point_lost": 69,
+              "point_won": 3
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 61,
+              "intercept": 23,
+              "late_contact_attack": 2,
+              "late_low_ball_guard": 4,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 13
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 11074,
+              "001": 953,
+              "010": 8186,
+              "011": 154,
+              "100": 7665,
+              "101": 1403
+            },
+            "candidate": "planner_takeover_wide",
+            "draws": 0,
+            "episodes": 16,
+            "label": "structural/planner: wider early intercept geometry screen",
+            "losses": 13,
+            "mean": -2.375,
+            "opponent": "improved-v4",
+            "opportunity_modes": {
+              "planner_intercept": 24,
+              "planner_net_clearance_guard": 1
+            },
+            "points_lost": 74,
+            "points_won": 36,
+            "seeds": "12000..12015",
+            "std": 2.4206145913796355,
+            "steps": 29435,
+            "takeover_action_changes": 38,
+            "takeover_action_counts": {
+              "000": 12,
+              "001": 17,
+              "010": 10,
+              "100": 6,
+              "101": 8
+            },
+            "takeover_fired": 53,
+            "takeover_opportunities": 25,
+            "takeover_point_outcomes": {
+              "point_lost": 71,
+              "point_won": 4
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 64,
+              "intercept": 22,
+              "late_contact_attack": 2,
+              "late_low_ball_guard": 4,
+              "low_ball_rescue": 3,
+              "rear_wall_low_jump": 1,
+              "recovery": 14
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 10240,
+              "001": 830,
+              "010": 7145,
+              "011": 119,
+              "100": 6645,
+              "101": 1275
+            },
+            "candidate": "planner_takeover_wide",
+            "draws": 0,
+            "episodes": 16,
+            "label": "structural/planner: wider early intercept geometry screen",
+            "losses": 16,
+            "mean": -4.1875,
+            "opponent": "improved-v5",
+            "opportunity_modes": {
+              "planner_intercept": 24,
+              "planner_net_clearance_guard": 1
+            },
+            "points_lost": 80,
+            "points_won": 13,
+            "seeds": "12000..12015",
+            "std": 0.8816709987291178,
+            "steps": 26254,
+            "takeover_action_changes": 39,
+            "takeover_action_counts": {
+              "000": 13,
+              "001": 18,
+              "010": 9,
+              "011": 1,
+              "100": 5,
+              "101": 7
+            },
+            "takeover_fired": 53,
+            "takeover_opportunities": 25,
+            "takeover_point_outcomes": {
+              "point_lost": 75,
+              "point_won": 4
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 67,
+              "intercept": 10,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 5,
+              "low_ball_rescue": 6,
+              "rear_wall_low_jump": 1,
+              "recovery": 3
+            },
+            "wins": 0
+          },
+          {
+            "action_counts": {
+              "000": 10240,
+              "001": 830,
+              "010": 7145,
+              "011": 119,
+              "100": 6644,
+              "101": 1276
+            },
+            "candidate": "planner_takeover_wide",
+            "draws": 0,
+            "episodes": 16,
+            "label": "structural/planner: wider early intercept geometry screen",
+            "losses": 16,
+            "mean": -4.1875,
+            "opponent": "improved-v6",
+            "opportunity_modes": {
+              "planner_intercept": 24,
+              "planner_net_clearance_guard": 1
+            },
+            "points_lost": 80,
+            "points_won": 13,
+            "seeds": "12000..12015",
+            "std": 0.8816709987291178,
+            "steps": 26254,
+            "takeover_action_changes": 39,
+            "takeover_action_counts": {
+              "000": 13,
+              "001": 18,
+              "010": 9,
+              "011": 1,
+              "100": 5,
+              "101": 7
+            },
+            "takeover_fired": 53,
+            "takeover_opportunities": 25,
+            "takeover_point_outcomes": {
+              "point_lost": 75,
+              "point_won": 4
+            },
+            "terminal_modes": {
+              "grounded_low_receive": 67,
+              "intercept": 10,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 5,
+              "low_ball_rescue": 6,
+              "rear_wall_low_jump": 1,
+              "recovery": 3
+            },
+            "wins": 0
+          }
+        ],
+        "seed_list": [
+          12000,
+          12001,
+          12002,
+          12003,
+          12004,
+          12005,
+          12006,
+          12007,
+          12008,
+          12009,
+          12010,
+          12011,
+          12012,
+          12013,
+          12014,
+          12015
+        ]
+      },
+      "protocol": "generation-5 development-only planner-takeover structural probe"
+    }
+  ]
+}
