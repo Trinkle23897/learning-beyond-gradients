@@ -1,0 +1,3352 @@
+{
+  "runs": [
+    {
+      "holdout_audit_used": false,
+      "phase_result": {
+        "candidates": [
+          "net_pressure_reference",
+          "baseline_rnn",
+          "ctx_own_low_110_10",
+          "ctx_own_low_110_6",
+          "ctx_own_low_110_14",
+          "ctx_own_low_110_6_101_4",
+          "ctx_opponent_low_110_10",
+          "ctx_any_low_110_10",
+          "ctx_rear_wall_110_10"
+        ],
+        "opponents": [
+          "builtin",
+          "improved-v3",
+          "improved-v4",
+          "improved-v5",
+          "improved-v6"
+        ],
+        "phase": "screen",
+        "rows": [
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 9,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 3,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 850,
+              "001": 3985,
+              "010": 7108,
+              "011": 357,
+              "100": 3121,
+              "101": 17347,
+              "110": 14330,
+              "111": 902
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 6,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.25,
+            "opponent": "builtin",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.25,
+            "steps": 48000,
+            "terminal_modes": {},
+            "wins": 7
+          },
+          {
+            "action_counts": {
+              "000": 376,
+              "001": 2369,
+              "010": 3202,
+              "011": 203,
+              "100": 2068,
+              "101": 14259,
+              "110": 11401,
+              "111": 598
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 4.1875,
+            "opponent": "improved-v3",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.184205957593526,
+            "steps": 34476,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 400,
+              "001": 2480,
+              "010": 3517,
+              "011": 212,
+              "100": 2432,
+              "101": 17532,
+              "110": 13147,
+              "111": 752
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 3.75,
+            "opponent": "improved-v4",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 40472,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3193,
+              "101": 17602,
+              "110": 15137,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v5",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3195,
+              "101": 17602,
+              "110": 15135,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v6",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 20
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 35
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 35,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 36
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 36,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "non_terminal_high": 21
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 21,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "non_terminal_high": 38
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 38,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "non_terminal_high": 39
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 39,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "non_terminal_high": 29
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "non_terminal_high": 29
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "non_terminal_high": 19
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 19,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "non_terminal_high": 33
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 33,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "non_terminal_high": 34
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 34,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "non_terminal_high": 26
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 26,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "non_terminal_high": 26
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 26,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "non_terminal_high": 20
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "non_terminal_high": 35
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 35,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "non_terminal_high": 36
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 36,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 20
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 35
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 35,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 36
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 36,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 20
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 35
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 35,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 36
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 36,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "non_terminal_high": 20
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "non_terminal_high": 35
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 35,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "non_terminal_high": 36
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 36,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "non_terminal_high": 28
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          }
+        ],
+        "seed_list": [
+          12000,
+          12001,
+          12002,
+          12003,
+          12004,
+          12005,
+          12006,
+          12007,
+          12008,
+          12009,
+          12010,
+          12011,
+          12012,
+          12013,
+          12014,
+          12015
+        ]
+      },
+      "protocol": "generation-5 development-only context-conditioned reset macro probe"
+    },
+    {
+      "holdout_audit_used": false,
+      "phase_result": {
+        "candidates": [
+          "net_pressure_reference",
+          "baseline_rnn",
+          "ctx_own_low_110_10",
+          "ctx_own_low_110_6",
+          "ctx_own_low_110_14",
+          "ctx_own_low_110_6_101_4",
+          "ctx_opponent_low_110_10",
+          "ctx_any_low_110_10",
+          "ctx_rear_wall_110_10"
+        ],
+        "opponents": [
+          "builtin",
+          "improved-v3",
+          "improved-v4",
+          "improved-v5",
+          "improved-v6"
+        ],
+        "phase": "screen",
+        "rows": [
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 9,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 3,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "context_counts": {},
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 850,
+              "001": 3985,
+              "010": 7108,
+              "011": 357,
+              "100": 3121,
+              "101": 17347,
+              "110": 14330,
+              "111": 902
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 6,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.25,
+            "opponent": "builtin",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.25,
+            "steps": 48000,
+            "terminal_modes": {},
+            "wins": 7
+          },
+          {
+            "action_counts": {
+              "000": 376,
+              "001": 2369,
+              "010": 3202,
+              "011": 203,
+              "100": 2068,
+              "101": 14259,
+              "110": 11401,
+              "111": 598
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 4.1875,
+            "opponent": "improved-v3",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.184205957593526,
+            "steps": 34476,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 400,
+              "001": 2480,
+              "010": 3517,
+              "011": 212,
+              "100": 2432,
+              "101": 17532,
+              "110": 13147,
+              "111": 752
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 3.75,
+            "opponent": "improved-v4",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 40472,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3193,
+              "101": 17602,
+              "110": 15137,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v5",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3195,
+              "101": 17602,
+              "110": 15135,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "context_counts": {},
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v6",
+            "reset_events": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 21198,
+              "001": 3215,
+              "010": 10613,
+              "011": 496,
+              "100": 10354,
+              "101": 2024,
+              "110": 100
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 3,
+              "non_terminal_high": 6,
+              "opponent_low": 3,
+              "own_low_or_rear": 10
+            },
+            "draws": 8,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 4,
+            "macro_context_counts": {
+              "own_low_or_rear": 10
+            },
+            "macro_frames": 100,
+            "macro_starts": 10,
+            "mean": 0.125,
+            "opponent": "builtin",
+            "reset_events": 22,
+            "seeds": "12000..12015",
+            "std": 1.165922381636102,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 5,
+              "intercept": 4,
+              "low_ball_rescue": 1,
+              "recovery": 4
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 18373,
+              "001": 2141,
+              "010": 10322,
+              "011": 220,
+              "100": 9961,
+              "101": 1793,
+              "110": 30
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 5,
+              "opponent_low": 27,
+              "own_low_or_rear": 3
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 3
+            },
+            "macro_frames": 30,
+            "macro_starts": 3,
+            "mean": 2.8125,
+            "opponent": "improved-v3",
+            "reset_events": 35,
+            "seeds": "12000..12015",
+            "std": 1.8445443204217133,
+            "steps": 42840,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 33,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18660,
+              "001": 2105,
+              "010": 10203,
+              "011": 215,
+              "100": 9875,
+              "101": 1669,
+              "110": 40
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 26,
+              "own_low_or_rear": 4
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 4
+            },
+            "macro_frames": 40,
+            "macro_starts": 4,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 36,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21405,
+              "001": 2573,
+              "010": 10977,
+              "011": 275,
+              "100": 10514,
+              "101": 2206,
+              "110": 50
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 16,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 50,
+            "macro_starts": 5,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21405,
+              "001": 2573,
+              "010": 10977,
+              "011": 275,
+              "100": 10514,
+              "101": 2206,
+              "110": 50
+            },
+            "candidate": "ctx_own_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 16,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 50,
+            "macro_starts": 5,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21069,
+              "001": 3317,
+              "010": 10636,
+              "011": 496,
+              "100": 10320,
+              "101": 2108,
+              "110": 54
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "any_low_terminal": 3,
+              "non_terminal_high": 6,
+              "opponent_low": 3,
+              "own_low_or_rear": 9
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 4,
+            "macro_context_counts": {
+              "own_low_or_rear": 9
+            },
+            "macro_frames": 54,
+            "macro_starts": 9,
+            "mean": 0.0,
+            "opponent": "builtin",
+            "reset_events": 21,
+            "seeds": "12000..12015",
+            "std": 1.2747548783981961,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 7,
+              "intercept": 4,
+              "low_ball_rescue": 1,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18355,
+              "001": 2106,
+              "010": 10340,
+              "011": 214,
+              "100": 10007,
+              "101": 1799,
+              "110": 18
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "non_terminal_high": 5,
+              "opponent_low": 32,
+              "own_low_or_rear": 3
+            },
+            "draws": 0,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 3
+            },
+            "macro_frames": 18,
+            "macro_starts": 3,
+            "mean": 2.9375,
+            "opponent": "improved-v3",
+            "reset_events": 40,
+            "seeds": "12000..12015",
+            "std": 1.7488835724541527,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 35,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 15
+          },
+          {
+            "action_counts": {
+              "000": 18666,
+              "001": 2095,
+              "010": 10202,
+              "011": 215,
+              "100": 9879,
+              "101": 1686,
+              "110": 24
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 31,
+              "own_low_or_rear": 4
+            },
+            "draws": 2,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 4
+            },
+            "macro_frames": 24,
+            "macro_starts": 4,
+            "mean": 2.5,
+            "opponent": "improved-v4",
+            "reset_events": 41,
+            "seeds": "12000..12015",
+            "std": 1.7320508075688772,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 27,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21311,
+              "001": 2547,
+              "010": 11062,
+              "011": 271,
+              "100": 10593,
+              "101": 2186,
+              "110": 30
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 30,
+            "macro_starts": 5,
+            "mean": 1.625,
+            "opponent": "improved-v5",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.6153559979150107,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 10
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21311,
+              "001": 2547,
+              "010": 11062,
+              "011": 271,
+              "100": 10593,
+              "101": 2186,
+              "110": 30
+            },
+            "candidate": "ctx_own_low_110_6",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 30,
+            "macro_starts": 5,
+            "mean": 1.625,
+            "opponent": "improved-v6",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.6153559979150107,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 10
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20998,
+              "001": 3288,
+              "010": 10631,
+              "011": 505,
+              "100": 10355,
+              "101": 2097,
+              "110": 126
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "any_low_terminal": 3,
+              "non_terminal_high": 5,
+              "opponent_low": 2,
+              "own_low_or_rear": 9
+            },
+            "draws": 8,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 5,
+            "macro_context_counts": {
+              "own_low_or_rear": 9
+            },
+            "macro_frames": 126,
+            "macro_starts": 9,
+            "mean": 0.0,
+            "opponent": "builtin",
+            "reset_events": 19,
+            "seeds": "12000..12015",
+            "std": 1.1726039399558574,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 1,
+              "recovery": 3
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18350,
+              "001": 2112,
+              "010": 10346,
+              "011": 215,
+              "100": 10001,
+              "101": 1774,
+              "110": 42
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "non_terminal_high": 4,
+              "opponent_low": 26,
+              "own_low_or_rear": 3
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 3
+            },
+            "macro_frames": 42,
+            "macro_starts": 3,
+            "mean": 2.8125,
+            "opponent": "improved-v3",
+            "reset_events": 33,
+            "seeds": "12000..12015",
+            "std": 1.8445443204217133,
+            "steps": 42840,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 33,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18607,
+              "001": 2100,
+              "010": 10221,
+              "011": 216,
+              "100": 9893,
+              "101": 1674,
+              "110": 56
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 4,
+              "opponent_low": 25,
+              "own_low_or_rear": 4
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 4
+            },
+            "macro_frames": 56,
+            "macro_starts": 4,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 34,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21340,
+              "001": 2546,
+              "010": 11036,
+              "011": 271,
+              "100": 10558,
+              "101": 2179,
+              "110": 70
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 4,
+              "opponent_low": 15,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 70,
+            "macro_starts": 5,
+            "mean": 1.5,
+            "opponent": "improved-v5",
+            "reset_events": 26,
+            "seeds": "12000..12015",
+            "std": 1.5811388300841898,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 3,
+              "intercept": 20,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21340,
+              "001": 2546,
+              "010": 11036,
+              "011": 271,
+              "100": 10558,
+              "101": 2179,
+              "110": 70
+            },
+            "candidate": "ctx_own_low_110_14",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 4,
+              "opponent_low": 15,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x14 only after likely own-side low/rear point loss",
+            "losses": 3,
+            "macro_context_counts": {
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 70,
+            "macro_starts": 5,
+            "mean": 1.5,
+            "opponent": "improved-v6",
+            "reset_events": 26,
+            "seeds": "12000..12015",
+            "std": 1.5811388300841898,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 3,
+              "intercept": 20,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21116,
+              "001": 3353,
+              "010": 10585,
+              "011": 494,
+              "100": 10267,
+              "101": 2131,
+              "110": 54
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "any_low_terminal": 3,
+              "non_terminal_high": 6,
+              "opponent_low": 2,
+              "own_low_or_rear": 9
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 4,
+            "macro_context_counts": {
+              "own_low_or_rear": 9
+            },
+            "macro_frames": 90,
+            "macro_starts": 9,
+            "mean": -0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 7,
+              "intercept": 3,
+              "low_ball_rescue": 1,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18362,
+              "001": 2097,
+              "010": 10333,
+              "011": 214,
+              "100": 10011,
+              "101": 1805,
+              "110": 18
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "non_terminal_high": 5,
+              "opponent_low": 29,
+              "own_low_or_rear": 3
+            },
+            "draws": 0,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 3
+            },
+            "macro_frames": 30,
+            "macro_starts": 3,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 37,
+            "seeds": "12000..12015",
+            "std": 1.7633419974582356,
+            "steps": 42840,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 15
+          },
+          {
+            "action_counts": {
+              "000": 18657,
+              "001": 2088,
+              "010": 10202,
+              "011": 215,
+              "100": 9879,
+              "101": 1702,
+              "110": 24
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 28,
+              "own_low_or_rear": 4
+            },
+            "draws": 2,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 1,
+            "macro_context_counts": {
+              "own_low_or_rear": 4
+            },
+            "macro_frames": 40,
+            "macro_starts": 4,
+            "mean": 2.5,
+            "opponent": "improved-v4",
+            "reset_events": 38,
+            "seeds": "12000..12015",
+            "std": 1.7320508075688772,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 27,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21240,
+              "001": 2566,
+              "010": 11088,
+              "011": 268,
+              "100": 10626,
+              "101": 2188,
+              "110": 24
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 16,
+              "own_low_or_rear": 4
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 2,
+            "macro_context_counts": {
+              "own_low_or_rear": 4
+            },
+            "macro_frames": 40,
+            "macro_starts": 4,
+            "mean": 1.75,
+            "opponent": "improved-v5",
+            "reset_events": 26,
+            "seeds": "12000..12015",
+            "std": 1.479019945774904,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "low_ball_rescue": 2,
+              "recovery": 11
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21240,
+              "001": 2566,
+              "010": 11088,
+              "011": 268,
+              "100": 10626,
+              "101": 2188,
+              "110": 24
+            },
+            "candidate": "ctx_own_low_110_6_101_4",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 16,
+              "own_low_or_rear": 4
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x6 then 101x4 after likely own-side low/rear point loss",
+            "losses": 2,
+            "macro_context_counts": {
+              "own_low_or_rear": 4
+            },
+            "macro_frames": 40,
+            "macro_starts": 4,
+            "mean": 1.75,
+            "opponent": "improved-v6",
+            "reset_events": 26,
+            "seeds": "12000..12015",
+            "std": 1.479019945774904,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "low_ball_rescue": 2,
+              "recovery": 11
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 20885,
+              "001": 3211,
+              "010": 10783,
+              "011": 484,
+              "100": 10506,
+              "101": 2111,
+              "110": 20
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 3,
+              "non_terminal_high": 6,
+              "opponent_low": 2,
+              "own_low_or_rear": 9
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 4,
+            "macro_context_counts": {
+              "opponent_low": 2
+            },
+            "macro_frames": 20,
+            "macro_starts": 2,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18305,
+              "001": 2342,
+              "010": 9685,
+              "011": 227,
+              "100": 9410,
+              "101": 1648,
+              "110": 290
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 5,
+              "opponent_low": 29,
+              "own_low_or_rear": 6
+            },
+            "draws": 2,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 1,
+            "macro_context_counts": {
+              "opponent_low": 29
+            },
+            "macro_frames": 290,
+            "macro_starts": 29,
+            "mean": 2.75,
+            "opponent": "improved-v3",
+            "reset_events": 40,
+            "seeds": "12000..12015",
+            "std": 1.984313483298443,
+            "steps": 41907,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 26,
+              "low_ball_rescue": 1,
+              "recovery": 23
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 18986,
+              "001": 2329,
+              "010": 9884,
+              "011": 231,
+              "100": 9602,
+              "101": 1570,
+              "110": 280
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 28,
+              "own_low_or_rear": 7
+            },
+            "draws": 2,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 1,
+            "macro_context_counts": {
+              "opponent_low": 28
+            },
+            "macro_frames": 280,
+            "macro_starts": 28,
+            "mean": 2.8125,
+            "opponent": "improved-v4",
+            "reset_events": 41,
+            "seeds": "12000..12015",
+            "std": 1.911110606427582,
+            "steps": 42882,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 23,
+              "low_ball_rescue": 2,
+              "recovery": 26
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21899,
+              "001": 2840,
+              "010": 10554,
+              "011": 291,
+              "100": 10125,
+              "101": 2121,
+              "110": 170
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 2,
+            "macro_context_counts": {
+              "opponent_low": 17
+            },
+            "macro_frames": 170,
+            "macro_starts": 17,
+            "mean": 1.75,
+            "opponent": "improved-v5",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 12
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21899,
+              "001": 2840,
+              "010": 10554,
+              "011": 291,
+              "100": 10125,
+              "101": 2121,
+              "110": 170
+            },
+            "candidate": "ctx_opponent_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely opponent-side point win",
+            "losses": 2,
+            "macro_context_counts": {
+              "opponent_low": 17
+            },
+            "macro_frames": 170,
+            "macro_starts": 17,
+            "mean": 1.75,
+            "opponent": "improved-v6",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 12
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21210,
+              "001": 3242,
+              "010": 10584,
+              "011": 486,
+              "100": 10303,
+              "101": 2015,
+              "110": 160
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 3,
+              "non_terminal_high": 6,
+              "opponent_low": 3,
+              "own_low_or_rear": 10
+            },
+            "draws": 7,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 4,
+            "macro_context_counts": {
+              "any_low_terminal": 3,
+              "opponent_low": 3,
+              "own_low_or_rear": 10
+            },
+            "macro_frames": 160,
+            "macro_starts": 16,
+            "mean": 0.1875,
+            "opponent": "builtin",
+            "reset_events": 22,
+            "seeds": "12000..12015",
+            "std": 1.184205957593526,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 5,
+              "intercept": 5,
+              "low_ball_rescue": 1,
+              "recovery": 4
+            },
+            "wins": 5
+          },
+          {
+            "action_counts": {
+              "000": 18180,
+              "001": 2336,
+              "010": 9741,
+              "011": 229,
+              "100": 9437,
+              "101": 1644,
+              "110": 340
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "non_terminal_high": 5,
+              "opponent_low": 29,
+              "own_low_or_rear": 5
+            },
+            "draws": 2,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 1,
+            "macro_context_counts": {
+              "opponent_low": 29,
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 340,
+            "macro_starts": 34,
+            "mean": 2.75,
+            "opponent": "improved-v3",
+            "reset_events": 39,
+            "seeds": "12000..12015",
+            "std": 1.984313483298443,
+            "steps": 41907,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 27,
+              "low_ball_rescue": 1,
+              "recovery": 22
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 18957,
+              "001": 2321,
+              "010": 9955,
+              "011": 234,
+              "100": 9686,
+              "101": 1550,
+              "110": 350
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 28,
+              "own_low_or_rear": 6
+            },
+            "draws": 2,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 1,
+            "macro_context_counts": {
+              "any_low_terminal": 1,
+              "opponent_low": 28,
+              "own_low_or_rear": 6
+            },
+            "macro_frames": 350,
+            "macro_starts": 35,
+            "mean": 2.8125,
+            "opponent": "improved-v4",
+            "reset_events": 40,
+            "seeds": "12000..12015",
+            "std": 1.911110606427582,
+            "steps": 43053,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 23,
+              "low_ball_rescue": 2,
+              "recovery": 26
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21819,
+              "001": 2815,
+              "010": 10579,
+              "011": 288,
+              "100": 10135,
+              "101": 2124,
+              "110": 240
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 2,
+            "macro_context_counts": {
+              "any_low_terminal": 2,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 240,
+            "macro_starts": 24,
+            "mean": 1.75,
+            "opponent": "improved-v5",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 12
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21819,
+              "001": 2815,
+              "010": 10579,
+              "011": 288,
+              "100": 10135,
+              "101": 2124,
+              "110": 240
+            },
+            "candidate": "ctx_any_low_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 after any low terminal point context, not episode start",
+            "losses": 2,
+            "macro_context_counts": {
+              "any_low_terminal": 2,
+              "opponent_low": 17,
+              "own_low_or_rear": 5
+            },
+            "macro_frames": 240,
+            "macro_starts": 24,
+            "mean": 1.75,
+            "opponent": "improved-v6",
+            "reset_events": 29,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 12
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "any_low_terminal": 3,
+              "non_terminal_high": 6,
+              "opponent_low": 2,
+              "own_low_or_rear": 9
+            },
+            "draws": 9,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 4,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "reset_events": 20,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "non_terminal_high": 5,
+              "opponent_low": 27,
+              "own_low_or_rear": 3
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "reset_events": 35,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "any_low_terminal": 1,
+              "non_terminal_high": 5,
+              "opponent_low": 26,
+              "own_low_or_rear": 4
+            },
+            "draws": 3,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 1,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "reset_events": 36,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 16,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "ctx_rear_wall_110_10",
+            "context_counts": {
+              "any_low_terminal": 2,
+              "non_terminal_high": 5,
+              "opponent_low": 16,
+              "own_low_or_rear": 5
+            },
+            "draws": 1,
+            "episodes": 16,
+            "label": "teacher 110x10 only after likely rear-wall own-side terminal context",
+            "losses": 3,
+            "macro_context_counts": {},
+            "macro_frames": 0,
+            "macro_starts": 0,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "reset_events": 28,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          }
+        ],
+        "seed_list": [
+          12000,
+          12001,
+          12002,
+          12003,
+          12004,
+          12005,
+          12006,
+          12007,
+          12008,
+          12009,
+          12010,
+          12011,
+          12012,
+          12013,
+          12014,
+          12015
+        ]
+      },
+      "protocol": "generation-5 development-only context-conditioned reset macro probe"
+    }
+  ]
+}

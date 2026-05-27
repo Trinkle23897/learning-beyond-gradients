@@ -310,6 +310,12 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/generation_5_phase_pressure_probe.md` | Development-only phase-pressure note for generation-5; records mixed two-frame opponent-side pressure probes and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `probes/g5_phase_pressure_probe.py` | Development-only phase-pressure probe script for temporary generation-5 structural/history candidates around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_5_phase_pressure_probe.json` | JSON results for the development-only phase-pressure probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g5_phase_pressure_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_teacher_serve_probe.md` | Development-only teacher-serve macro note for generation-5; records archived short-screen gains, built-in regression, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `probes/g5_teacher_serve_probe.py` | Development-only teacher-serve macro probe script for fixed reset/serve candidates around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_5_teacher_serve_probe.json` | JSON results for the development-only teacher-serve macro probe; records short-screen rows and a full fixed-pool check for `serve_110_10`. | `python experiments/slimevolley/probes/g5_teacher_serve_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_context_reset_probe.md` | Development-only context-reset macro note for generation-5; records non-firing context gates and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `probes/g5_context_reset_probe.py` | Development-only context-conditioned reset macro probe script around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_5_context_reset_probe.json` | JSON results for the development-only context-reset macro screen on seeds `12000..12015`. | `python experiments/slimevolley/probes/g5_context_reset_probe.py --phase screen` | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_trials.jsonl` | Append-only generation-4 ledger for development rows and final-only holdout rows. | generation-4 development and final holdout commands | reviewer inspection, `reports/generation_4_temporal_history_attempt.md`, and `results/holdout_g4_final.json` |",
         "| `results/generation_4_summary.csv` | CSV projection of the generation-4 ledger, including final-only holdout rows when present. | generation-4 ledger-producing commands | reviewer inspection |",
         "| `results/holdout_g4_final.json` | Generation-4 final-only holdout matrix over frozen policies, including `rally-serve` and `baseline-rnn`. | `make slimevolley-final-eval` after policy/config/opponent/test freeze | reviewer inspection and `make slimevolley-audit` seed/matrix/anti-tuning checks |",
@@ -333,6 +339,13 @@ def _artifact_manifest_lines() -> list[str]:
         "| `reports/parallel/20260527_g4_trace_attack_vs_rnn_subagent_v2.md` | Development-only v2 attack/rally-serve/RNN trace report on `9000..9015`. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/g4_trace_attack_vs_baseline_rnn_worker_d_20260527.md` | Development-only Worker D trace report comparing `attack`, `net-pressure`, and `baseline-rnn` on generation-4 dev seeds; records no promotion. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel4_synthesis.md` | Development-only Worker A-E synthesis report for generation-4 parallel4 diagnostics; records no maintained edit and no promotion. | maintained after 2026-05-27 parallel4 worker completion | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel5_attack_scalar.md` | Development-only parallel5 attack scalar/config search; records a partial `attack` improvement that remained below `baseline-rnn` and `rally-serve`, with no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel5_grounded_low_receive.md` | Development-only parallel5 grounded-low-receive screen; records action-changing ties and one built-in regression, with no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_4_parallel5_grounded_low_receive_screen.json` | JSON rows for the development-only parallel5 grounded-low-receive screen on seeds `9000..9015`. | no-ledger generation-4 dev screen | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/20260527_g4_parallel5_rear_wall_press.md` | Development-only parallel5 rear-wall press screen; records a narrow built-in tie, archived regressions, and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_4_parallel5_rear_wall_press_probe.json` | JSON rows for the development-only parallel5 rear-wall press screen on seeds `9000..9015`. | no-ledger generation-4 dev screen | reviewer inspection; development-seed evidence only |",
+        "| `reports/parallel/20260527_g4_parallel5_trace_attack_rnn.md` | Development-only parallel5 trace diagnostic comparing `attack`, `rally-serve`, `post-contact`, and `baseline-rnn` on generation-4 dev seeds. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `reports/parallel/20260527_g4_parallel5_synthesis.md` | Development-only parallel5 synthesis for grounded-low-receive, rear-wall, and trace diagnostics; records no maintained edit. | maintained after 2026-05-27 parallel5 worker completion | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel_subagent_synthesis_v2.md` | Development-only v2 synthesis of scalar, structural, trace, and robustness subagent artifacts; records no promotion decision. | maintained after 2026-05-27 v2 parallel worker completion | reviewer inspection; development-seed evidence only |",
         "| `probes/g4_post_contact_gate_probe.py` | Development-only post-contact gate probe script for temporary structural/history candidates around `rally-serve`. | manual no-ledger generation-4 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_post_contact_gate_probe.json` | JSON results for the development-only post-contact gate probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g4_post_contact_gate_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
@@ -1457,6 +1470,13 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
     parallel_g4_trace_v2_report = reports_dir / "parallel" / "20260527_g4_trace_attack_vs_rnn_subagent_v2.md"
     parallel_g4_worker_d_trace_report = reports_dir / "parallel" / "g4_trace_attack_vs_baseline_rnn_worker_d_20260527.md"
     parallel_g4_parallel4_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel4_synthesis.md"
+    parallel_g4_parallel5_attack_scalar_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel5_attack_scalar.md"
+    parallel_g4_parallel5_grounded_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel5_grounded_low_receive.md"
+    parallel_g4_parallel5_grounded_result = results_dir / "generation_4_parallel5_grounded_low_receive_screen.json"
+    parallel_g4_parallel5_rear_wall_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_parallel5_rear_wall_press.md"
+    parallel_g4_parallel5_rear_wall_result = results_dir / "generation_4_parallel5_rear_wall_press_probe.json"
+    parallel_g4_parallel5_trace_report = reports_dir / "parallel" / "20260527_g4_parallel5_trace_attack_rnn.md"
+    parallel_g4_parallel5_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel5_synthesis.md"
     parallel_g4_synthesis_v2_report = reports_dir / "parallel" / "20260527_g4_parallel_subagent_synthesis_v2.md"
     post_contact_candidate_note = results_dir.parent / "notes" / "generation_4_post_contact_front_conversion_attempt.md"
     post_contact_worker_e_note = results_dir.parent / "notes" / "parallel" / "g4_archived_opponent_robustness_post_contact_worker_e.md"
@@ -1864,6 +1884,10 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
             lines.append(
                 "- Additional stacked low-receive probe: `stacked_low_101_wide` improved `improved-v5/v6` by `+0.04` on full generation-4 development seeds, but regressed built-in from `0.14` to `0.04` and fell below `baseline-rnn` (`0.12`), so no policy edit was promoted."
             )
+        if parallel_g4_parallel5_synthesis_report.exists():
+            lines.append(
+                "- Additional parallel5 diagnostics on generation-4 development seeds: scalar/config tuning improved `attack` to `-0.06` built-in full-dev mean but stayed below `baseline-rnn` and `rally-serve`; grounded-low-receive variants tied at best, the rear-wall low-close jump tied built-in while regressing `improved-v5/v6`, and the trace pass again pointed to low own-side/rear-wall recovery as the gap. No maintained edit was promoted."
+            )
 
     improved_rows = [
         (opponent, latest_full.get(("improved", opponent)))
@@ -1980,6 +2004,12 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     aggressive_pressure_note = results_dir.parent / "notes" / "generation_5_aggressive_pressure_and_brace_probe.md"
     stacked_followthrough_note = results_dir.parent / "notes" / "generation_5_stacked_followthrough_and_posture_probe.md"
     phase_pressure_note = results_dir.parent / "notes" / "generation_5_phase_pressure_probe.md"
+    teacher_serve_note = results_dir.parent / "notes" / "generation_5_teacher_serve_probe.md"
+    teacher_serve_probe_script = results_dir.parent / "probes" / "g5_teacher_serve_probe.py"
+    teacher_serve_probe_result = results_dir / "generation_5_teacher_serve_probe.json"
+    context_reset_note = results_dir.parent / "notes" / "generation_5_context_reset_probe.md"
+    context_reset_probe_script = results_dir.parent / "probes" / "g5_context_reset_probe.py"
+    context_reset_probe_result = results_dir / "generation_5_context_reset_probe.json"
     holdout_artifact = results_dir / "holdout_g5_final.json"
 
     if not generation_ledger.exists():
@@ -2005,6 +2035,8 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-5 aggressive pressure and brace probe note: `{aggressive_pressure_note}`",
         f"- Generation-5 stacked followthrough and posture probe note: `{stacked_followthrough_note}`",
         f"- Generation-5 phase-pressure probe note: `{phase_pressure_note}`",
+        f"- Generation-5 teacher-serve probe note: `{teacher_serve_note}`",
+        f"- Generation-5 context-reset probe note: `{context_reset_note}`",
         f"- Generation-5 ledger: `{generation_ledger}`",
         f"- Generation-5 summary: `{generation_summary}`",
         f"- Generation-5 final holdout artifact: `{holdout_artifact}`" + (" is present and is final-only evidence." if holdout_artifact.exists() else " is not present."),
@@ -2058,6 +2090,16 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         delta = None if net_mean is None or rally_mean is None else net_mean - rally_mean
         lines.append(
             f"- Built-in development heuristic delta: `net-pressure` mean `{_stats(net_mean)}` versus `rally-serve` mean `{_stats(rally_mean)}`; development delta `{_stats(delta)}`."
+        )
+
+    if teacher_serve_note.exists():
+        lines.append(
+            "- Additional teacher-serve macro probe on generation-5 development seeds: `serve_110_10` improved several hard archived short-screen rows, but the full `12000..12049` fixed-pool check regressed built-in from `-0.06` to `-0.12`, regressed `improved-v2/v3`, and remained far below `baseline-rnn` on hard archived opponents. No maintained edit was promoted and holdout/audit stayed sealed."
+        )
+
+    if context_reset_note.exists():
+        lines.append(
+            "- Additional context-reset macro probe on `12000..12015`: previous-point gates recorded reset events but started zero macros, exactly tying `net-pressure` on every screened row; it is preserved as detector failure evidence with no full-pool or holdout follow-up."
         )
 
     pool_opponents = ["builtin", "random", "initial", "improved-v0", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"]
