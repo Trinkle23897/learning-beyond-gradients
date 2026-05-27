@@ -341,6 +341,9 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/generation_5_rollout_mined_rule_probe.md` | Development-only observation-rule note mined from rollout-search diagnostics; records interrupted full screen, counter fix, selected 8-seed screen, full development-pool rejection, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; development-seed evidence only, no holdout/audit opened |",
         "| `probes/g5_rollout_mined_rule_probe.py` | Development-only observation-rule probe script derived from rollout-search override states. | manual no-ledger generation-5 dev probe | reviewer inspection; normal observation-only interface but not promoted |",
         "| `results/generation_5_rollout_mined_rule_probe.json` | JSON results for selected rollout-mined observation-rule candidates on `12000..12007` plus the rejected `mined_near_net_vertical` full-pool check on `12000..12049`. | `.venv/bin/python experiments/slimevolley/probes/g5_rollout_mined_rule_probe.py --phase screen --seed-start 12000 --episodes 8 --candidate ...`; full-pool follow-up with `--phase full --episodes 50 --candidate mined_near_net_vertical` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_stacked_mined_rule_probe.md` | Development-only stacked-frame follow-up to the rollout-mined observation rule; records sparse hard-tail gains, an improved-v2 regression, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; development-seed evidence only, no holdout/audit opened |",
+        "| `probes/g5_stacked_mined_rule_probe.py` | Development-only stacked-frame observation-rule probe script around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; normal observation-only interface but not promoted |",
+        "| `results/generation_5_stacked_mined_rule_probe.json` | JSON results for stacked-mined near-net candidates on `12000..12015` plus the rejected `stacked_near_net_mode_vertical` full-pool check on `12000..12049`. | `.venv/bin/python experiments/slimevolley/probes/g5_stacked_mined_rule_probe.py --phase screen/full --candidate ...` | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_trials.jsonl` | Append-only generation-4 ledger for development rows and final-only holdout rows. | generation-4 development and final holdout commands | reviewer inspection, `reports/generation_4_temporal_history_attempt.md`, and `results/holdout_g4_final.json` |",
         "| `results/generation_4_summary.csv` | CSV projection of the generation-4 ledger, including final-only holdout rows when present. | generation-4 ledger-producing commands | reviewer inspection |",
         "| `results/holdout_g4_final.json` | Generation-4 final-only holdout matrix over frozen policies, including `rally-serve` and `baseline-rnn`. | `make slimevolley-final-eval` after policy/config/opponent/test freeze | reviewer inspection and `make slimevolley-audit` seed/matrix/anti-tuning checks |",
@@ -2182,6 +2185,9 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     rollout_mined_rule_note = results_dir.parent / "notes" / "generation_5_rollout_mined_rule_probe.md"
     rollout_mined_rule_probe_script = results_dir.parent / "probes" / "g5_rollout_mined_rule_probe.py"
     rollout_mined_rule_probe_result = results_dir / "generation_5_rollout_mined_rule_probe.json"
+    stacked_mined_rule_note = results_dir.parent / "notes" / "generation_5_stacked_mined_rule_probe.md"
+    stacked_mined_rule_probe_script = results_dir.parent / "probes" / "g5_stacked_mined_rule_probe.py"
+    stacked_mined_rule_probe_result = results_dir / "generation_5_stacked_mined_rule_probe.json"
     holdout_artifact = results_dir / "holdout_g5_final.json"
 
     if not generation_ledger.exists():
@@ -2217,6 +2223,7 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-5 planner-takeover probe note: `{planner_takeover_note}`",
         f"- Generation-5 rollout-search probe note: `{rollout_search_note}`",
         f"- Generation-5 rollout-mined rule probe note: `{rollout_mined_rule_note}`",
+        f"- Generation-5 stacked-mined rule probe note: `{stacked_mined_rule_note}`",
         f"- Generation-5 ledger: `{generation_ledger}`",
         f"- Generation-5 summary: `{generation_summary}`",
         f"- Generation-5 final holdout artifact: `{holdout_artifact}`" + (" is present and is final-only evidence." if holdout_artifact.exists() else " is not present."),
@@ -2320,6 +2327,11 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     if rollout_mined_rule_note.exists():
         lines.append(
             "- Additional rollout-mined observation-rule probe on generation-5 development seeds: after an interrupted all-candidate screen exposed override-counter underreporting, selected rules were rerun on `12000..12007`; `mined_low_fast_noop` improved `improved-v3/v4` but regressed built-in. The more promising `mined_near_net_vertical` rule was then expanded to the full `12000..12049` development pool, where it tied built-in and easy rows, improved `improved-v4` by `+0.12`, but regressed `improved-v2/v3/v6` mean score and still trailed `baseline-rnn` on every hard archived opponent. No maintained edit, holdout, or audit run was promoted."
+        )
+
+    if stacked_mined_rule_note.exists():
+        lines.append(
+            "- Additional stacked-mined observation-rule probe on generation-5 development seeds: a short stacked-frame near-net rule, `stacked_near_net_mode_vertical`, preserved built-in/easy rows and nudged `improved-v4/v5/v6` by `+0.12/+0.06/+0.04`, but regressed `improved-v2` by `-0.02`, tied `improved-v3`, and stayed far below `baseline-rnn` on hard archived opponents. No maintained edit, holdout, or audit run was promoted."
         )
 
     pool_opponents = ["builtin", "random", "initial", "improved-v0", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"]
