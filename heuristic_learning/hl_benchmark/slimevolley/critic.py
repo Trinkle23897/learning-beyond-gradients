@@ -42,6 +42,7 @@ DEFAULT_GENERATION5_STACKED_POSTURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).p
 DEFAULT_GENERATION5_RALLY_SETUP_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_rally_setup_probe.md"
 DEFAULT_GENERATION5_CONTACT_TIMING_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_contact_timing_probe.md"
 DEFAULT_GENERATION5_APPROACH_QUALITY_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_approach_quality_probe.md"
+DEFAULT_GENERATION5_CONTACT_QUALITY_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_contact_quality_probe.md"
 DEFAULT_PARALLEL_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_parallel_synthesis_rallyserve.md"
 DEFAULT_PARALLEL_TRACE_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_trace_rally_attack_rnn_worker.md"
 DEFAULT_TASK = "Critique the current SlimeVolley heuristic-learning performance and propose the next improvement direction."
@@ -142,6 +143,7 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
             "- The remaining gap is not a single terminal-frame action problem. A post-own-contact front-anchor rally-setup phase was tried and rejected because it preserved only built-in, regressed `improved-v3/v4`, and left `improved-v5/v6` unchanged.",
             "- A contact-timing diagnostic then showed `net-pressure` already jumps on most low front-court terminal frames; narrow vertical/back/base jump overrides tied the reference and were not promoted.",
             "- A pre-contact approach diagnostic found `net-pressure` farther behind the ball than `baseline-rnn` eight frames before low terminal windows, but early-jump copies collapsed performance; broad and far-behind no-jump approach variants were mixed or harmful and were not promoted.",
+            "- A contact-quality probe tried recent-contact gates, stricter descent gates, and `110`/`111` brace substitutions; hard-tail nudges came with built-in or `improved-v3/v4` regressions and no candidate was promoted.",
             "- The next credible direction should avoid copying single RNN actions; it should model a longer phase controller or explicitly test draw-reduction goals separately from hard archived-opponent robustness.",
             f"- Generation-5 net-pressure note, if present: `{DEFAULT_GENERATION5_NET_PRESSURE_NOTE}`.",
             f"- Generation-5 fixed-pool comparator note, if present: `{DEFAULT_GENERATION5_FIXED_POOL_NOTE}`.",
@@ -150,6 +152,7 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
             f"- Generation-5 rally-setup note, if present: `{DEFAULT_GENERATION5_RALLY_SETUP_NOTE}`.",
             f"- Generation-5 contact-timing note, if present: `{DEFAULT_GENERATION5_CONTACT_TIMING_NOTE}`.",
             f"- Generation-5 approach-quality note, if present: `{DEFAULT_GENERATION5_APPROACH_QUALITY_NOTE}`.",
+            f"- Generation-5 contact-quality note, if present: `{DEFAULT_GENERATION5_CONTACT_QUALITY_NOTE}`.",
             "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
         ]
     return [

@@ -325,6 +325,9 @@ def _artifact_manifest_lines() -> list[str]:
         "| `notes/generation_5_approach_quality_probe.md` | Development-only approach-quality note for generation-5; records pre-contact trace diagnostics, harmful early-jump probes, mixed/no-op approach probes, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
         "| `probes/g5_approach_quality_probe.py` | Development-only approach-quality diagnostic/probe script for pre-contact movement and early jump candidates around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_5_approach_quality_probe.json` | JSON results for the development-only approach-quality diagnostic and short screen on `12000..12015`. | `python experiments/slimevolley/probes/g5_approach_quality_probe.py --phase diagnose/screen` | reviewer inspection; development-seed evidence only |",
+        "| `notes/generation_5_contact_quality_probe.md` | Development-only contact-quality note for generation-5; records recent-contact/descent/brace probes, hard-tail nudges with built-in regressions, and no-promotion decision. | maintained after no-ledger generation-5 dev diagnostics | reviewer inspection; no generation-5 holdout or audit opened |",
+        "| `probes/g5_contact_quality_probe.py` | Development-only contact-quality probe script for short-history pressure gates and RNN-like brace action candidates around `net-pressure`. | manual no-ledger generation-5 dev probe | reviewer inspection; development-seed evidence only |",
+        "| `results/generation_5_contact_quality_probe.json` | JSON results for the development-only contact-quality short screen on `12000..12015`. | `python experiments/slimevolley/probes/g5_contact_quality_probe.py --phase screen` | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_trials.jsonl` | Append-only generation-4 ledger for development rows and final-only holdout rows. | generation-4 development and final holdout commands | reviewer inspection, `reports/generation_4_temporal_history_attempt.md`, and `results/holdout_g4_final.json` |",
         "| `results/generation_4_summary.csv` | CSV projection of the generation-4 ledger, including final-only holdout rows when present. | generation-4 ledger-producing commands | reviewer inspection |",
         "| `results/holdout_g4_final.json` | Generation-4 final-only holdout matrix over frozen policies, including `rally-serve` and `baseline-rnn`. | `make slimevolley-final-eval` after policy/config/opponent/test freeze | reviewer inspection and `make slimevolley-audit` seed/matrix/anti-tuning checks |",
@@ -2057,6 +2060,9 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     approach_quality_note = results_dir.parent / "notes" / "generation_5_approach_quality_probe.md"
     approach_quality_probe_script = results_dir.parent / "probes" / "g5_approach_quality_probe.py"
     approach_quality_probe_result = results_dir / "generation_5_approach_quality_probe.json"
+    contact_quality_note = results_dir.parent / "notes" / "generation_5_contact_quality_probe.md"
+    contact_quality_probe_script = results_dir.parent / "probes" / "g5_contact_quality_probe.py"
+    contact_quality_probe_result = results_dir / "generation_5_contact_quality_probe.json"
     holdout_artifact = results_dir / "holdout_g5_final.json"
 
     if not generation_ledger.exists():
@@ -2087,6 +2093,7 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-5 rally-setup probe note: `{rally_setup_note}`",
         f"- Generation-5 contact-timing probe note: `{contact_timing_note}`",
         f"- Generation-5 approach-quality probe note: `{approach_quality_note}`",
+        f"- Generation-5 contact-quality probe note: `{contact_quality_note}`",
         f"- Generation-5 ledger: `{generation_ledger}`",
         f"- Generation-5 summary: `{generation_summary}`",
         f"- Generation-5 final holdout artifact: `{holdout_artifact}`" + (" is present and is final-only evidence." if holdout_artifact.exists() else " is not present."),
@@ -2165,6 +2172,11 @@ def _generation_5_development_lines(ledger_path: Path) -> list[str]:
     if approach_quality_note.exists():
         lines.append(
             "- Additional approach-quality diagnostic/probe on generation-5 development seeds: eight-frame pre-contact traces showed `net-pressure` farther behind the ball than `baseline-rnn`, but early-jump copies collapsed performance, broad no-jump approach rules were mixed or harmful, and a far-behind follow-up only nudged `improved-v5/v6` while regressing built-in and `improved-v3/v4`. No maintained edit was promoted and holdout/audit stayed sealed."
+        )
+
+    if contact_quality_note.exists():
+        lines.append(
+            "- Additional contact-quality structural/history probe on generation-5 development seeds: recent-contact gates and `110`/`111` brace substitutions were active, but hard-tail nudges came with built-in or `improved-v3/v4` regressions and remained far below `baseline-rnn`. No full-pool expansion, maintained edit, holdout, or audit run was promoted."
         )
 
     pool_opponents = ["builtin", "random", "initial", "improved-v0", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"]
