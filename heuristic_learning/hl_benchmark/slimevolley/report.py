@@ -321,12 +321,15 @@ def _artifact_manifest_lines() -> list[str]:
         "| `reports/parallel/20260527_parallel_synthesis_rallyserve.md` | Dated synthesis of the rally-serve parallel worker pass; records that scalar/config, stacked low-receive, and rear-wall probes tied or regressed and no new candidate was promoted. | maintained after 2026-05-27 parallel worker completion | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_trace_rally_attack_rnn_worker.md` | Dated development-only trace comparison of `rally-serve`, `attack`, and `baseline-rnn` against the built-in opponent. | parallel trace diagnostics worker on generation-4 dev seeds | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_attack_scalar_subagent_v2.md` | Development-only v2 scalar/config probe around `rally-serve`; records tied built-in variants, incomplete/mixed fixed-pool rows, and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/g4_attack_scalar_worker_a_20260527.md` | Development-only Worker A scalar/config search around `attack`/`net-pressure`; records mixed fixed-pool scalar results and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_grounded_low_receive_subagent_v2.md` | Development-only v2 stacked-frame grounded-low-receive probe; records a tie with `rally-serve` and rejects broad low-incoming modes. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/g4_grounded_low_receive_worker_b_screen.md` | Development-only Worker B grounded-low-receive short-screen note; records harmful/tied structural branch probes and no full-pool expansion. | no-ledger generation-4 short-screen diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_rear_wall_press_subagent_v2.md` | Development-only v2 rear-wall press probe; records harmful/tied wall-clear variants and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `notes/parallel/g4_rear_wall_press_worker_c_20260527.md` | Development-only Worker C rear-wall press probe; records narrow built-in gain, fixed-pool regressions, and no promotion. | no-ledger generation-4 dev diagnostics | reviewer inspection; development-seed evidence only |",
         "| `notes/parallel/20260527_g4_archived_robustness_subagent_v2.md` | Development-only v2 archived-opponent robustness note; records interrupted rerun and canonical fixed-pool regression versus `baseline-rnn`. | no-ledger generation-4 dev diagnostics plus existing summary rows | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_trace_attack_vs_rnn_subagent_v2.md` | Development-only v2 attack/rally-serve/RNN trace report on `9000..9015`. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/g4_trace_attack_vs_baseline_rnn_worker_d_20260527.md` | Development-only Worker D trace report comparing `attack`, `net-pressure`, and `baseline-rnn` on generation-4 dev seeds; records no promotion. | no-ledger generation-4 trace diagnostics | reviewer inspection; development-seed evidence only |",
+        "| `reports/parallel/20260527_g4_parallel4_synthesis.md` | Development-only Worker A-E synthesis report for generation-4 parallel4 diagnostics; records no maintained edit and no promotion. | maintained after 2026-05-27 parallel4 worker completion | reviewer inspection; development-seed evidence only |",
         "| `reports/parallel/20260527_g4_parallel_subagent_synthesis_v2.md` | Development-only v2 synthesis of scalar, structural, trace, and robustness subagent artifacts; records no promotion decision. | maintained after 2026-05-27 v2 parallel worker completion | reviewer inspection; development-seed evidence only |",
         "| `probes/g4_post_contact_gate_probe.py` | Development-only post-contact gate probe script for temporary structural/history candidates around `rally-serve`. | manual no-ledger generation-4 dev probe | reviewer inspection; development-seed evidence only |",
         "| `results/generation_4_post_contact_gate_probe.json` | JSON results for the development-only post-contact gate probe; records screen and full fixed-pool rows with no promotion. | `python experiments/slimevolley/probes/g4_post_contact_gate_probe.py --phase screen/full` | reviewer inspection; development-seed evidence only |",
@@ -1439,12 +1442,15 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
     parallel_g4_trace_report = reports_dir / "parallel" / "20260527_g4_trace_attack_vs_rnn_subagent.md"
     parallel_g4_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel_subagent_synthesis.md"
     parallel_g4_attack_scalar_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_attack_scalar_subagent_v2.md"
+    parallel_g4_worker_a_attack_scalar_note = results_dir.parent / "notes" / "parallel" / "g4_attack_scalar_worker_a_20260527.md"
     parallel_g4_grounded_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_grounded_low_receive_subagent_v2.md"
     parallel_g4_worker_b_grounded_note = results_dir.parent / "notes" / "parallel" / "g4_grounded_low_receive_worker_b_screen.md"
     parallel_g4_rear_wall_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_rear_wall_press_subagent_v2.md"
+    parallel_g4_worker_c_rear_wall_note = results_dir.parent / "notes" / "parallel" / "g4_rear_wall_press_worker_c_20260527.md"
     parallel_g4_robustness_v2_note = results_dir.parent / "notes" / "parallel" / "20260527_g4_archived_robustness_subagent_v2.md"
     parallel_g4_trace_v2_report = reports_dir / "parallel" / "20260527_g4_trace_attack_vs_rnn_subagent_v2.md"
     parallel_g4_worker_d_trace_report = reports_dir / "parallel" / "g4_trace_attack_vs_baseline_rnn_worker_d_20260527.md"
+    parallel_g4_parallel4_synthesis_report = reports_dir / "parallel" / "20260527_g4_parallel4_synthesis.md"
     parallel_g4_synthesis_v2_report = reports_dir / "parallel" / "20260527_g4_parallel_subagent_synthesis_v2.md"
     post_contact_candidate_note = results_dir.parent / "notes" / "generation_4_post_contact_front_conversion_attempt.md"
     post_contact_worker_e_note = results_dir.parent / "notes" / "parallel" / "g4_archived_opponent_robustness_post_contact_worker_e.md"
@@ -1500,12 +1506,15 @@ def _generation_4_development_lines(ledger_path: Path) -> list[str]:
         f"- Generation-4 subagent attack/RNN trace report: `{parallel_g4_trace_report}`",
         f"- Generation-4 subagent synthesis report: `{parallel_g4_synthesis_report}`",
         f"- Generation-4 subagent scalar/config v2 note: `{parallel_g4_attack_scalar_v2_note}`",
+        f"- Generation-4 Worker A attack/net-pressure scalar note: `{parallel_g4_worker_a_attack_scalar_note}`",
         f"- Generation-4 subagent grounded-low-receive v2 note: `{parallel_g4_grounded_v2_note}`",
         f"- Generation-4 Worker B grounded-low-receive screen note: `{parallel_g4_worker_b_grounded_note}`",
         f"- Generation-4 subagent rear-wall press v2 note: `{parallel_g4_rear_wall_v2_note}`",
+        f"- Generation-4 Worker C rear-wall press note: `{parallel_g4_worker_c_rear_wall_note}`",
         f"- Generation-4 subagent archived-opponent robustness v2 note: `{parallel_g4_robustness_v2_note}`",
         f"- Generation-4 subagent attack/rally-serve/RNN trace v2 report: `{parallel_g4_trace_v2_report}`",
         f"- Generation-4 Worker D attack/net-pressure/RNN trace report: `{parallel_g4_worker_d_trace_report}`",
+        f"- Generation-4 parallel4 synthesis report: `{parallel_g4_parallel4_synthesis_report}`",
         f"- Generation-4 subagent synthesis v2 report: `{parallel_g4_synthesis_v2_report}`",
         f"- Generation-4 post-contact front-conversion candidate note: `{post_contact_candidate_note}`",
         f"- Generation-4 post-contact Worker E archived-opponent robustness note: `{post_contact_worker_e_note}`",
