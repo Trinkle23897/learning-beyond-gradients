@@ -17,6 +17,7 @@ from .slimevolley import (
     SlimeVolleyImprovedV1Policy,
     SlimeVolleyImprovedV2Policy,
     SlimeVolleyRallyServePolicy,
+    SlimeVolleyRallyServeLowX52Policy,
     SlimeVolleyPostContactPolicy,
     SlimeVolleyRandomPolicy,
 )
@@ -42,6 +43,7 @@ __all__ = [
     "SlimeVolleyImprovedV1Policy",
     "SlimeVolleyImprovedV2Policy",
     "SlimeVolleyRallyServePolicy",
+    "SlimeVolleyRallyServeLowX52Policy",
     "SlimeVolleyPostContactPolicy",
     "SlimeVolleyRandomPolicy",
     "make_policy",

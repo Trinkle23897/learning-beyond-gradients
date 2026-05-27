@@ -10,7 +10,7 @@ from __future__ import annotations
 
 import itertools
 from collections import deque
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from typing import Any
 
 import numpy as np
@@ -133,6 +133,12 @@ RALLY_SERVE_CONFIG = SlimeVolleyConfig(
     rally_serve_vx_window=0.50,
     rally_serve_steps=8,
     rally_serve_cooldown_steps=12,
+)
+
+
+RALLY_SERVE_LOW_X52_CONFIG = replace(
+    RALLY_SERVE_CONFIG,
+    low_ball_rescue_x_window=0.52,
 )
 
 
@@ -1290,6 +1296,43 @@ class SlimeVolleyPostContactPolicy(SlimeVolleyRallyServePolicy):
         return values
 
 
+class SlimeVolleyRallyServeLowX52Policy(SlimeVolleyRallyServePolicy):
+    """Development-only scalar/config candidate from generation-4 parallel6.
+
+    This preserves the historical ``rally-serve`` policy and exposes the single
+    scalar change that passed a development fixed-pool check. It is not a
+    structural heuristic improvement and must not be treated as holdout evidence.
+    """
+
+    policy_name = "slimevolley_rally_serve_low_x52_candidate"
+
+    def __init__(self, config: SlimeVolleyConfig | None = None) -> None:
+        super().__init__(config or RALLY_SERVE_LOW_X52_CONFIG)
+
+    def config(self) -> dict[str, Any]:
+        values = super().config()
+        values["policy_type"] = "slimevolley_rally_serve_low_x52_candidate"
+        values["candidate_status"] = "generation_4_development_only_scalar_config_candidate"
+        values["tuning_label"] = "scalar/config tuning over rally-serve"
+        values["structural_changes"] = ["late_contact_attack", "rally_serve_detector"]
+        values["scalar_change"] = {
+            "base_policy": "rally-serve",
+            "low_ball_rescue_x_window": self._config.low_ball_rescue_x_window,
+            "previous_rally_serve_value": RALLY_SERVE_CONFIG.low_ball_rescue_x_window,
+        }
+        values["development_result"] = {
+            "seeds": "9000..9049",
+            "opponent_pool": "builtin, random, initial, improved-v0, improved-v2, improved-v3, improved-v4, improved-v5, improved-v6",
+            "built_in_mean": 0.18,
+            "built_in_wld": "14/8/28",
+            "baseline_rnn_builtin_mean": 0.12,
+            "rally_serve_builtin_mean": 0.14,
+            "evidence_note": "Passed fixed development opponent-pool check in parallel6, but remains scalar-only development evidence.",
+            "holdout_status": "not_evaluated_do_not_tune_on_generation_4_holdout_or_audit",
+        }
+        return values
+
+
 class SlimeVolleyNetPressurePolicy(SlimeVolleyRallyServePolicy):
     """Generation-5 structural front-court pressure probe.
 
@@ -2066,6 +2109,7 @@ SUPPORTED_POLICY_NAMES = (
     "improved-tuned",
     "attack",
     "rally-serve",
+    "rally-serve-low-x52",
     "post-contact",
     "net-pressure",
     "baseline-rnn",
@@ -2102,6 +2146,9 @@ def make_policy(
     if policy_name == "rally-serve":
         rally_config = config_from_dict(SlimeVolleyConfig, config) if config is not None else None
         return SlimeVolleyRallyServePolicy(rally_config)
+    if policy_name == "rally-serve-low-x52":
+        low_x52_config = config_from_dict(SlimeVolleyConfig, config) if config is not None else None
+        return SlimeVolleyRallyServeLowX52Policy(low_x52_config)
     if policy_name == "post-contact":
         post_contact_config = config_from_dict(SlimeVolleyConfig, config) if config is not None else None
         return SlimeVolleyPostContactPolicy(post_contact_config)

@@ -209,7 +209,7 @@ def evaluate_slimevolley(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--policy", default="initial", choices=["random", "initial", "improved", "improved-tuned", "attack", "rally-serve", "post-contact", "net-pressure", "temporal", "planner", "teacher-assisted", "tuned", "baseline-rnn", "improved-v0", "improved-v1", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"])
+    parser.add_argument("--policy", default="initial", choices=["random", "initial", "improved", "improved-tuned", "attack", "rally-serve", "rally-serve-low-x52", "post-contact", "net-pressure", "temporal", "planner", "teacher-assisted", "tuned", "baseline-rnn", "improved-v0", "improved-v1", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"])
     parser.add_argument("--opponent", default="builtin", choices=sorted(OPPONENT_POOL))
     parser.add_argument("--split", default="dev", choices=["dev", "holdout", "audit", "smoke"])
     parser.add_argument("--episodes", type=int, default=None)

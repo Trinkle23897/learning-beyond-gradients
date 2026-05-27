@@ -18,6 +18,7 @@ from hl_benchmark.policies.slimevolley import (
     SlimeVolleyAttackPolicy,
     SlimeVolleyPlannerPolicy,
     SlimeVolleyRallyServePolicy,
+    SlimeVolleyRallyServeLowX52Policy,
     SlimeVolleyNetPressurePolicy,
     SlimeVolleyPostContactPolicy,
     SlimeVolleyRandomPolicy,
@@ -418,7 +419,7 @@ def test_slimevolley_critic_refuses_external_call_without_gate() -> None:
 
 def test_slimevolley_policy_factory_actions_are_multibinary() -> None:
     obs = np.asarray([1.2, 0.0, 0.0, 0.0, 0.8, 0.8, 0.05, -0.04, -1.2, 0.0, 0.0, 0.0])
-    for policy_name in ["initial", "improved", "improved-tuned", "attack", "rally-serve", "post-contact", "net-pressure", "temporal", "planner", "teacher-assisted", "tuned", "improved-v0", "improved-v1", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"]:
+    for policy_name in ["initial", "improved", "improved-tuned", "attack", "rally-serve", "rally-serve-low-x52", "post-contact", "net-pressure", "temporal", "planner", "teacher-assisted", "tuned", "improved-v0", "improved-v1", "improved-v2", "improved-v3", "improved-v4", "improved-v5", "improved-v6"]:
         policy = make_policy("SlimeVolley-v0", policy_name)
         action = policy.act(obs)
         assert action.shape == (3,)
@@ -482,6 +483,22 @@ def test_slimevolley_rally_serve_candidate_golden_behavior() -> None:
     assert config["structural_changes"] == ["late_contact_attack", "rally_serve_detector"]
     assert config["development_result"]["mean"] == pytest.approx(0.14)
     assert config["development_result"]["holdout_status"] == "generation_4_failed_to_beat_baseline_rnn"
+
+
+def test_slimevolley_rally_serve_low_x52_is_labeled_scalar_candidate() -> None:
+    policy = SlimeVolleyRallyServeLowX52Policy()
+    factory_policy = make_policy("SlimeVolley-v0", "rally-serve-low-x52")
+    for candidate in [policy, factory_policy]:
+        config = candidate.config()
+        assert config["policy_type"] == "slimevolley_rally_serve_low_x52_candidate"
+        assert config["candidate_status"] == "generation_4_development_only_scalar_config_candidate"
+        assert config["tuning_label"] == "scalar/config tuning over rally-serve"
+        assert config["scalar_change"] == {
+            "base_policy": "rally-serve",
+            "low_ball_rescue_x_window": 0.52,
+            "previous_rally_serve_value": 0.54,
+        }
+        assert config["development_result"]["holdout_status"] == "not_evaluated_do_not_tune_on_generation_4_holdout_or_audit"
 
 
 def test_slimevolley_post_contact_candidate_golden_behavior() -> None:

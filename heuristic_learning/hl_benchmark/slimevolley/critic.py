@@ -39,6 +39,9 @@ DEFAULT_GENERATION5_NET_PRESSURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).pare
 DEFAULT_GENERATION5_FIXED_POOL_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_fixed_pool_comparator.md"
 DEFAULT_GENERATION5_AGGRESSIVE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_aggressive_pressure_and_brace_probe.md"
 DEFAULT_GENERATION5_STACKED_POSTURE_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_stacked_followthrough_and_posture_probe.md"
+DEFAULT_GENERATION5_RALLY_SETUP_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_rally_setup_probe.md"
+DEFAULT_GENERATION5_CONTACT_TIMING_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_contact_timing_probe.md"
+DEFAULT_GENERATION5_APPROACH_QUALITY_NOTE = env_results_dir(SLIMEVOLLEY_ENV_ID).parent / "notes" / "generation_5_approach_quality_probe.md"
 DEFAULT_PARALLEL_SYNTHESIS_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_parallel_synthesis_rallyserve.md"
 DEFAULT_PARALLEL_TRACE_REPORT = env_reports_dir(SLIMEVOLLEY_ENV_ID) / "parallel" / "20260527_trace_rally_attack_rnn_worker.md"
 DEFAULT_TASK = "Critique the current SlimeVolley heuristic-learning performance and propose the next improvement direction."
@@ -136,11 +139,17 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
             "- `net-pressure` is the current best generation-5 structural probe: it beats `baseline-rnn` on built-in development mean but remains behind on hard archived opponents.",
             "- `post-contact` did not transfer into a fixed-pool improvement over `net-pressure` and is not promoted.",
             "- Broad aggressive low-contact, brace-serve, front-low recovery, stacked followthrough, and opponent-posture low-pressure probes produced mixed or negative development evidence and should not be promoted without stronger fixed-pool rows.",
-            "- The remaining gap is not a single terminal-frame action problem; the most credible next direction is earlier contact setup or a higher-level rally phase classifier that is checked against the fixed development opponent pool before any holdout use.",
+            "- The remaining gap is not a single terminal-frame action problem. A post-own-contact front-anchor rally-setup phase was tried and rejected because it preserved only built-in, regressed `improved-v3/v4`, and left `improved-v5/v6` unchanged.",
+            "- A contact-timing diagnostic then showed `net-pressure` already jumps on most low front-court terminal frames; narrow vertical/back/base jump overrides tied the reference and were not promoted.",
+            "- A pre-contact approach diagnostic found `net-pressure` farther behind the ball than `baseline-rnn` eight frames before low terminal windows, but early-jump copies collapsed performance; broad and far-behind no-jump approach variants were mixed or harmful and were not promoted.",
+            "- The next credible direction should avoid copying single RNN actions; it should model a longer phase controller or explicitly test draw-reduction goals separately from hard archived-opponent robustness.",
             f"- Generation-5 net-pressure note, if present: `{DEFAULT_GENERATION5_NET_PRESSURE_NOTE}`.",
             f"- Generation-5 fixed-pool comparator note, if present: `{DEFAULT_GENERATION5_FIXED_POOL_NOTE}`.",
             f"- Generation-5 aggressive pressure/brace note, if present: `{DEFAULT_GENERATION5_AGGRESSIVE_NOTE}`.",
             f"- Generation-5 stacked followthrough/posture note, if present: `{DEFAULT_GENERATION5_STACKED_POSTURE_NOTE}`.",
+            f"- Generation-5 rally-setup note, if present: `{DEFAULT_GENERATION5_RALLY_SETUP_NOTE}`.",
+            f"- Generation-5 contact-timing note, if present: `{DEFAULT_GENERATION5_CONTACT_TIMING_NOTE}`.",
+            f"- Generation-5 approach-quality note, if present: `{DEFAULT_GENERATION5_APPROACH_QUALITY_NOTE}`.",
             "- The packaged `baseline-rnn` is a comparator/possible teacher for dev-only rule discovery, not a runtime maintained heuristic.",
         ]
     return [
@@ -151,7 +160,7 @@ def _known_interpretation_lines(generation: CriticGenerationContext) -> list[str
         "- A later parallel scalar/config search found a stronger built-in-only candidate at mean `-0.02` with `low_ball_rescue_x_window=0.48`; it still trails `baseline-rnn` mean `0.12`, is scalar-only, and is not promoted.",
         "- A low-receive teacher-action follow-up found RNN jump signals in low own-side loss windows, but targeted `LowDriveFinish` and `NetVerticalBlock` structural probes tied or worsened the short screen; a bounded 98-config scalar follow-up again topped out at mean `-0.02` and is not promoted.",
         "- The `rally-serve` candidate adds a point-reset serve detector plus scalar fields; it beat `baseline-rnn` on built-in development seeds (`0.14` vs `0.12`) but failed to beat it on final-only built-in holdout (`-0.22` vs `-0.12`). Do not propose tuning from this holdout outcome; any new policy-selection work needs a fresh predeclared generation.",
-        "- The latest parallel rally-serve pass found no new promotion: scalar/config variants, stacked grounded-low-receive probes, and stacked rear-wall probes only tied or regressed versus current `rally-serve`; minimum recorded new dev cost was `6,540,000` environment steps.",
+        "- The latest parallel6 rally-serve pass found one scalar/config candidate, `rally-serve-low-x52`, after fixed development opponent-pool checks: built-in mean `0.18` versus current `rally-serve` `0.14` and `baseline-rnn` `0.12`. It is scalar-only development evidence, not structural progress, and holdout/audit seeds remain closed.",
         "- Trace diagnostics show `rally-serve` improves over `attack` by reducing point losses from `32` to `18`, but it wins fewer built-in matches than `baseline-rnn` (`13` versus `18`) and relies more on draws (`29` versus `20`).",
         f"- Joint scalar-search note, if present: `{DEFAULT_JOINT_ATTACK_SEARCH_NOTE}`.",
         f"- Low-receive teacher/scalar follow-up note, if present: `{DEFAULT_LOW_RECEIVE_FOLLOWUP_NOTE}`.",

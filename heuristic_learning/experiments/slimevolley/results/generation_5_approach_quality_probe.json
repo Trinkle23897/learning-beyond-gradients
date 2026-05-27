@@ -1,0 +1,2534 @@
+{
+  "runs": [
+    {
+      "holdout_audit_used": false,
+      "phase_result": {
+        "opponents": [
+          "improved-v3",
+          "improved-v4",
+          "improved-v5",
+          "improved-v6"
+        ],
+        "phase": "diagnose",
+        "rows": [
+          {
+            "action_counts": {
+              "point_lost:12:010": 4,
+              "point_lost:12:100": 2,
+              "point_lost:16:010": 2,
+              "point_lost:16:100": 4,
+              "point_lost:4:100": 1,
+              "point_lost:4:101": 5,
+              "point_lost:8:010": 1,
+              "point_lost:8:100": 4,
+              "point_lost:8:101": 1
+            },
+            "low_contact_events": {
+              "point_lost": 6
+            },
+            "offset_summary": {
+              "12": {
+                "count": 6,
+                "forward_rate": 0.3333333333333333,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 0.7656496704795345,
+                "mean_agent_y": 0.2559555555555555,
+                "mean_ball_vy": -0.4167256882065303,
+                "mean_ball_y": 0.5598315863663478,
+                "mean_dx": 0.7656496704795345
+              },
+              "16": {
+                "count": 6,
+                "forward_rate": 0.6666666666666666,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 1.0121264885119177,
+                "mean_agent_y": 0.23733333333333329,
+                "mean_ball_vy": -0.38903418537992684,
+                "mean_ball_y": 0.612741778259648,
+                "mean_dx": 1.0121264885119177
+              },
+              "4": {
+                "count": 6,
+                "forward_rate": 1.0,
+                "jump_rate": 0.8333333333333334,
+                "mean_abs_dx": 0.2296965530382432,
+                "mean_agent_y": 0.31157777777777773,
+                "mean_ball_vy": -0.7528520915119344,
+                "mean_ball_y": 0.3366035681473636,
+                "mean_dx": 0.2296965530382432
+              },
+              "8": {
+                "count": 6,
+                "forward_rate": 0.8333333333333334,
+                "jump_rate": 0.16666666666666666,
+                "mean_abs_dx": 0.5895688886500444,
+                "mean_agent_y": 0.25715555555555547,
+                "mean_ball_vy": -0.805361040702862,
+                "mean_ball_y": 0.4717455161696817,
+                "mean_dx": 0.5895688886500444
+              }
+            },
+            "opponent": "improved-v3",
+            "policy": "net_pressure_reference",
+            "seeds": "12000..12015"
+          },
+          {
+            "action_counts": {
+              "point_lost:12:000": 1,
+              "point_lost:12:010": 3,
+              "point_lost:12:100": 2,
+              "point_lost:16:000": 1,
+              "point_lost:16:010": 1,
+              "point_lost:16:100": 4,
+              "point_lost:4:010": 1,
+              "point_lost:4:101": 5,
+              "point_lost:8:010": 3,
+              "point_lost:8:100": 3
+            },
+            "low_contact_events": {
+              "point_lost": 6
+            },
+            "offset_summary": {
+              "12": {
+                "count": 6,
+                "forward_rate": 0.3333333333333333,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 0.8061022552552464,
+                "mean_agent_y": 0.2054555555555555,
+                "mean_ball_vy": -0.49465930561058175,
+                "mean_ball_y": 0.617859272006054,
+                "mean_dx": 0.8061022552552464
+              },
+              "16": {
+                "count": 6,
+                "forward_rate": 0.6666666666666666,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 1.08157293477524,
+                "mean_agent_y": 0.20049999999999998,
+                "mean_ball_vy": -0.46696780278397826,
+                "mean_ball_y": 0.6811606128865613,
+                "mean_dx": 1.08157293477524
+              },
+              "4": {
+                "count": 6,
+                "forward_rate": 0.8333333333333334,
+                "jump_rate": 0.8333333333333334,
+                "mean_abs_dx": 0.31419221952572124,
+                "mean_agent_y": 0.24651111111111104,
+                "mean_ball_vy": -1.0539948778352048,
+                "mean_ball_y": 0.3747169040301042,
+                "mean_dx": 0.31419221952572124
+              },
+              "8": {
+                "count": 6,
+                "forward_rate": 0.5,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 0.610394976232509,
+                "mean_agent_y": 0.20169999999999996,
+                "mean_ball_vy": -0.8866593056105819,
+                "mean_ball_y": 0.5192380312579764,
+                "mean_dx": 0.610394976232509
+              }
+            },
+            "opponent": "improved-v4",
+            "policy": "net_pressure_reference",
+            "seeds": "12000..12015"
+          },
+          {
+            "action_counts": {
+              "point_lost:12:000": 1,
+              "point_lost:12:010": 2,
+              "point_lost:12:100": 1,
+              "point_lost:16:010": 1,
+              "point_lost:16:100": 2,
+              "point_lost:16:101": 1,
+              "point_lost:4:101": 4,
+              "point_lost:8:010": 2,
+              "point_lost:8:100": 2,
+              "point_won:12:000": 1,
+              "point_won:12:100": 1,
+              "point_won:16:000": 1,
+              "point_won:16:100": 1,
+              "point_won:4:000": 1,
+              "point_won:4:100": 1,
+              "point_won:8:000": 1,
+              "point_won:8:100": 1
+            },
+            "low_contact_events": {
+              "point_lost": 4,
+              "point_won": 2
+            },
+            "offset_summary": {
+              "12": {
+                "count": 6,
+                "forward_rate": 0.3333333333333333,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 0.5858165525047275,
+                "mean_agent_y": 0.309711111111111,
+                "mean_ball_vy": -0.6180740008892075,
+                "mean_ball_y": 0.661768959512725,
+                "mean_dx": 0.510742140701162
+              },
+              "16": {
+                "count": 6,
+                "forward_rate": 0.6666666666666666,
+                "jump_rate": 0.16666666666666666,
+                "mean_abs_dx": 0.7013148121380762,
+                "mean_agent_y": 0.29702222222222213,
+                "mean_ball_vy": -0.6557158313959341,
+                "mean_ball_y": 0.7293654625991904,
+                "mean_dx": 0.6262404003345106
+              },
+              "4": {
+                "count": 6,
+                "forward_rate": 0.8333333333333334,
+                "jump_rate": 0.6666666666666666,
+                "mean_abs_dx": 0.3373020502232496,
+                "mean_agent_y": 0.2711444444444443,
+                "mean_ball_vy": -0.982612982023765,
+                "mean_ball_y": 0.440997292779249,
+                "mean_dx": 0.30060957117274734
+              },
+              "8": {
+                "count": 6,
+                "forward_rate": 0.5,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 0.5267702488878893,
+                "mean_agent_y": 0.2962666666666665,
+                "mean_ball_vy": -0.9550237793439126,
+                "mean_ball_y": 0.563428336627899,
+                "mean_dx": 0.4593722236349363
+              }
+            },
+            "opponent": "improved-v5",
+            "policy": "net_pressure_reference",
+            "seeds": "12000..12015"
+          },
+          {
+            "action_counts": {
+              "point_lost:12:000": 1,
+              "point_lost:12:010": 2,
+              "point_lost:12:100": 1,
+              "point_lost:16:010": 1,
+              "point_lost:16:100": 2,
+              "point_lost:16:101": 1,
+              "point_lost:4:101": 4,
+              "point_lost:8:010": 2,
+              "point_lost:8:100": 2,
+              "point_won:12:000": 1,
+              "point_won:12:100": 1,
+              "point_won:16:000": 1,
+              "point_won:16:100": 1,
+              "point_won:4:000": 1,
+              "point_won:4:100": 1,
+              "point_won:8:000": 1,
+              "point_won:8:100": 1
+            },
+            "low_contact_events": {
+              "point_lost": 4,
+              "point_won": 2
+            },
+            "offset_summary": {
+              "12": {
+                "count": 6,
+                "forward_rate": 0.3333333333333333,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 0.5858165525047275,
+                "mean_agent_y": 0.309711111111111,
+                "mean_ball_vy": -0.6180740008892075,
+                "mean_ball_y": 0.661768959512725,
+                "mean_dx": 0.510742140701162
+              },
+              "16": {
+                "count": 6,
+                "forward_rate": 0.6666666666666666,
+                "jump_rate": 0.16666666666666666,
+                "mean_abs_dx": 0.7013148121380762,
+                "mean_agent_y": 0.29702222222222213,
+                "mean_ball_vy": -0.6557158313959341,
+                "mean_ball_y": 0.7293654625991904,
+                "mean_dx": 0.6262404003345106
+              },
+              "4": {
+                "count": 6,
+                "forward_rate": 0.8333333333333334,
+                "jump_rate": 0.6666666666666666,
+                "mean_abs_dx": 0.3373020502232496,
+                "mean_agent_y": 0.2711444444444443,
+                "mean_ball_vy": -0.982612982023765,
+                "mean_ball_y": 0.440997292779249,
+                "mean_dx": 0.30060957117274734
+              },
+              "8": {
+                "count": 6,
+                "forward_rate": 0.5,
+                "jump_rate": 0.0,
+                "mean_abs_dx": 0.5267702488878893,
+                "mean_agent_y": 0.2962666666666665,
+                "mean_ball_vy": -0.9550237793439126,
+                "mean_ball_y": 0.563428336627899,
+                "mean_dx": 0.4593722236349363
+              }
+            },
+            "opponent": "improved-v6",
+            "policy": "net_pressure_reference",
+            "seeds": "12000..12015"
+          },
+          {
+            "action_counts": {
+              "point_lost:12:001": 1,
+              "point_lost:12:101": 2,
+              "point_lost:12:110": 1,
+              "point_lost:16:101": 4,
+              "point_lost:4:101": 4,
+              "point_lost:8:001": 1,
+              "point_lost:8:101": 3
+            },
+            "low_contact_events": {
+              "point_lost": 4
+            },
+            "offset_summary": {
+              "12": {
+                "count": 4,
+                "forward_rate": 0.75,
+                "jump_rate": 0.75,
+                "mean_abs_dx": 0.2787371009009307,
+                "mean_agent_y": 0.34809999999999974,
+                "mean_ball_vy": -0.8285237172828019,
+                "mean_ball_y": 0.7349084255480052,
+                "mean_dx": 0.2787371009009307
+              },
+              "16": {
+                "count": 4,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.32014083086036027,
+                "mean_agent_y": 0.4326999999999998,
+                "mean_ball_vy": -0.4365237172828018,
+                "mean_ball_y": 0.8257782545190455,
+                "mean_dx": 0.32014083086036027
+              },
+              "4": {
+                "count": 4,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.21970164850515347,
+                "mean_agent_y": 0.2677166666666666,
+                "mean_ball_vy": -1.3126223279582723,
+                "mean_ball_y": 0.40778742400532336,
+                "mean_dx": 0.21970164850515347
+              },
+              "8": {
+                "count": 4,
+                "forward_rate": 0.75,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.2665000376081679,
+                "mean_agent_y": 0.2534833333333331,
+                "mean_ball_vy": -1.220523717282802,
+                "mean_ball_y": 0.5917719299102984,
+                "mean_dx": 0.2665000376081679
+              }
+            },
+            "opponent": "improved-v3",
+            "policy": "baseline_rnn",
+            "seeds": "12000..12015"
+          },
+          {
+            "action_counts": {
+              "point_lost:12:001": 1,
+              "point_lost:12:101": 2,
+              "point_lost:12:110": 1,
+              "point_lost:16:101": 4,
+              "point_lost:4:101": 4,
+              "point_lost:8:001": 1,
+              "point_lost:8:101": 3
+            },
+            "low_contact_events": {
+              "point_lost": 4
+            },
+            "offset_summary": {
+              "12": {
+                "count": 4,
+                "forward_rate": 0.75,
+                "jump_rate": 0.75,
+                "mean_abs_dx": 0.2787371009009307,
+                "mean_agent_y": 0.34809999999999974,
+                "mean_ball_vy": -0.8285237172828019,
+                "mean_ball_y": 0.7349084255480052,
+                "mean_dx": 0.2787371009009307
+              },
+              "16": {
+                "count": 4,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.32014083086036027,
+                "mean_agent_y": 0.4326999999999998,
+                "mean_ball_vy": -0.4365237172828018,
+                "mean_ball_y": 0.8257782545190455,
+                "mean_dx": 0.32014083086036027
+              },
+              "4": {
+                "count": 4,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.21970164850515347,
+                "mean_agent_y": 0.2677166666666666,
+                "mean_ball_vy": -1.3126223279582723,
+                "mean_ball_y": 0.40778742400532336,
+                "mean_dx": 0.21970164850515347
+              },
+              "8": {
+                "count": 4,
+                "forward_rate": 0.75,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.2665000376081679,
+                "mean_agent_y": 0.2534833333333331,
+                "mean_ball_vy": -1.220523717282802,
+                "mean_ball_y": 0.5917719299102984,
+                "mean_dx": 0.2665000376081679
+              }
+            },
+            "opponent": "improved-v4",
+            "policy": "baseline_rnn",
+            "seeds": "12000..12015"
+          },
+          {
+            "action_counts": {
+              "point_lost:12:001": 1,
+              "point_lost:12:110": 1,
+              "point_lost:16:101": 2,
+              "point_lost:4:101": 2,
+              "point_lost:8:001": 1,
+              "point_lost:8:101": 1
+            },
+            "low_contact_events": {
+              "point_lost": 2
+            },
+            "offset_summary": {
+              "12": {
+                "count": 2,
+                "forward_rate": 0.5,
+                "jump_rate": 0.5,
+                "mean_abs_dx": 0.36237499850903326,
+                "mean_agent_y": 0.3392999999999997,
+                "mean_ball_vy": -1.1445732494064802,
+                "mean_ball_y": 0.829665393986067,
+                "mean_dx": 0.36237499850903326
+              },
+              "16": {
+                "count": 2,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.4716332517162543,
+                "mean_agent_y": 0.4206333333333331,
+                "mean_ball_vy": -0.7525732494064801,
+                "mean_ball_y": 0.9626751605735975,
+                "mean_dx": 0.4716332517162543
+              },
+              "4": {
+                "count": 2,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.18310832318239814,
+                "mean_agent_y": 0.3003333333333331,
+                "mean_ball_vy": -1.5834349518028508,
+                "mean_ball_y": 0.421925922501305,
+                "mean_dx": 0.18310832318239814
+              },
+              "8": {
+                "count": 2,
+                "forward_rate": 0.5,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.3114500786351455,
+                "mean_agent_y": 0.2901999999999999,
+                "mean_ball_vy": -1.5365732494064805,
+                "mean_ball_y": 0.6443889607318696,
+                "mean_dx": 0.3114500786351455
+              }
+            },
+            "opponent": "improved-v5",
+            "policy": "baseline_rnn",
+            "seeds": "12000..12015"
+          },
+          {
+            "action_counts": {
+              "point_lost:12:001": 1,
+              "point_lost:12:110": 1,
+              "point_lost:16:101": 2,
+              "point_lost:4:101": 2,
+              "point_lost:8:001": 1,
+              "point_lost:8:101": 1
+            },
+            "low_contact_events": {
+              "point_lost": 2
+            },
+            "offset_summary": {
+              "12": {
+                "count": 2,
+                "forward_rate": 0.5,
+                "jump_rate": 0.5,
+                "mean_abs_dx": 0.36237499850903326,
+                "mean_agent_y": 0.3392999999999997,
+                "mean_ball_vy": -1.1445732494064802,
+                "mean_ball_y": 0.829665393986067,
+                "mean_dx": 0.36237499850903326
+              },
+              "16": {
+                "count": 2,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.4716332517162543,
+                "mean_agent_y": 0.4206333333333331,
+                "mean_ball_vy": -0.7525732494064801,
+                "mean_ball_y": 0.9626751605735975,
+                "mean_dx": 0.4716332517162543
+              },
+              "4": {
+                "count": 2,
+                "forward_rate": 1.0,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.18310832318239814,
+                "mean_agent_y": 0.3003333333333331,
+                "mean_ball_vy": -1.5834349518028508,
+                "mean_ball_y": 0.421925922501305,
+                "mean_dx": 0.18310832318239814
+              },
+              "8": {
+                "count": 2,
+                "forward_rate": 0.5,
+                "jump_rate": 1.0,
+                "mean_abs_dx": 0.3114500786351455,
+                "mean_agent_y": 0.2901999999999999,
+                "mean_ball_vy": -1.5365732494064805,
+                "mean_ball_y": 0.6443889607318696,
+                "mean_dx": 0.3114500786351455
+              }
+            },
+            "opponent": "improved-v6",
+            "policy": "baseline_rnn",
+            "seeds": "12000..12015"
+          }
+        ],
+        "seed_list": [
+          12000,
+          12001,
+          12002,
+          12003,
+          12004,
+          12005,
+          12006,
+          12007,
+          12008,
+          12009,
+          12010,
+          12011,
+          12012,
+          12013,
+          12014,
+          12015
+        ]
+      },
+      "protocol": "generation-5 development-only pre-contact approach diagnostic/probe"
+    },
+    {
+      "holdout_audit_used": false,
+      "phase_result": {
+        "candidates": [
+          "net_pressure_reference",
+          "baseline_rnn",
+          "approach_drive_jump",
+          "approach_vertical_jump",
+          "approach_drive_nojump",
+          "approach_preserve_nojump",
+          "approach_vertical_set",
+          "approach_rear_brake"
+        ],
+        "opponents": [
+          "builtin",
+          "improved-v3",
+          "improved-v4",
+          "improved-v5",
+          "improved-v6"
+        ],
+        "phase": "screen",
+        "rows": [
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 9,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 4,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 3,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 850,
+              "001": 3985,
+              "010": 7108,
+              "011": 357,
+              "100": 3121,
+              "101": 17347,
+              "110": 14330,
+              "111": 902
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 6,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 3,
+            "mean": 0.25,
+            "opponent": "builtin",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.25,
+            "steps": 48000,
+            "terminal_modes": {},
+            "wins": 7
+          },
+          {
+            "action_counts": {
+              "000": 376,
+              "001": 2369,
+              "010": 3202,
+              "011": 203,
+              "100": 2068,
+              "101": 14259,
+              "110": 11401,
+              "111": 598
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 4.1875,
+            "opponent": "improved-v3",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.184205957593526,
+            "steps": 34476,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 400,
+              "001": 2480,
+              "010": 3517,
+              "011": 212,
+              "100": 2432,
+              "101": 17532,
+              "110": 13147,
+              "111": 752
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 3.75,
+            "opponent": "improved-v4",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 40472,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3193,
+              "101": 17602,
+              "110": 15137,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v5",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3195,
+              "101": 17602,
+              "110": 15135,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v6",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 19882,
+              "001": 2711,
+              "010": 10417,
+              "011": 473,
+              "100": 9893,
+              "101": 2014
+            },
+            "candidate": "approach_drive_jump",
+            "candidate_frames": 13,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: earlier forward+jump while still behind descending front-low ball",
+            "losses": 14,
+            "mean": -1.875,
+            "opponent": "builtin",
+            "override_frames": 13,
+            "seeds": "12000..12015",
+            "std": 1.7275343701356567,
+            "steps": 45390,
+            "terminal_modes": {
+              "grounded_low_receive": 32,
+              "intercept": 3,
+              "late_contact_attack": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 4
+            },
+            "wins": 1
+          },
+          {
+            "action_counts": {
+              "000": 18231,
+              "001": 1847,
+              "010": 10307,
+              "011": 257,
+              "100": 9802,
+              "101": 1899
+            },
+            "candidate": "approach_drive_jump",
+            "candidate_frames": 13,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: earlier forward+jump while still behind descending front-low ball",
+            "losses": 2,
+            "mean": 1.6875,
+            "opponent": "improved-v3",
+            "override_frames": 13,
+            "seeds": "12000..12015",
+            "std": 1.757795138803154,
+            "steps": 42343,
+            "terminal_modes": {
+              "grounded_low_receive": 20,
+              "intercept": 27,
+              "late_contact_attack": 5,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 2,
+              "rear_wall_low_jump": 1,
+              "recovery": 29
+            },
+            "wins": 11
+          },
+          {
+            "action_counts": {
+              "000": 18213,
+              "001": 1824,
+              "010": 10211,
+              "011": 250,
+              "100": 9673,
+              "101": 1922
+            },
+            "candidate": "approach_drive_jump",
+            "candidate_frames": 6,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: earlier forward+jump while still behind descending front-low ball",
+            "losses": 4,
+            "mean": 1.125,
+            "opponent": "improved-v4",
+            "override_frames": 6,
+            "seeds": "12000..12015",
+            "std": 1.996089927833914,
+            "steps": 42093,
+            "terminal_modes": {
+              "grounded_low_receive": 25,
+              "intercept": 25,
+              "late_contact_attack": 5,
+              "low_ball_rescue": 3,
+              "rear_wall_low_jump": 1,
+              "recovery": 27
+            },
+            "wins": 11
+          },
+          {
+            "action_counts": {
+              "000": 21752,
+              "001": 2095,
+              "010": 10776,
+              "011": 270,
+              "100": 10121,
+              "101": 1955
+            },
+            "candidate": "approach_drive_jump",
+            "candidate_frames": 17,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: earlier forward+jump while still behind descending front-low ball",
+            "losses": 11,
+            "mean": -1.0625,
+            "opponent": "improved-v5",
+            "override_frames": 17,
+            "seeds": "12000..12015",
+            "std": 1.6381678027601445,
+            "steps": 46969,
+            "terminal_modes": {
+              "grounded_low_receive": 34,
+              "intercept": 16,
+              "late_contact_attack": 6,
+              "low_ball_rescue": 5,
+              "recovery": 12
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 21752,
+              "001": 2095,
+              "010": 10776,
+              "011": 270,
+              "100": 10121,
+              "101": 1955
+            },
+            "candidate": "approach_drive_jump",
+            "candidate_frames": 17,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: earlier forward+jump while still behind descending front-low ball",
+            "losses": 11,
+            "mean": -1.0625,
+            "opponent": "improved-v6",
+            "override_frames": 17,
+            "seeds": "12000..12015",
+            "std": 1.6381678027601445,
+            "steps": 46969,
+            "terminal_modes": {
+              "grounded_low_receive": 34,
+              "intercept": 16,
+              "late_contact_attack": 6,
+              "low_ball_rescue": 5,
+              "recovery": 12
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 21437,
+              "001": 3104,
+              "010": 10788,
+              "011": 465,
+              "100": 10451,
+              "101": 1755
+            },
+            "candidate": "approach_vertical_jump",
+            "candidate_frames": 26,
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural: earlier vertical jump when moderately aligned before front-low contact",
+            "losses": 8,
+            "mean": -0.5625,
+            "opponent": "builtin",
+            "override_frames": 26,
+            "seeds": "12000..12015",
+            "std": 1.4986973510352248,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 17,
+              "intercept": 2,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 1,
+              "recovery": 6
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 17385,
+              "001": 2253,
+              "010": 10306,
+              "011": 211,
+              "100": 10021,
+              "101": 1496
+            },
+            "candidate": "approach_vertical_jump",
+            "candidate_frames": 20,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: earlier vertical jump when moderately aligned before front-low contact",
+            "losses": 2,
+            "mean": 2.3125,
+            "opponent": "improved-v3",
+            "override_frames": 20,
+            "seeds": "12000..12015",
+            "std": 2.542605700850999,
+            "steps": 41672,
+            "terminal_modes": {
+              "grounded_low_receive": 17,
+              "intercept": 34,
+              "late_contact_attack": 3,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 5,
+              "recovery": 29
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 18822,
+              "001": 2372,
+              "010": 10907,
+              "011": 215,
+              "100": 10609,
+              "101": 1597
+            },
+            "candidate": "approach_vertical_jump",
+            "candidate_frames": 22,
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural: earlier vertical jump when moderately aligned before front-low contact",
+            "losses": 2,
+            "mean": 1.375,
+            "opponent": "improved-v4",
+            "override_frames": 22,
+            "seeds": "12000..12015",
+            "std": 2.368411915187052,
+            "steps": 44522,
+            "terminal_modes": {
+              "grounded_low_receive": 20,
+              "intercept": 31,
+              "late_contact_attack": 4,
+              "late_low_ball_guard": 2,
+              "low_ball_rescue": 6,
+              "recovery": 23
+            },
+            "wins": 10
+          },
+          {
+            "action_counts": {
+              "000": 20604,
+              "001": 2546,
+              "010": 10993,
+              "011": 244,
+              "100": 10616,
+              "101": 1703
+            },
+            "candidate": "approach_vertical_jump",
+            "candidate_frames": 33,
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural: earlier vertical jump when moderately aligned before front-low contact",
+            "losses": 8,
+            "mean": -0.875,
+            "opponent": "improved-v5",
+            "override_frames": 33,
+            "seeds": "12000..12015",
+            "std": 1.6153559979150107,
+            "steps": 46706,
+            "terminal_modes": {
+              "grounded_low_receive": 26,
+              "intercept": 20,
+              "late_contact_attack": 4,
+              "late_low_ball_guard": 4,
+              "low_ball_rescue": 8,
+              "rear_wall_low_jump": 2,
+              "recovery": 10
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 20590,
+              "001": 2572,
+              "010": 10993,
+              "011": 242,
+              "100": 10621,
+              "101": 1688
+            },
+            "candidate": "approach_vertical_jump",
+            "candidate_frames": 33,
+            "draws": 4,
+            "episodes": 16,
+            "label": "structural: earlier vertical jump when moderately aligned before front-low contact",
+            "losses": 8,
+            "mean": -0.875,
+            "opponent": "improved-v6",
+            "override_frames": 33,
+            "seeds": "12000..12015",
+            "std": 1.6153559979150107,
+            "steps": 46706,
+            "terminal_modes": {
+              "grounded_low_receive": 27,
+              "intercept": 20,
+              "late_contact_attack": 4,
+              "late_low_ball_guard": 4,
+              "low_ball_rescue": 7,
+              "rear_wall_low_jump": 2,
+              "recovery": 10
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 20939,
+              "001": 3080,
+              "010": 10757,
+              "011": 638,
+              "100": 10659,
+              "101": 1927
+            },
+            "candidate": "approach_drive_nojump",
+            "candidate_frames": 9,
+            "draws": 6,
+            "episodes": 16,
+            "label": "structural: close front-low approach gap with forward/no-jump before contact",
+            "losses": 6,
+            "mean": -0.1875,
+            "opponent": "builtin",
+            "override_frames": 9,
+            "seeds": "12000..12015",
+            "std": 0.8816709987291178,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 6,
+              "intercept": 2,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 1,
+              "recovery": 3
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 17561,
+              "001": 2296,
+              "010": 9910,
+              "011": 460,
+              "100": 9934,
+              "101": 1706
+            },
+            "candidate": "approach_drive_nojump",
+            "candidate_frames": 12,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: close front-low approach gap with forward/no-jump before contact",
+            "losses": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "override_frames": 12,
+            "seeds": "12000..12015",
+            "std": 1.5360257159305635,
+            "steps": 41867,
+            "terminal_modes": {
+              "grounded_low_receive": 5,
+              "intercept": 31,
+              "low_ball_rescue": 3,
+              "recovery": 23
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18519,
+              "001": 2428,
+              "010": 10138,
+              "011": 449,
+              "100": 10150,
+              "101": 1706
+            },
+            "candidate": "approach_drive_nojump",
+            "candidate_frames": 12,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: close front-low approach gap with forward/no-jump before contact",
+            "losses": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v4",
+            "override_frames": 12,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 43390,
+            "terminal_modes": {
+              "grounded_low_receive": 5,
+              "intercept": 25,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 3,
+              "recovery": 25
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21657,
+              "001": 2504,
+              "010": 10790,
+              "011": 543,
+              "100": 10816,
+              "101": 1690
+            },
+            "candidate": "approach_drive_nojump",
+            "candidate_frames": 34,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: close front-low approach gap with forward/no-jump before contact",
+            "losses": 5,
+            "mean": 0.8125,
+            "opponent": "improved-v5",
+            "override_frames": 34,
+            "seeds": "12000..12015",
+            "std": 1.7036266463048764,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 10,
+              "intercept": 19,
+              "low_ball_rescue": 6,
+              "recovery": 10
+            },
+            "wins": 10
+          },
+          {
+            "action_counts": {
+              "000": 21731,
+              "001": 2510,
+              "010": 10759,
+              "011": 522,
+              "100": 10776,
+              "101": 1702
+            },
+            "candidate": "approach_drive_nojump",
+            "candidate_frames": 34,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: close front-low approach gap with forward/no-jump before contact",
+            "losses": 4,
+            "mean": 0.875,
+            "opponent": "improved-v6",
+            "override_frames": 34,
+            "seeds": "12000..12015",
+            "std": 1.653594569415369,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 10,
+              "intercept": 19,
+              "low_ball_rescue": 5,
+              "recovery": 10
+            },
+            "wins": 10
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "approach_preserve_nojump",
+            "candidate_frames": 21,
+            "draws": 9,
+            "episodes": 16,
+            "label": "structural: suppress premature jump while preserving base approach movement",
+            "losses": 4,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "override_frames": 21,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "approach_preserve_nojump",
+            "candidate_frames": 38,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: suppress premature jump while preserving base approach movement",
+            "losses": 1,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "override_frames": 38,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "approach_preserve_nojump",
+            "candidate_frames": 31,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: suppress premature jump while preserving base approach movement",
+            "losses": 1,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "override_frames": 31,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "approach_preserve_nojump",
+            "candidate_frames": 44,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: suppress premature jump while preserving base approach movement",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "override_frames": 44,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "approach_preserve_nojump",
+            "candidate_frames": 44,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: suppress premature jump while preserving base approach movement",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "override_frames": 44,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20726,
+              "001": 2994,
+              "010": 10993,
+              "011": 461,
+              "100": 10714,
+              "101": 2112
+            },
+            "candidate": "approach_vertical_set",
+            "candidate_frames": 2,
+            "draws": 5,
+            "episodes": 16,
+            "label": "structural: stop horizontal drift before front-low contact",
+            "losses": 7,
+            "mean": -0.1875,
+            "opponent": "builtin",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 0.8076779989575054,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 7,
+              "intercept": 2,
+              "low_ball_rescue": 1,
+              "recovery": 3
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 19282,
+              "001": 2059,
+              "010": 10728,
+              "011": 266,
+              "100": 10347,
+              "101": 1802
+            },
+            "candidate": "approach_vertical_set",
+            "candidate_frames": 11,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: stop horizontal drift before front-low contact",
+            "losses": 0,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "override_frames": 11,
+            "seeds": "12000..12015",
+            "std": 1.6909686573085854,
+            "steps": 44484,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 33,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 3,
+              "recovery": 20
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 19274,
+              "001": 2061,
+              "010": 10818,
+              "011": 253,
+              "100": 10465,
+              "101": 1792
+            },
+            "candidate": "approach_vertical_set",
+            "candidate_frames": 8,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: stop horizontal drift before front-low contact",
+            "losses": 0,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "override_frames": 8,
+            "seeds": "12000..12015",
+            "std": 1.7309228030157786,
+            "steps": 44663,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 27,
+              "late_contact_attack": 1,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 2,
+              "recovery": 17
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21757,
+              "001": 2382,
+              "010": 10897,
+              "011": 285,
+              "100": 10522,
+              "101": 2043
+            },
+            "candidate": "approach_vertical_set",
+            "candidate_frames": 26,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: stop horizontal drift before front-low contact",
+            "losses": 2,
+            "mean": 1.375,
+            "opponent": "improved-v5",
+            "override_frames": 26,
+            "seeds": "12000..12015",
+            "std": 1.5761900266148114,
+            "steps": 47886,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 3,
+              "recovery": 8
+            },
+            "wins": 11
+          },
+          {
+            "action_counts": {
+              "000": 21757,
+              "001": 2382,
+              "010": 10897,
+              "011": 285,
+              "100": 10522,
+              "101": 2043
+            },
+            "candidate": "approach_vertical_set",
+            "candidate_frames": 26,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: stop horizontal drift before front-low contact",
+            "losses": 2,
+            "mean": 1.375,
+            "opponent": "improved-v6",
+            "override_frames": 26,
+            "seeds": "12000..12015",
+            "std": 1.5761900266148114,
+            "steps": 47886,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 3,
+              "recovery": 8
+            },
+            "wins": 11
+          },
+          {
+            "action_counts": {
+              "000": 20557,
+              "001": 3150,
+              "010": 11027,
+              "011": 474,
+              "100": 10711,
+              "101": 2081
+            },
+            "candidate": "approach_rear_brake",
+            "candidate_frames": 2,
+            "draws": 7,
+            "episodes": 16,
+            "label": "structural: brake rearward when close to low front-court contact",
+            "losses": 5,
+            "mean": -0.0625,
+            "opponent": "builtin",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 1.197327753791751,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 7,
+              "intercept": 4,
+              "low_ball_rescue": 1,
+              "recovery": 3
+            },
+            "wins": 4
+          },
+          {
+            "action_counts": {
+              "000": 17860,
+              "001": 2089,
+              "010": 10484,
+              "011": 217,
+              "100": 10071,
+              "101": 1645
+            },
+            "candidate": "approach_rear_brake",
+            "candidate_frames": 16,
+            "draws": 0,
+            "episodes": 16,
+            "label": "structural: brake rearward when close to low front-court contact",
+            "losses": 2,
+            "mean": 2.3125,
+            "opponent": "improved-v3",
+            "override_frames": 16,
+            "seeds": "12000..12015",
+            "std": 1.6476782908080085,
+            "steps": 42366,
+            "terminal_modes": {
+              "grounded_low_receive": 5,
+              "intercept": 28,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 20
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 19031,
+              "001": 2113,
+              "010": 10790,
+              "011": 233,
+              "100": 10401,
+              "101": 1738
+            },
+            "candidate": "approach_rear_brake",
+            "candidate_frames": 8,
+            "draws": 0,
+            "episodes": 16,
+            "label": "structural: brake rearward when close to low front-court contact",
+            "losses": 3,
+            "mean": 1.8125,
+            "opponent": "improved-v4",
+            "override_frames": 8,
+            "seeds": "12000..12015",
+            "std": 1.7399263633843818,
+            "steps": 44306,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 22,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 5,
+              "rear_wall_low_jump": 3,
+              "recovery": 20
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21398,
+              "001": 2481,
+              "010": 10905,
+              "011": 220,
+              "100": 10380,
+              "101": 1853
+            },
+            "candidate": "approach_rear_brake",
+            "candidate_frames": 12,
+            "draws": 5,
+            "episodes": 16,
+            "label": "structural: brake rearward when close to low front-court contact",
+            "losses": 3,
+            "mean": 0.9375,
+            "opponent": "improved-v5",
+            "override_frames": 12,
+            "seeds": "12000..12015",
+            "std": 1.71277370075559,
+            "steps": 47237,
+            "terminal_modes": {
+              "grounded_low_receive": 3,
+              "intercept": 18,
+              "late_low_ball_guard": 3,
+              "low_ball_rescue": 7,
+              "recovery": 10
+            },
+            "wins": 8
+          },
+          {
+            "action_counts": {
+              "000": 21398,
+              "001": 2481,
+              "010": 10905,
+              "011": 220,
+              "100": 10380,
+              "101": 1853
+            },
+            "candidate": "approach_rear_brake",
+            "candidate_frames": 12,
+            "draws": 5,
+            "episodes": 16,
+            "label": "structural: brake rearward when close to low front-court contact",
+            "losses": 3,
+            "mean": 0.9375,
+            "opponent": "improved-v6",
+            "override_frames": 12,
+            "seeds": "12000..12015",
+            "std": 1.71277370075559,
+            "steps": 47237,
+            "terminal_modes": {
+              "grounded_low_receive": 3,
+              "intercept": 18,
+              "late_low_ball_guard": 3,
+              "low_ball_rescue": 7,
+              "recovery": 10
+            },
+            "wins": 8
+          }
+        ],
+        "seed_list": [
+          12000,
+          12001,
+          12002,
+          12003,
+          12004,
+          12005,
+          12006,
+          12007,
+          12008,
+          12009,
+          12010,
+          12011,
+          12012,
+          12013,
+          12014,
+          12015
+        ]
+      },
+      "protocol": "generation-5 development-only pre-contact approach diagnostic/probe"
+    },
+    {
+      "holdout_audit_used": false,
+      "phase_result": {
+        "candidates": [
+          "net_pressure_reference",
+          "baseline_rnn",
+          "approach_far_drive_nojump",
+          "approach_far_preserve_nojump",
+          "approach_far_vertical_set"
+        ],
+        "opponents": [
+          "builtin",
+          "improved-v3",
+          "improved-v4",
+          "improved-v5",
+          "improved-v6"
+        ],
+        "phase": "screen",
+        "rows": [
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 9,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 4,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 3,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 1,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "net_pressure_reference",
+            "candidate_frames": 0,
+            "draws": 1,
+            "episodes": 16,
+            "label": "reference",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 850,
+              "001": 3985,
+              "010": 7108,
+              "011": 357,
+              "100": 3121,
+              "101": 17347,
+              "110": 14330,
+              "111": 902
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 6,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 3,
+            "mean": 0.25,
+            "opponent": "builtin",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.25,
+            "steps": 48000,
+            "terminal_modes": {},
+            "wins": 7
+          },
+          {
+            "action_counts": {
+              "000": 376,
+              "001": 2369,
+              "010": 3202,
+              "011": 203,
+              "100": 2068,
+              "101": 14259,
+              "110": 11401,
+              "111": 598
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 4.1875,
+            "opponent": "improved-v3",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.184205957593526,
+            "steps": 34476,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 400,
+              "001": 2480,
+              "010": 3517,
+              "011": 212,
+              "100": 2432,
+              "101": 17532,
+              "110": 13147,
+              "111": 752
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 0,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 3.75,
+            "opponent": "improved-v4",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.4361406616345072,
+            "steps": 40472,
+            "terminal_modes": {},
+            "wins": 16
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3193,
+              "101": 17602,
+              "110": 15137,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v5",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 577,
+              "001": 3116,
+              "010": 4861,
+              "011": 314,
+              "100": 3195,
+              "101": 17602,
+              "110": 15135,
+              "111": 866
+            },
+            "candidate": "baseline_rnn",
+            "candidate_frames": 0,
+            "draws": 2,
+            "episodes": 16,
+            "label": "neural comparator",
+            "losses": 0,
+            "mean": 2.5625,
+            "opponent": "improved-v6",
+            "override_frames": 0,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 45666,
+            "terminal_modes": {},
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 21045,
+              "001": 3284,
+              "010": 10728,
+              "011": 446,
+              "100": 10375,
+              "101": 2122
+            },
+            "candidate": "approach_far_drive_nojump",
+            "candidate_frames": 2,
+            "draws": 10,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach drive/no-jump",
+            "losses": 4,
+            "mean": -0.125,
+            "opponent": "builtin",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 0.5994789404140899,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 5,
+              "intercept": 2,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 1,
+              "recovery": 3
+            },
+            "wins": 2
+          },
+          {
+            "action_counts": {
+              "000": 18717,
+              "001": 2212,
+              "010": 10307,
+              "011": 229,
+              "100": 9943,
+              "101": 1865
+            },
+            "candidate": "approach_far_drive_nojump",
+            "candidate_frames": 2,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach drive/no-jump",
+            "losses": 1,
+            "mean": 2.75,
+            "opponent": "improved-v3",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 1.920286436967152,
+            "steps": 43273,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 33,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 3,
+              "recovery": 19
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 18662,
+              "001": 2150,
+              "010": 10173,
+              "011": 229,
+              "100": 9882,
+              "101": 1671
+            },
+            "candidate": "approach_far_drive_nojump",
+            "candidate_frames": 1,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach drive/no-jump",
+            "losses": 1,
+            "mean": 2.375,
+            "opponent": "improved-v4",
+            "override_frames": 1,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 25,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21449,
+              "001": 2494,
+              "010": 11055,
+              "011": 270,
+              "100": 10549,
+              "101": 2183
+            },
+            "candidate": "approach_far_drive_nojump",
+            "candidate_frames": 2,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach drive/no-jump",
+            "losses": 2,
+            "mean": 1.625,
+            "opponent": "improved-v5",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 1.4086784586980805,
+            "steps": 48000,
+            "terminal_modes": {
+              "intercept": 19,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 10
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 21449,
+              "001": 2494,
+              "010": 11055,
+              "011": 270,
+              "100": 10549,
+              "101": 2183
+            },
+            "candidate": "approach_far_drive_nojump",
+            "candidate_frames": 2,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach drive/no-jump",
+            "losses": 2,
+            "mean": 1.625,
+            "opponent": "improved-v6",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 1.4086784586980805,
+            "steps": 48000,
+            "terminal_modes": {
+              "intercept": 19,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 10
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 20886,
+              "001": 3218,
+              "010": 10791,
+              "011": 484,
+              "100": 10501,
+              "101": 2120
+            },
+            "candidate": "approach_far_preserve_nojump",
+            "candidate_frames": 8,
+            "draws": 9,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach preserve movement/no-jump",
+            "losses": 4,
+            "mean": 0.0625,
+            "opponent": "builtin",
+            "override_frames": 8,
+            "seeds": "12000..12015",
+            "std": 1.1439378261076953,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 3,
+              "low_ball_rescue": 2,
+              "recovery": 4
+            },
+            "wins": 3
+          },
+          {
+            "action_counts": {
+              "000": 18394,
+              "001": 2119,
+              "010": 10328,
+              "011": 217,
+              "100": 9998,
+              "101": 1783
+            },
+            "candidate": "approach_far_preserve_nojump",
+            "candidate_frames": 2,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach preserve movement/no-jump",
+            "losses": 1,
+            "mean": 2.875,
+            "opponent": "improved-v3",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 1.8328597873268975,
+            "steps": 42839,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 34,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 19
+            },
+            "wins": 14
+          },
+          {
+            "action_counts": {
+              "000": 18672,
+              "001": 2103,
+              "010": 10221,
+              "011": 215,
+              "100": 9883,
+              "101": 1673
+            },
+            "candidate": "approach_far_preserve_nojump",
+            "candidate_frames": 1,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach preserve movement/no-jump",
+            "losses": 1,
+            "mean": 2.4375,
+            "opponent": "improved-v4",
+            "override_frames": 1,
+            "seeds": "12000..12015",
+            "std": 1.8016919131749467,
+            "steps": 42767,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 26,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 4,
+              "rear_wall_low_jump": 1,
+              "recovery": 21
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "approach_far_preserve_nojump",
+            "candidate_frames": 11,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach preserve movement/no-jump",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v5",
+            "override_frames": 11,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21465,
+              "001": 2598,
+              "010": 10952,
+              "011": 278,
+              "100": 10504,
+              "101": 2203
+            },
+            "candidate": "approach_far_preserve_nojump",
+            "candidate_frames": 11,
+            "draws": 1,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach preserve movement/no-jump",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "override_frames": 11,
+            "seeds": "12000..12015",
+            "std": 1.5799030824705673,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 20956,
+              "001": 3298,
+              "010": 10695,
+              "011": 515,
+              "100": 10411,
+              "101": 2125
+            },
+            "candidate": "approach_far_vertical_set",
+            "candidate_frames": 4,
+            "draws": 11,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach hold/no-jump",
+            "losses": 3,
+            "mean": -0.0625,
+            "opponent": "builtin",
+            "override_frames": 4,
+            "seeds": "12000..12015",
+            "std": 0.5555121510822243,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 4,
+              "intercept": 2,
+              "late_low_ball_guard": 1,
+              "low_ball_rescue": 1,
+              "recovery": 3
+            },
+            "wins": 2
+          },
+          {
+            "action_counts": {
+              "000": 18738,
+              "001": 2378,
+              "010": 10373,
+              "011": 242,
+              "100": 9992,
+              "101": 1886
+            },
+            "candidate": "approach_far_vertical_set",
+            "candidate_frames": 2,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach hold/no-jump",
+            "losses": 1,
+            "mean": 2.25,
+            "opponent": "improved-v3",
+            "override_frames": 2,
+            "seeds": "12000..12015",
+            "std": 1.8200274723201295,
+            "steps": 43609,
+            "terminal_modes": {
+              "grounded_low_receive": 1,
+              "intercept": 29,
+              "low_ball_rescue": 7,
+              "recovery": 15
+            },
+            "wins": 13
+          },
+          {
+            "action_counts": {
+              "000": 19417,
+              "001": 2377,
+              "010": 10368,
+              "011": 242,
+              "100": 10014,
+              "101": 1747
+            },
+            "candidate": "approach_far_vertical_set",
+            "candidate_frames": 1,
+            "draws": 3,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach hold/no-jump",
+            "losses": 1,
+            "mean": 2.1875,
+            "opponent": "improved-v4",
+            "override_frames": 1,
+            "seeds": "12000..12015",
+            "std": 1.775484088917724,
+            "steps": 44165,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 28,
+              "low_ball_rescue": 8,
+              "recovery": 17
+            },
+            "wins": 12
+          },
+          {
+            "action_counts": {
+              "000": 21233,
+              "001": 2564,
+              "010": 11089,
+              "011": 276,
+              "100": 10647,
+              "101": 2191
+            },
+            "candidate": "approach_far_vertical_set",
+            "candidate_frames": 6,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach hold/no-jump",
+            "losses": 3,
+            "mean": 1.375,
+            "opponent": "improved-v5",
+            "override_frames": 6,
+            "seeds": "12000..12015",
+            "std": 1.5761900266148114,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 18,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 9
+            },
+            "wins": 11
+          },
+          {
+            "action_counts": {
+              "000": 21326,
+              "001": 2576,
+              "010": 11048,
+              "011": 281,
+              "100": 10608,
+              "101": 2161
+            },
+            "candidate": "approach_far_vertical_set",
+            "candidate_frames": 6,
+            "draws": 2,
+            "episodes": 16,
+            "label": "structural: far-behind front-low approach hold/no-jump",
+            "losses": 3,
+            "mean": 1.5625,
+            "opponent": "improved-v6",
+            "override_frames": 6,
+            "seeds": "12000..12015",
+            "std": 1.6944302139657448,
+            "steps": 48000,
+            "terminal_modes": {
+              "grounded_low_receive": 2,
+              "intercept": 20,
+              "late_contact_attack": 1,
+              "low_ball_rescue": 2,
+              "recovery": 10
+            },
+            "wins": 11
+          }
+        ],
+        "seed_list": [
+          12000,
+          12001,
+          12002,
+          12003,
+          12004,
+          12005,
+          12006,
+          12007,
+          12008,
+          12009,
+          12010,
+          12011,
+          12012,
+          12013,
+          12014,
+          12015
+        ]
+      },
+      "protocol": "generation-5 development-only pre-contact approach diagnostic/probe"
+    }
+  ]
+}
